@@ -1,0 +1,1274 @@
+&aerosol_nml
+    aerosol_dataset_entry = 1860, 1, 1, 0, 0, 0, 1860, 1, 1, 0, 0, 0, 1860,
+                            1, 1, 0, 0, 0, 1860, 1, 1, 0, 0, 0, 1860, 1,
+                            1, 0, 0, 0, 1860, 1, 1, 0, 0, 0, 1860, 1, 1,
+                            0, 0, 0, 1860, 1, 1, 0, 0, 0, 1860, 1, 1, 0,
+                            0, 0, 1860, 1, 1, 0, 0, 0, 1860, 1, 1, 0, 0,
+                            0, 1860, 1, 1, 0, 0, 0
+    data_names = 'so4', 'black_carbon', 'organic_carbon', 'dust_0.1', 'dust_0.2',
+                 'dust_0.4', 'dust_0.8', 'sea_salt', 'dust_1.0', 'dust_2.0',
+                 'dust_4.0', 'dust_8.0'
+    family_names = 'small_dust', 'large_dust', 'sulfate', 'aerosol', 'dust',
+                   'pm2.5'
+    filename = 'aerosol.climatology.nc'
+    in_family1 = .false., .false., .false., .true., .true., .true., .true.,
+                 .false., .true., .false., .false., .false.
+    in_family2 = .false., .false., .false., .false., .false., .false., .false.,
+                 .false., .false., .true., .true., .true.
+    in_family3 = .true., .false., .false., .false., .false., .false., .false.,
+                 .false., .false., .false., .false., .false.
+    in_family4 = .true., .true., .true., .true., .true., .true., .true.,
+                 .true., .true., .true., .true., .true.
+    in_family5 = .false., .false., .false., .true., .true., .true., .true.,
+                 .false., .true., .true., .true., .true.
+    in_family6 = .true., .true., .true., .true., .true., .true., .true.,
+                 .true., .false., .false., .false., .false.
+    time_varying_species = .false., .false., .false., .false., .false.,
+                           .false., .false., .false., .false., .false.,
+                           .false., .false.
+    use_aerosol_timeseries = .false.
+/
+
+&aerosolrad_package_nml
+    aerosol_data_set = 'shettle_fenn'
+    aerosol_optical_names = 'sulfate_30%', 'sulfate_35%', 'sulfate_40%',
+                            'sulfate_45%', 'sulfate_50%', 'sulfate_55%',
+                            'sulfate_60%', 'sulfate_65%', 'sulfate_70%',
+                            'sulfate_75%', 'sulfate_80%', 'sulfate_82%',
+                            'sulfate_84%', 'sulfate_86%', 'sulfate_88%',
+                            'sulfate_90%', 'sulfate_91%', 'sulfate_92%',
+                            'sulfate_93%', 'sulfate_94%', 'sulfate_95%',
+                            'sulfate_96%', 'sulfate_97%', 'sulfate_98%',
+                            'sulfate_99%', 'sulfate_100%', 'organic_carbon',
+                            'soot', 'sea_salt', 'dust_0.1', 'dust_0.2',
+                            'dust_0.4', 'dust_0.8', 'dust_1.0', 'dust_2.0',
+                            'dust_4.0', 'dust_8.0'
+    do_lwaerosol = .true.
+    do_swaerosol = .true.
+    lw_asy_filename = '             '
+    lw_asy_root = '     '
+    lw_ext_filename = '             '
+    lw_ext_root = '     '
+    lw_ssa_filename = '             '
+    lw_ssa_root = '     '
+    optical_filename = 'aerosol.optical.dat'
+    sw_asy_filename = '             '
+    sw_asy_root = '     '
+    sw_ext_filename = '             '
+    sw_ext_root = '    '
+    sw_ssa_filename = '             '
+    sw_ssa_root = '     '
+    using_volcanic_lw_files = .false.
+    using_volcanic_sw_files = .false.
+    volcanic_dataset_entry = 1, 1, 1, 0, 0, 0
+/
+
+&amip_interp_nml
+    data_set = 'reynolds_oi'
+    date_out_of_range = 'fail'
+/
+
+&atmos_co2_nml
+    co2_radiation_override = .true.
+    do_co2_emissions = .false.
+    do_co2_restore = .true.
+    restore_klimit = 24
+    restore_tscale = 31536000.0
+/
+
+&atmos_model_nml
+    nxblocks = 2
+    nyblocks = 2
+/
+
+&cana_nml
+    canopy_air_mass_for_tracers = 10.0
+    init_co2 = 0.000286
+    turbulence_to_use = 'lm3v'
+/
+
+&cg_drag_nml
+    bt_0 = 0.0015
+    calculate_ked = .false.
+    cg_drag_freq = 1800
+    cg_drag_offset = 0
+    debug = .false.
+    itest = 12
+    jtest = 42
+    ktest = 9
+    lat_limit = 25.0
+/
+
+&cloud_rad_nml
+    do_brenguier = .false.
+    overlap = 2
+/
+
+&cloud_spec_nml
+    cloud_type_form = 'strat'
+    use_cloud_tracers_in_radiation = .true.
+/
+
+&cloudrad_package_nml
+    microphys_form = 'predicted'
+/
+
+&clouds_nml
+    do_obs_clouds = .false.
+    do_zonal_clouds = .false.
+/
+
+&coupler_nml
+    atmos_npes = 0
+    atmos_nthreads = 4
+    calendar = 'NOLEAP'
+    check_stocks = 0
+    concurrent = .true.
+    current_date = 1, 1, 1, 0, 0, 0
+    days = 0
+    do_atmos = .true.
+    do_flux = .true.
+    do_ice = .true.
+    do_land = .true.
+    do_ocean = .true.
+    dt_atmos = 1800
+    dt_cpld = 7200
+    months = 12
+    ocean_npes = 96
+    use_lag_fluxes = .true.
+/
+
+&cu_mo_trans_nml
+    diff_norm = 2.0
+/
+
+&damping_driver_nml
+    do_cg_drag = .false.
+    do_conserve_energy = .true.
+    do_mg_drag = .true.
+    do_topo_drag = .false.
+    nlev_rayfric = 1
+    trayfric = -40.0
+/
+
+&diag_cloud_nml
+    l_theqv = .true.
+    lcnvcld = .false.
+    linvers = .false.
+    lomega = .true.
+    low_lev_cloud_index = 16
+    nofog = .false.
+/
+
+&diag_cloud_rad_nml
+    l_anom_abs_v = .true.
+    l_har_anvil = .true.
+    l_har_coldcld = .true.
+/
+
+&diag_integral_nml
+    file_name = 'diag_integral.out'
+    output_interval = 1.0
+    time_units = 'days'
+/
+
+&diag_manager_nml
+    issue_oor_warnings = .false.
+    max_axes = 200
+    max_files = 50
+    max_input_fields = 800
+    max_num_axis_sets = 200
+    max_output_fields = 1300
+    mix_snapshot_average_fields = .false.
+/
+
+&donner_deep_clouds_w_nml
+    using_dge_lw = .true.
+    using_dge_sw = .true.
+/
+
+&donner_deep_nml
+    cell_ice_size_type = 'default'
+    cell_liquid_size_type = 'bower'
+    debug = .false.
+    donner_deep_freq = 1800
+    donner_deep_offset = 0
+    itest = 53
+    jtest = 32
+    ktest_model = 17
+    kttest = 5
+    save_donner_deep_diagnostics = .true.
+/
+
+&edt_nml
+    do_gaussian_cloud = .false.
+    min_adj_time = 1.0
+    n_print_levels = 14
+    num_pts_ij = 0
+    use_extrapolated_ql = .false.
+    use_qcmin = .true.
+/
+
+&entrain_nml
+    apply_entrain = .true.
+    ashear = 25.0
+    beta_rad = 0.5
+    convect_shutoff = .true.
+    critjump = 0.1
+    i_entprt_gl = 112, 96, 89, 105, 81, 97
+    j_entprt_gl = 71, 61, 56, 64, 53, 46
+    num_pts_ij = 0
+    parcel_buoy = 0.25
+    parcel_option = 2
+    radperturb = 0.1
+/
+
+&esfsw_parameters_nml
+    sw_diff_streams = 1
+    sw_resolution = 'low'
+/
+
+&flux_exchange_nml
+    debug_stocks = .false.
+    divert_stocks_report = .true.
+    do_area_weighted_flux = .false.
+    nblocks = 4
+/
+
+&fms_io_nml
+    max_files_r = 300
+    max_files_w = 300
+    threading_read = 'multi'
+/
+
+&fms_nml
+    clock_grain = 'COMPONENT'
+    domains_stack_size = 5000000
+    stack_size = 0
+/
+
+&fv_core_nml
+    change_time = .true.
+    consv_te = 0.7
+    layout = 1, 30
+    mlat = 90
+    n_split = 5
+    ncnst = 4
+    nlev = 24
+    nlon = 144
+    pnats = 0
+    restart_format = 'NETCDF'
+/
+
+&gas_tf_nml
+    do_calcstdch4tfs = .true.
+    do_calcstdco2tfs = .true.
+    do_calcstdn2otfs = .true.
+    do_readstdch4tfs = .false.
+    do_readstdco2tfs = .false.
+    do_readstdn2otfs = .false.
+    do_writestdch4tfs = .false.
+    do_writestdco2tfs = .false.
+    do_writestdn2otfs = .false.
+    interp_form = 'log'
+/
+
+&generic_tracer_nml
+    do_generic_cfc = .false.
+    do_generic_topaz = .true.
+    do_generic_tracer = .true.
+/
+
+&glac_data_nml
+    dat_emis_dry = 1.0
+    dat_emis_sat = 1.0
+    rsa_exp_global = 10.0
+    use_lm2_awc = .true.
+/
+
+&glac_nml
+    conserve_glacier_mass = .true.
+    lm2 = .true.
+/
+
+&harvesting_nml
+    crop_seed_density = 0.1
+    do_harvesting = .false.
+    frac_wood_wasted_clear = 0.25
+    frac_wood_wasted_harv = 0.25
+    grazing_intensity = 0.25
+    grazing_residue = 0.1
+    waste_below_ground_wood = .false.
+/
+
+&ice_albedo_nml
+    t_range = 10.0
+/
+
+&ice_model_nml
+    add_diurnal_sw = .false.
+    alb_ice = 0.65
+    alb_sno = 0.85
+    channel_viscosity = 500000.0
+    cm2_bugs = .false.
+    do_icebergs = .true.
+    h_lo_lim = 1e-10
+    ice_bulk_salin = 0.005
+    io_layout = 1, 2
+    layout = 15, 2
+    nsteps_adv = 1
+    nsteps_dyn = 72
+    num_part = 6
+    spec_ice = .false.
+    t_range_melt = 1.0
+    wd_turn = 0.0
+/
+
+&icebergs_nml
+    make_calving_reproduce = .true.
+    speed_limit = 0.5
+    time_average_weight = .false.
+    traj_sample_hrs = 0
+    use_roundoff_fix = .true.
+    verbose = .true.
+    verbose_hrs = 120
+/
+
+&lake_data_nml
+    dat_emis_dry = 1.0
+    dat_emis_sat = 1.0
+    dat_heat_capacity_ref = 0.0
+    f_geo_ice = 0.0, 0.0
+    f_geo_liq = 0.0, 0.0
+    f_iso_ice = 0.02, 0.01
+    f_iso_liq = 0.02, 0.01
+    f_vol_ice = 0.003, 0.0
+    f_vol_liq = 0.003, 0.0
+    lake_to_use = 'from-rivers'
+    num_l = 20
+/
+
+&lake_nml
+    albedo_to_use = 'brdf-params'
+    float_ice_to_top = .true.
+/
+
+&land_debug_nml
+    watch_point = 0, 0, 0, 1
+/
+
+&land_model_nml
+    io_layout = 1, 3
+    layout = 1, 30
+    prohibit_negative_canopy_water = .false.
+    tau_snow_t_adj = 604800.0
+/
+
+&landuse_nml
+    do_landuse_change = .false.
+    input_file = 'INPUT/landuse.nc'
+/
+
+&lscale_cond_nml
+    do_evap = .true.
+/
+
+&lw_gases_stdtf_nml
+    nstdco2lvls = 496
+/
+
+&mg_drag_nml
+    acoef = 1.0
+    do_conserve_energy = .true.
+    gmax = 1.0
+    source_of_sgsmtn = 'computed'
+/
+
+&microphys_rad_nml
+    lwem_form = 'fuliou'
+/
+
+&moist_conv_nml
+    beta = 0.0
+/
+
+&moist_processes_nml
+    do_cmt = .true.
+    do_diag_clouds = .false.
+    do_donner_deep = .false.
+    do_gust_cv = .false.
+    do_legacy_strat_cloud = .true.
+    do_lsc = .false.
+    do_mca = .false.
+    do_ras = .true.
+    do_rh_clouds = .false.
+    do_strat = .true.
+    include_donmca_in_cosp = .false.
+/
+
+&monin_obukhov_nml
+    rich_crit = 10.0
+    stable_option = 2
+    zeta_trans = 0.5
+/
+
+&my25_turb_nml
+    akmin_land = 5.0
+    akmin_sea = 0.0
+    do_thv_stab = .true.
+    tkemin = 1e-08
+/
+
+&ocean_adv_vel_diag_nml
+    diag_step = 1200
+    large_cfl_value = 10.0
+    max_cfl_value = 100.0
+    verbose_cfl = .false.
+/
+
+&ocean_advection_velocity_nml
+    max_advection_velocity = 0.5
+/
+
+&ocean_albedo_nml
+    ocean_albedo_option = 5
+/
+
+&ocean_barotropic_nml
+    barotropic_time_stepping_a = .true.
+    barotropic_time_stepping_b = .false.
+    debug_this_module = .false.
+    diag_step = 1200
+    do_bitwise_exact_sum = .true.
+    eta_max = 8.0
+    frac_crit_cell_height = 0.2
+    pred_corr_gamma = 0.2
+    smooth_eta_diag_laplacian = .true.
+    smooth_eta_t_biharmonic = .true.
+    smooth_eta_t_laplacian = .false.
+    smooth_pbot_t_biharmonic = .true.
+    smooth_pbot_t_laplacian = .false.
+    truncate_eta = .false.
+    vel_micom_bih = 0.01
+    vel_micom_lap = 0.05
+    vel_micom_lap_diag = 1.0
+    verbose_truncate = .true.
+    zero_tendency = .false.
+/
+
+&ocean_bbc_nml
+    cdbot = 0.002
+    uresidual = 0.05
+    use_geothermal_heating = .true.
+/
+
+&ocean_bih_friction_nml
+    bih_friction_scheme = 'general'
+/
+
+&ocean_bih_tracer_nml
+    use_this_module = .false.
+/
+
+&ocean_bihcst_friction_nml
+    use_this_module = .false.
+/
+
+&ocean_bihgen_friction_nml
+    bottom_5point = .true.
+    eq_lat_micom = 0.0
+    eq_vel_micom_aniso = 0.0
+    eq_vel_micom_iso = 0.0
+    equatorial_zonal = .false.
+    k_smag_aniso = 0.0
+    k_smag_iso = 2.0
+    ncar_boundary_scaling = .true.
+    ncar_rescale_power = 2
+    ncar_vconst_4 = 2e-08
+    ncar_vconst_5 = 5
+    use_this_module = .true.
+    vel_micom_aniso = 0.0
+    vel_micom_bottom = 0.01
+    vel_micom_iso = 0.04
+    visc_crit_scale = 0.25
+/
+
+&ocean_blob_nml
+/
+
+&ocean_convect_nml
+    use_this_module = .false.
+/
+
+&ocean_coriolis_nml
+    acor = 0.5
+    use_this_module = .true.
+/
+
+&ocean_density_nml
+    eos_linear = .false.
+    eos_preteos10 = .true.
+    layer_nk = 80
+    neutralrho_max = 1030.0
+    neutralrho_min = 1020.0
+    potrho_max = 1038.0
+    potrho_min = 1028.0
+/
+
+&ocean_domains_nml
+/
+
+&ocean_drifters_nml
+    use_this_module = .false.
+/
+
+&ocean_form_drag_nml
+    use_this_module = .false.
+/
+
+&ocean_frazil_nml
+    debug_this_module = .false.
+    frazil_only_in_surface = .true.
+    freezing_temp_simple = .true.
+    use_this_module = .true.
+/
+
+&ocean_grids_nml
+    debug_this_module = .true.
+    do_bitwise_exact_sum = .true.
+    read_rho0_profile = .false.
+/
+
+&ocean_increment_eta_nml
+    use_this_module = .false.
+/
+
+&ocean_increment_tracer_nml
+    use_this_module = .false.
+/
+
+&ocean_increment_velocity_nml
+    use_this_module = .false.
+/
+
+&ocean_lap_friction_nml
+    lap_friction_scheme = 'general'
+/
+
+&ocean_lap_tracer_nml
+    use_this_module = .false.
+/
+
+&ocean_lapcst_friction_nml
+    use_this_module = .false.
+/
+
+&ocean_lapgen_friction_nml
+    bottom_5point = .true.
+    k_smag_aniso = 0.0
+    k_smag_iso = 0.0
+    restrict_polar_visc = .true.
+    restrict_polar_visc_lat = 60.0
+    restrict_polar_visc_ratio = 0.35
+    use_this_module = .true.
+    vel_micom_iso = 0.1
+    viscosity_ncar = .false.
+    viscosity_scale_by_rossby = .true.
+    viscosity_scale_by_rossby_power = 4.0
+/
+
+&ocean_mixdownslope_nml
+    debug_this_module = .false.
+    mixdownslope_mask_gfdl = .true.
+    mixdownslope_npts = 4
+    read_mixdownslope_mask = .true.
+    use_this_module = .true.
+/
+
+&ocean_model_nml
+    baroclinic_split = 1
+    barotropic_split = 80
+    cmip_units = .false.
+    debug = .false.
+    dt_ocean = 7200
+    impose_init_from_restart = .true.
+    io_layout = 1, 4
+    layout = 12, 8
+    surface_height_split = 1
+    time_tendency = 'twolevel'
+    vertical_coordinate = 'zstar'
+/
+
+&ocean_momentum_source_nml
+    use_this_module = .false.
+/
+
+&ocean_nphysics_nml
+    debug_this_module = .false.
+    use_nphysicsa = .false.
+    use_nphysicsb = .false.
+    use_nphysicsc = .true.
+    use_this_module = .true.
+/
+
+&ocean_nphysics_util_nml
+    agm = 800.0
+    agm_closure = .true.
+    agm_closure_baroclinic = .true.
+    agm_closure_buoy_freq = 0.004
+    agm_closure_eady_ave_mixed = .true.
+    agm_closure_eady_cap = .true.
+    agm_closure_eady_smooth_horz = .true.
+    agm_closure_eady_smooth_vert = .true.
+    agm_closure_eden_gamma = 0.0
+    agm_closure_eden_greatbatch = .false.
+    agm_closure_grid_scaling = .true.
+    agm_closure_length = 50000.0
+    agm_closure_length_bczone = .false.
+    agm_closure_length_fixed = .false.
+    agm_closure_length_rossby = .false.
+    agm_closure_lower_depth = 2000.0
+    agm_closure_max = 800.0
+    agm_closure_min = 100.0
+    agm_closure_scaling = 0.07
+    agm_closure_upper_depth = 100.0
+    agm_damping_time = 45.0
+    agm_smooth_space = .false.
+    agm_smooth_time = .false.
+    aredi = 600.0
+    aredi_equal_agm = .false.
+    drhodz_mom4p1 = .true.
+    drhodz_smooth_horz = .false.
+    drhodz_smooth_vert = .false.
+    nphysics_util_zero_init = .true.
+    rossby_radius_max = 100000.0
+    rossby_radius_min = 15000.0
+    smax = 0.005
+    swidth = 0.002
+    tracer_mix_micom = .false.
+    vel_micom = 0.0
+/
+
+&ocean_nphysicsa_nml
+    debug_this_module = .false.
+    neutral_linear_gm_taper = .true.
+    neutral_physics_limit = .true.
+    neutral_physics_simple = .false.
+    neutral_sine_taper = .true.
+    tmask_neutral_on = .true.
+    use_this_module = .false.
+/
+
+&ocean_nphysicsb_nml
+    debug_this_module = .false.
+    nblayer_smooth = .true.
+    neutral_physics_limit = .true.
+    surf_turb_thick_min = 50.0
+    surf_turb_thick_min_k = 5
+    use_this_module = .false.
+/
+
+&ocean_nphysicsc_nml
+    bv_freq_smooth_vert = .true.
+    bvp_bc_mode = 2
+    bvp_min_speed = 0.1
+    bvp_speed = 0.0
+    debug_this_module = .false.
+    do_gm_skewsion = .true.
+    do_neutral_diffusion = .true.
+    epsln_bv_freq = 1e-12
+    gm_skewsion_bvproblem = .true.
+    gm_skewsion_modes = .false.
+    neutral_eddy_depth = .true.
+    neutral_physics_limit = .true.
+    number_bc_modes = 2
+    regularize_psi = .false.
+    smax_psi = 0.01
+    smooth_psi = .true.
+    tmask_neutral_on = .true.
+    turb_blayer_min = 50.0
+    use_this_module = .true.
+/
+
+&ocean_obc_nml
+/
+
+&ocean_obs_nml
+/
+
+&ocean_operators_nml
+    use_legacy_div_ud = .true.
+/
+
+&ocean_overexchange_nml
+    debug_this_module = .false.
+    overexch_check_extrema = .false.
+    overexch_npts = 4
+    overexch_weight_far = .false.
+    overflow_umax = 5.0
+    use_this_module = .false.
+/
+
+&ocean_overflow_nml
+    debug_this_module = .false.
+    use_this_module = .false.
+/
+
+&ocean_passive_nml
+/
+
+&ocean_polar_filter_nml
+    use_this_module = .false.
+/
+
+&ocean_pressure_nml
+/
+
+&ocean_rivermix_nml
+    calving_insertion_thickness = 40.0
+    debug_this_module = .false.
+    discharge_combine_runoff_calve = .false.
+    do_bitwise_exact_sum = .true.
+    river_diffuse_salt = .false.
+    river_diffuse_temp = .false.
+    river_diffusion_thickness = 0.0
+    river_diffusivity = 0.0
+    river_insertion_thickness = 40.0
+    runoff_insertion_thickness = 40.0
+    use_this_module = .true.
+/
+
+&ocean_riverspread_nml
+    use_this_module = .false.
+/
+
+&ocean_rough_nml
+    rough_scheme = 'beljaars'
+/
+
+&ocean_sbc_nml
+    avg_sfc_temp_salt_eta = .true.
+    avg_sfc_velocity = .true.
+    calvingspread = .false.
+    do_flux_correction = .true.
+    eta_restore_tscale = -10.0
+    land_model_heat_fluxes = .true.
+    max_ice_thickness = 8.0
+    runoffspread = .false.
+    salt_correction_scale = 0.0
+    salt_restore_tscale = -10.0
+    tau_x_correction_scale = 0.0
+    tau_y_correction_scale = 0.0
+    temp_correction_scale = 1.0
+    temp_restore_tscale = -10.0
+    use_full_patm_for_sea_level = .true.
+    use_waterflux = .true.
+    use_waterflux_override_calving = .false.
+    use_waterflux_override_evap = .false.
+    use_waterflux_override_fprec = .false.
+    waterflux_tavg = .false.
+    zero_net_pme_eta_restore = .false.
+/
+
+&ocean_shortwave_csiro_nml
+    use_this_module = .false.
+/
+
+&ocean_shortwave_gfdl_nml
+    debug_this_module = .false.
+    enforce_sw_frac = .true.
+    optics_manizza = .true.
+    optics_morel_antoine = .false.
+    override_f_vis = .false.
+    read_chl = .false.
+    use_this_module = .true.
+    zmax_pen = 200.0
+/
+
+&ocean_shortwave_jerlov_nml
+    use_this_module = .false.
+/
+
+&ocean_shortwave_nml
+    use_shortwave_csiro = .false.
+    use_shortwave_gfdl = .true.
+    use_shortwave_jerlov = .false.
+    use_this_module = .true.
+/
+
+&ocean_sigma_transport_nml
+    sigma_advection_on = .false.
+    sigma_advection_sgs_only = .false.
+    sigma_diffusion_on = .true.
+    sigma_diffusivity_ratio = 1e-06
+    sigma_just_in_bottom_cell = .true.
+    sigma_umax = 0.01
+    smooth_sigma_thickness = .true.
+    smooth_sigma_velocity = .true.
+    smooth_velmicom = 0.2
+    thickness_sigma_layer = 100.0
+    thickness_sigma_max = 100.0
+    thickness_sigma_min = 100.0
+    tmask_sigma_on = .false.
+    tracer_mix_micom = .true.
+    use_this_module = .true.
+    vel_micom = 0.05
+/
+
+&ocean_sponges_eta_nml
+    use_this_module = .false.
+/
+
+&ocean_sponges_tracer_nml
+    damp_coeff_3d = .false.
+    use_this_module = .false.
+/
+
+&ocean_sponges_velocity_nml
+    use_this_module = .false.
+/
+
+&ocean_submesoscale_nml
+    debug_this_module = .false.
+    front_length_const = 5000.0
+    front_length_deform_radius = .true.
+    limit_psi = .true.
+    limit_psi_velocity_scale = 0.5
+    min_kblt = 4
+    smooth_hblt = .false.
+    submeso_limit_flux = .true.
+    use_hblt_equal_mld = .true.
+    use_psi_legacy = .true.
+    use_this_module = .true.
+/
+
+&ocean_tempsalt_nml
+    debug_this_module = .false.
+    pottemp_2nd_iteration = .true.
+    s_max = 55.0
+    s_max_limit = 42.0
+    s_min = -1.0
+    s_min_limit = 5.0
+    t_max = 55.0
+    t_max_limit = 32.0
+    t_min = -5.0
+    t_min_limit = -1.9
+    temperature_variable = 'potential_temp'
+/
+
+&ocean_thickness_nml
+    debug_this_module = .false.
+    debug_this_module_detail = .false.
+    initialize_zero_eta = .false.
+    read_rescale_rho0_mask = .true.
+    rescale_rho0_basin_label = 7.0
+    rescale_rho0_mask_gfdl = .true.
+    rescale_rho0_value = 0.75
+    thickness_dzt_min = 2.0
+    thickness_dzt_min_init = 2.0
+    thickness_method = 'energetic'
+/
+
+&ocean_time_filter_nml
+    use_this_module = .false.
+/
+
+&ocean_topog_nml
+    min_thickness = 5.0
+/
+
+&ocean_tracer_advect_nml
+    advect_sweby_all = .false.
+    debug_this_module = .false.
+    limit_with_upwind = .false.
+/
+
+&ocean_tracer_diag_nml
+    diag_step = 1200
+    do_bitwise_exact_sum = .false.
+    smooth_mld = .true.
+    tracer_conserve_days = 100.0
+/
+
+&ocean_tracer_nml
+    age_tracer_max_init = 1e+40
+    debug_this_module = .false.
+    frazil_heating_after_vphysics = .true.
+    frazil_heating_before_vphysics = .false.
+    interpolate_tdiag_to_pbott = .false.
+    interpolate_tprog_to_pbott = .false.
+    limit_age_tracer = .true.
+    remap_depth_to_s_init = .false.
+    tmask_limit_ts_same = .true.
+    zero_tendency = .false.
+    zero_tracer_source = .false.
+/
+
+&ocean_velocity_advect_nml
+/
+
+&ocean_velocity_diag_nml
+    debug_this_module = .false.
+    diag_step = 1200
+    energy_diag_step = 1200
+    large_cfl_value = 10.0
+    max_cfl_value = 100.0
+/
+
+&ocean_velocity_nml
+    adams_bashforth_third = .true.
+    truncate_velocity = .false.
+    truncate_velocity_value = 2.0
+    truncate_verbose = .true.
+    zero_tendency = .false.
+/
+
+&ocean_vert_chen_nml
+/
+
+&ocean_vert_const_nml
+/
+
+&ocean_vert_gotm_nml
+/
+
+&ocean_vert_kpp_iow_nml
+    use_this_module = .false.
+/
+
+&ocean_vert_kpp_mom4p0_nml
+    use_this_module = .false.
+/
+
+&ocean_vert_kpp_mom4p1_nml
+    diff_cbt_iw = 0.0
+    double_diffusion = .true.
+    ricr = 0.3
+    smooth_blmc = .true.
+    use_this_module = .true.
+    visc_cbu_iw = 0.0
+    wsfc_combine_runoff_calve = .false.
+/
+
+&ocean_vert_mix_nml
+    afkph_00 = 0.675
+    afkph_90 = 0.725
+    aidif = 1.0
+    bryan_lewis_diffusivity = .true.
+    bryan_lewis_lat_depend = .true.
+    bryan_lewis_lat_transition = 35.0
+    dfkph_00 = 1.15
+    dfkph_90 = 1.15
+    linear_taper_diff_cbt_table = .false.
+    quebec_2009_10_bug = .false.
+    sfkph_00 = 4.5e-05
+    sfkph_90 = 4.5e-05
+    use_diff_cbt_table = .false.
+    vert_diff_back_via_max = .true.
+    vert_mix_scheme = 'kpp_mom4p1'
+    zfkph_00 = 250000000.0
+    zfkph_90 = 250000000.0
+/
+
+&ocean_vert_pp_nml
+/
+
+&ocean_vert_tidal_nml
+    background_diffusivity = 0.0
+    background_viscosity = 0.0001
+    decay_scale = 300.0
+    drhodz_min = 1e-12
+    fixed_wave_dissipation = .false.
+    max_wave_diffusivity = 0.01
+    mixing_efficiency_n2depend = .true.
+    read_roughness = .true.
+    read_tide_speed = .true.
+    read_wave_dissipation = .false.
+    reading_roughness_amp = .true.
+    reading_roughness_length = .false.
+    roughness_scale = 30000.0
+    shelf_depth_cutoff = 160.0
+    tide_speed_data_on_t_grid = .true.
+    use_drag_dissipation = .true.
+    use_legacy_methods = .true.
+    use_this_module = .true.
+    use_wave_dissipation = .true.
+    wave_energy_flux_max = 0.1
+/
+
+&ocean_xlandinsert_nml
+    use_this_module = .true.
+    verbose_init = .true.
+/
+
+&ocean_xlandmix_nml
+    use_this_module = .true.
+    verbose_init = .true.
+    xlandmix_kmt = .true.
+/
+
+&oda_core_nml
+/
+
+&oda_nml
+/
+
+&ozone_nml
+    basic_ozone_type = 'fixed_year'
+    data_name = 'ozone'
+    filename = 'o3.climatology.nc'
+    ozone_dataset_entry = 1860, 1, 1, 0, 0, 0
+/
+
+&physics_driver_nml
+    do_modis_yim = .false.
+/
+
+&rad_output_file_nml
+    write_data_file = .true.
+/
+
+&rad_utilities_nml
+/
+
+&radiation_diag_nml
+    iradprt_gl = 20, 6
+    jradprt_gl = 12, 20
+    num_pts_ij = 0
+/
+
+&radiation_driver_diag_nml
+    all_step_diagnostics = .true.
+/
+
+&radiation_driver_nml
+    do_clear_sky_pass = .true.
+    rad_package = 'sea_esf'
+    rad_time_step = 10800
+    renormalize_sw_fluxes = .true.
+    use_co2_tracer_field = .true.
+    using_restart_file = .false.
+    zenith_spec = 'diurnally_varying'
+/
+
+&radiative_gases_nml
+    ch4_data_source = 'input'
+    ch4_dataset_entry = 1860, 1, 1, 0, 0, 0
+    ch4_specification_type = 'time_series'
+    ch4_variation_type = 'linear'
+    co2_base_time = 101, 1, 1, 0, 0, 0
+    co2_ceiling = 0.0016
+    co2_data_source = 'predicted'
+    co2_dataset_entry = 1, 1, 1, 0, 0, 0
+    co2_floor = 0.0001
+    co2_specification_type = 'base_and_trend'
+    co2_variation_type = 'linear'
+    f113_data_source = 'input'
+    f113_dataset_entry = 1860, 1, 1, 0, 0, 0
+    f113_specification_type = 'time_series'
+    f113_variation_type = 'linear'
+    f11_data_source = 'input'
+    f11_dataset_entry = 1860, 1, 1, 0, 0, 0
+    f11_specification_type = 'time_series'
+    f11_variation_type = 'linear'
+    f12_data_source = 'input'
+    f12_dataset_entry = 1860, 1, 1, 0, 0, 0
+    f12_specification_type = 'time_series'
+    f12_variation_type = 'linear'
+    f22_data_source = 'input'
+    f22_dataset_entry = 1860, 1, 1, 0, 0, 0
+    f22_specification_type = 'time_series'
+    f22_variation_type = 'linear'
+    gas_printout_freq = 240
+    n2o_data_source = 'input'
+    n2o_dataset_entry = 1860, 1, 1, 0, 0, 0
+    n2o_specification_type = 'time_series'
+    n2o_variation_type = 'linear'
+    time_varying_ch4 = .false.
+    time_varying_co2 = .false.
+    time_varying_f11 = .false.
+    time_varying_f113 = .false.
+    time_varying_f12 = .false.
+    time_varying_f22 = .false.
+    time_varying_n2o = .false.
+    verbose = 5
+/
+
+&random_number_streams_nml
+    do_legacy_seed_generation = .true.
+    force_use_of_temp_for_seed = .false.
+/
+
+&ras_nml
+    a = 1.6851, 1.1686, 0.7663, 0.5255, 0.41, 0.3677, 0.3151, 0.2216, 0.1521,
+        0.075, 0.0, 0.0, 0.0, 0.0, 0.0
+    aratio = 1.0
+    modify_pbl = .true.
+    puplim = 2000.0
+    rn_frac_bot = 0.5
+    rn_frac_top = 0.975
+    rn_pbot = 80000.0
+    rn_ptop = 50000.0
+    tokioka_con = 0.025
+    tokioka_on = .true.
+    tokioka_plim = 50000.0
+/
+
+&rh_based_clouds_nml
+    cirrus_cld_prop_form = 'part'
+    cldht_type_form = '93'
+/
+
+&river_nml
+    all_big_outlet_ctn0 = .true.
+    dt_slow = 86400.0
+    land_area_called_cellarea = .true.
+/
+
+&river_physics_nml
+    lake_sfc_w_min = 20.0
+/
+
+&sat_vapor_pres_nml
+    construct_table_wrt_liq = .true.
+    construct_table_wrt_liq_and_ice = .true.
+/
+
+&sealw99_nml
+    continuum_form = 'ckd2.1'
+    do_lwcldemiss = .true.
+    do_nlte = .false.
+    do_thick = .false.
+    linecatalog_form = 'hitran_2000'
+    verbose = 5
+/
+
+&shortwave_driver_nml
+    do_cmip_diagnostics = .true.
+    solar_dataset_entry = 1860, 1, 1, 0, 0, 0
+    swform = 'esfsw99'
+    time_varying_solar_constant = .false.
+/
+
+&snow_data_nml
+    depth_crit = 0.05
+    dz = 0.05, 0.2, 0.5, 0.2, 0.05, 0.0, 0.0, 0.0, 0.0, 0.0
+    emis_snow_max = 1.0
+    emis_snow_min = 1.0
+    f_geo_cold = 0.0, 0.0
+    f_geo_warm = 0.0, 0.0
+    f_iso_cold = 0.9, 0.6
+    f_iso_warm = 0.9, 0.6
+    f_vol_cold = 0.09, 0.13
+    f_vol_warm = 0.09, 0.13
+    num_l = 5
+    z0_momentum = 0.01
+/
+
+&snow_nml
+    albedo_to_use = 'brdf-params'
+    max_snow = 1000.0
+    min_snow_mass = 1e-10
+/
+
+&soil_data_nml
+    comp = 0.0001
+    dat_emis_dry = 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0
+    dat_emis_sat = 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0
+    dat_tf_depr = 2.0, 2.0, 2.0, 2.0, 2.0, 2.0, 2.0, 2.0, 2.0
+    dz = 0.02, 0.04, 0.04, 0.05, 0.05, 0.1, 0.1, 0.2, 0.2, 0.2, 0.4, 0.4,
+         0.4, 0.4, 0.4, 1.0, 1.0, 1.0, 1.5, 2.5
+    freeze_factor = 2.0
+    geohydrology_to_use = 'hill_ar5'
+    gw_scale_soil_depth = 10.0
+    num_l = 20
+/
+
+&soil_nml
+    active_layer_drainage_acceleration = 100.0
+    albedo_to_use = 'brdf-maps'
+    init_w = 500.0
+    uptake_oneway = .true.
+    uptake_to_use = 'darcy2d-linearized'
+    write_soil_carbon_restart = .false.
+/
+
+&stable_bl_turb_nml
+    alsh = 500.0
+    alsm = 500.0
+/
+
+&static_veg_nml
+    end_loop = 2470, 1, 1, 0, 0, 0
+    fill_land_mask = .true.
+    start_loop = 2420, 1, 1, 0, 0, 0
+    timeline = 'loop'
+    use_static_veg = .false.
+/
+
+&strat_cloud_nml
+    diff_thresh = 0.1
+    dmin = 1e-07
+    do_old_snowmelt = .true.
+    eros_choice = .true.
+    eros_scale = 1e-06
+    eros_scale_c = 8e-06
+    eros_scale_t = 5e-05
+    mc_thresh = 0.001
+    n_land = 300000000.0
+    retain_cm3_bug = .true.
+    rthresh = 8.0
+    super_choice = .true.
+    tracer_advec = .true.
+    u00 = 0.8
+    u00_profile = .true.
+/
+
+&surface_flux_nml
+    old_dtaudv = .false.
+/
+
+&topo_rough_nml
+    max_topo_rough = 100.0
+    topo_rough_factor = 0.01
+    use_topo_rough = .true.
+/
+
+&topography_nml
+    topog_file = 'INPUT/navy_topography.data.nc'
+/
+
+&vegn_nml
+    co2_for_photosynthesis = 0.000286
+    co2_to_use_for_photosynthesis = 'interactive'
+    do_biogeography = .true.
+    do_cohort_dynamics = .true.
+    do_patch_disturbance = .true.
+    do_phenology = .true.
+    do_seed_transport = .true.
+    init_tv = 288.0
+    photosynthesis_to_use = 'leuning'
+    rad_to_use = 'two-stream'
+    snow_rad_to_use = 'paint-leaves'
+    tau_smooth_ncm = 22.0
+/
+
+&vert_diff_driver_nml
+    do_conserve_energy = .true.
+/
+
+&vert_turb_driver_nml
+    do_diffusivity = .false.
+    do_edt = .false.
+    do_entrain = .true.
+    do_mellor_yamada = .false.
+    do_shallow_conv = .false.
+    do_stable_bl = .true.
+    gust_scheme = 'beljaars'
+    use_tau = .false.
+/
+
+&xgrid_nml
+    interp_method = 'second_order'
+    make_exchange_reproduce = .true.
+/
