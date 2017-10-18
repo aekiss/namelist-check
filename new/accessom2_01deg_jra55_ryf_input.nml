@@ -557,7 +557,7 @@
 
 &ocean_velocity_nml
     adams_bashforth_third = .true.
-    max_cgint = 1.0
+    max_cgint = 1.5
     truncate_velocity = .false.
     truncate_velocity_value = 2.0
     truncate_verbose = .true.
