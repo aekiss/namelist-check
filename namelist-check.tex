@@ -42,11 +42,12 @@ linkcolor={link},citecolor={link},urlcolor={link},
 \newcommand{\TODO}[1]{\note{\textcolor{blue}{\textsf{\textbf{TODO: #1}}}}}
 \newcommand{\FIXME}[1]{\note{\textcolor{red}{\textsf{\textbf{FIXME: #1}}}}}
 
-\title{MOM-SIS / ACCESS-OM2 \\MOM5 namelist comparisons}
+\title{MOM-SIS / ACCESS-OM2 MOM5 namelist comparisons}
 \author{}
-\date{
+\date{\vspace{-4ex}
     {\footnotesize 
-        \hfill typeset \today\ \DTMcurrenttime\ \DTMcurrentzone \\ 
+        typeset \today\ \DTMcurrenttime\ \DTMcurrentzone \\ 
+        Latest version is here: \url{https://github.com/aekiss/namelist-check}
 %        \ifthenelse{\boolean{gitinfo}}
 %        {%
 %            \hfill Last commit%
@@ -80,27 +81,28 @@ linkcolor={link},citecolor={link},urlcolor={link},
 
 %\newcommand{\doscript}[1]{\immediate\write18{#1}\texttt{#1}}
 
-%\immediate\write18{/Users/andy/bin/nmltab.py -d --format latex fabio_momsis1_input.nml paul_momsis025_input.nml fanghua_momsis01v5KDS75_WOA13_input.nml hogg_accessom2_1deg_jra55_ryf_input.nml kiss_accessom2_025deg_jra55_ryf_input.nml hogg_accessom2_01deg_jra55_ryf_input.nml > input_nml.tex}
+%\immediate\write18{/Users/andy/bin/nmltab.py -d --format latex original/fabio_momsis1_input.nml original/paul_momsis025_input.nml original/fanghua_momsis01v5KDS75_WOA13_input.nml original/hogg_accessom2_1deg_jra55_ryf_input.nml original/kiss_accessom2_025deg_jra55_ryf_input.nml original/hogg_accessom2_01deg_jra55_ryf_input.nml > input_nml.tex}
 
-%\input{|"/Users/andy/bin/nmltab.py -d --format latex fabio_momsis1_input.nml paul_momsis025_input.nml fanghua_momsis01v5KDS75_WOA13_input.nml hogg_accessom2_1deg_jra55_ryf_input.nml kiss_accessom2_025deg_jra55_ryf_input.nml hogg_accessom2_01deg_jra55_ryf_input.nml > input_nml.tex"}
+%\input{|"/Users/andy/bin/nmltab.py -d --format latex original/fabio_momsis1_input.nml original/paul_momsis025_input.nml original/fanghua_momsis01v5KDS75_WOA13_input.nml original/hogg_accessom2_1deg_jra55_ryf_input.nml original/kiss_accessom2_025deg_jra55_ryf_input.nml original/hogg_accessom2_01deg_jra55_ryf_input.nml > input_nml.tex"}
 
 %\input{|"pwd"}
 %\input{|"ls -lt"}
 %\doscript{/Users/andy/anaconda/bin/python3 /Users/andy/bin/nmltab.py -h}
 
 
-%\doscript{nmltab.py -d --format latex hogg_accessom2_1deg_jra55_ryf_input.nml kiss_accessom2_025deg_jra55_ryf_input.nml hogg_accessom2_01deg_jra55_ryf_input.nml > input_nml.tex}
+%\doscript{nmltab.py -d --format latex original/hogg_accessom2_1deg_jra55_ryf_input.nml original/kiss_accessom2_025deg_jra55_ryf_input.nml original/hogg_accessom2_01deg_jra55_ryf_input.nml > input_nml.tex}
 %\end{document}
 
 
-%scp -rp aek156@r-dm.nci.org.au:/short/v45/amh157/access-om2/control/01deg_jra55_ryf/ocean/input.nml hogg_accessom2_01deg_jra55_ryf_input.nml
+%scp -rp aek156@r-dm.nci.org.au:/short/v45/amh157/access-om2/control/01deg_jra55_ryf/ocean/input.nml original/hogg_accessom2_01deg_jra55_ryf_input.nml
+
+\textbf{also check /home/581/fbd581/payu/access-om2_JRA-ryf/ocean/input.nml ? - fabio email 18 Oct}
 
 \begin{itemize}
 \item GFDL_ESM2M_input.nml is from Steve's email 2017-10-18, from an ESM2M config that Jie is currently running. Steve commented ``note that it is coupled, so there are heaps of non-ocean items.  Also note that "ocean_albedo" is set for a coupled model, and it is different for ocean/ice simulations.  That is a major "gotcha" that Spence can share with you if interested.'' Fixed typo: replaced 
 \&diag_inESM2_Control_216.xmltegral_nml
 with
  \&diag_integral_nml
-
 \item MOM_SIS_TOPAZ_input.nml is from MOM_SIS_TOPAZ/INPUT/ in\\ /g/data/ua8/mom/test_data/MOM_SIS_TOPAZ.input.tar.gz, dated 2009-12-16 10:44
 \item fabio_momsis1_input.nml is from Fabio's email 2017-09-20, derived from Paul's 1/4 degree (I think)
 \item paul_momsis025_input.nml is from Paul's email 2017-09-20
@@ -129,38 +131,23 @@ Missing variables are shown as blank. Variables are \textcolor{link}{weblinks} t
 
 \tableofcontents
 
-\newpage
-\section{All variables in all originals (differences highlighted)}
-\definecolor{hilite}{cmyk}{0, 0, 0.9, 0}\renewcommand{\nmldiffer}[1]{\colorbox{hilite}{#1}}\setlength{\fboxsep}{0pt} % colour highlight of differing variables (requires color package)
-%\doscript{/Users/andy/anaconda/bin/python3 /Users/andy/bin/nmltab.py --format latex nml_originals/MOM_SIS_TOPAZ_input.nml}
-%\doscript{/Users/andy/anaconda/bin/python3 /Users/andy/bin/nmltab.py --format latex nml_originals/GFDL_ESM2M_input-fixed.nml }
-%\input{chuck3.tex}
-%\input{chuck-gfdl}
-%\doscript{/Users/andy/anaconda/bin/python3 /Users/andy/bin/nmltab.py --format latex original/GFDL_ESM2M_input-fixed.nml}
-\doscript{/Users/andy/anaconda/bin/python3 /Users/andy/bin/nmltab.py --format latex original/GFDL_ESM2M_input.nml original/MOM_SIS_TOPAZ_input.nml original/fabio_momsis1_input.nml original/paul_momsis025_input.nml original/fanghua_momsis01v5KDS75_WOA13_input.nml original/hogg_accessom2_1deg_jra55_ryf_input.nml original/kiss_accessom2_025deg_jra55_ryf_input.nml original/hogg_accessom2_01deg_jra55_ryf_input.nml}
-
-\end{document}
-%\doscript{/Users/andy/anaconda/bin/python3 /Users/andy/bin/nmltab.py --format latex nml_originals/MOM_SIS_TOPAZ_input.nml nml_originals/GFDL_ESM2M_input-fixed.nml nml_originals/fabio_momsis1_input.nml nml_originals/paul_momsis025_input.nml nml_originals/fanghua_momsis01v5KDS75_WOA13_input.nml nml_originals/hogg_accessom2_1deg_jra55_ryf_input.nml nml_originals/kiss_accessom2_025deg_jra55_ryf_input.nml nml_originals/hogg_accessom2_01deg_jra55_ryf_input.nml}
-%\doscript{/Users/andy/anaconda/bin/python3 /Users/andy/bin/nmltab.py --format latex nml_originals/fabio_momsis1_input.nml nml_originals/paul_momsis025_input.nml nml_originals/fanghua_momsis01v5KDS75_WOA13_input.nml nml_originals/hogg_accessom2_1deg_jra55_ryf_input.nml nml_originals/kiss_accessom2_025deg_jra55_ryf_input.nml nml_originals/hogg_accessom2_01deg_jra55_ryf_input.nml}
-%\doscript{/Users/andy/anaconda/bin/python3 /Users/andy/bin/nmltab.py --format latex nml_originals/GFDL_ESM2M_input-fixed.nml nml_originals/fabio_momsis1_input.nml nml_originals/paul_momsis025_input.nml nml_originals/fanghua_momsis01v5KDS75_WOA13_input.nml nml_originals/hogg_accessom2_1deg_jra55_ryf_input.nml nml_originals/kiss_accessom2_025deg_jra55_ryf_input.nml nml_originals/hogg_accessom2_01deg_jra55_ryf_input.nml}
-
 %\newpage
 %\section{Differences between all 6 configs}
-%\doscript{/Users/andy/anaconda/bin/python3 /Users/andy/bin/nmltab.py -d --format latex fabio_momsis1_input.nml paul_momsis025_input.nml fanghua_momsis01v5KDS75_WOA13_input.nml hogg_accessom2_1deg_jra55_ryf_input.nml kiss_accessom2_025deg_jra55_ryf_input.nml hogg_accessom2_01deg_jra55_ryf_input.nml}
+%\doscript{/Users/andy/anaconda/bin/python3 /Users/andy/bin/nmltab.py -d --format latex original/fabio_momsis1_input.nml original/paul_momsis025_input.nml original/fanghua_momsis01v5KDS75_WOA13_input.nml original/hogg_accessom2_1deg_jra55_ryf_input.nml original/kiss_accessom2_025deg_jra55_ryf_input.nml original/hogg_accessom2_01deg_jra55_ryf_input.nml}
 %
 %\newpage
 %\section{Differences between MOM-SIS configs}
-%\doscript{/Users/andy/anaconda/bin/python3 /Users/andy/bin/nmltab.py -d --format latex fabio_momsis1_input.nml paul_momsis025_input.nml fanghua_momsis01v5KDS75_WOA13_input.nml}
+%\doscript{/Users/andy/anaconda/bin/python3 /Users/andy/bin/nmltab.py -d --format latex original/fabio_momsis1_input.nml original/paul_momsis025_input.nml original/fanghua_momsis01v5KDS75_WOA13_input.nml}
 %
 %\newpage
 %\section{Differences between MOM-CICE (ACCESS-OM2) configs}
-%\doscript{/Users/andy/anaconda/bin/python3 /Users/andy/bin/nmltab.py -d --format latex hogg_accessom2_1deg_jra55_ryf_input.nml kiss_accessom2_025deg_jra55_ryf_input.nml hogg_accessom2_01deg_jra55_ryf_input.nml}
+%\doscript{/Users/andy/anaconda/bin/python3 /Users/andy/bin/nmltab.py -d --format latex original/hogg_accessom2_1deg_jra55_ryf_input.nml original/kiss_accessom2_025deg_jra55_ryf_input.nml original/hogg_accessom2_01deg_jra55_ryf_input.nml}
 
 %
 %\newpage
 %\section{All variables in all 6 configs (differences highlighted)}
 %\definecolor{hilite}{cmyk}{0, 0, 0.9, 0}\renewcommand{\nmldiffer}[1]{\colorbox{hilite}{#1}}\setlength{\fboxsep}{0pt} % colour highlight of differing variables (requires color package)
-%\doscript{/Users/andy/anaconda/bin/python3 /Users/andy/bin/nmltab.py --format latex fabio_momsis1_input.nml paul_momsis025_input.nml fanghua_momsis01v5KDS75_WOA13_input.nml hogg_accessom2_1deg_jra55_ryf_input.nml kiss_accessom2_025deg_jra55_ryf_input.nml hogg_accessom2_01deg_jra55_ryf_input.nml}
+%\doscript{/Users/andy/anaconda/bin/python3 /Users/andy/bin/nmltab.py --format latex original/fabio_momsis1_input.nml original/paul_momsis025_input.nml original/fanghua_momsis01v5KDS75_WOA13_input.nml original/hogg_accessom2_1deg_jra55_ryf_input.nml original/kiss_accessom2_025deg_jra55_ryf_input.nml original/hogg_accessom2_01deg_jra55_ryf_input.nml}
 
 
 \newpage
@@ -171,25 +158,31 @@ Missing variables are shown as blank. Variables are \textcolor{link}{weblinks} t
 \newpage
 \section{Changes in new ACCESS-OM2 configs}
 \subsection{accessom2_1deg_jra55_ryf}
-\doscript{/Users/andy/anaconda/bin/python3 /Users/andy/bin/nmltab.py -d --format latex hogg_accessom2_1deg_jra55_ryf_input.nml new_accessom2_1deg_jra55_ryf_input.nml }
+\doscript{/Users/andy/anaconda/bin/python3 /Users/andy/bin/nmltab.py -d --format latex original/hogg_accessom2_1deg_jra55_ryf_input.nml new_accessom2_1deg_jra55_ryf_input.nml }
 \newpage
 \subsection{accessom2_025deg_jra55_ryf}
-\doscript{/Users/andy/anaconda/bin/python3 /Users/andy/bin/nmltab.py -d --format latex kiss_accessom2_025deg_jra55_ryf_input.nml new_accessom2_025deg_jra55_ryf_input.nml}
+\doscript{/Users/andy/anaconda/bin/python3 /Users/andy/bin/nmltab.py -d --format latex original/kiss_accessom2_025deg_jra55_ryf_input.nml new_accessom2_025deg_jra55_ryf_input.nml}
 \subsection{accessom2_01deg_jra55_ryf}
-\doscript{/Users/andy/anaconda/bin/python3 /Users/andy/bin/nmltab.py -d --format latex hogg_accessom2_01deg_jra55_ryf_input.nml new_accessom2_01deg_jra55_ryf_input.nml}
+\doscript{/Users/andy/anaconda/bin/python3 /Users/andy/bin/nmltab.py -d --format latex original/hogg_accessom2_01deg_jra55_ryf_input.nml new_accessom2_01deg_jra55_ryf_input.nml}
 
 \newpage
 \section{Differences between old and new ACCESS-OM2 configs}
 \definecolor{hilite}{cmyk}{0, 0, 0.9, 0}\renewcommand{\nmldiffer}[1]{\colorbox{hilite}{#1}}\setlength{\fboxsep}{0pt} % colour highlight of differing variables (requires color package)
-\doscript{/Users/andy/anaconda/bin/python3 /Users/andy/bin/nmltab.py --format latex hogg_accessom2_1deg_jra55_ryf_input.nml new_accessom2_1deg_jra55_ryf_input.nml kiss_accessom2_025deg_jra55_ryf_input.nml new_accessom2_025deg_jra55_ryf_input.nml hogg_accessom2_01deg_jra55_ryf_input.nml new_accessom2_01deg_jra55_ryf_input.nml}
+\doscript{/Users/andy/anaconda/bin/python3 /Users/andy/bin/nmltab.py --format latex original/hogg_accessom2_1deg_jra55_ryf_input.nml new_accessom2_1deg_jra55_ryf_input.nml original/kiss_accessom2_025deg_jra55_ryf_input.nml new_accessom2_025deg_jra55_ryf_input.nml original/hogg_accessom2_01deg_jra55_ryf_input.nml new_accessom2_01deg_jra55_ryf_input.nml}
 
 \newpage
 \section{Differences between MOM-SIS and all new configs}
-\doscript{/Users/andy/anaconda/bin/python3 /Users/andy/bin/nmltab.py -d --format latex fabio_momsis1_input.nml paul_momsis025_input.nml fanghua_momsis01v5KDS75_WOA13_input.nml new_accessom2_1deg_jra55_ryf_input.nml new_accessom2_025deg_jra55_ryf_input.nml new_accessom2_01deg_jra55_ryf_input.nml}
+\doscript{/Users/andy/anaconda/bin/python3 /Users/andy/bin/nmltab.py -d --format latex original/fabio_momsis1_input.nml original/paul_momsis025_input.nml original/fanghua_momsis01v5KDS75_WOA13_input.nml new_accessom2_1deg_jra55_ryf_input.nml new_accessom2_025deg_jra55_ryf_input.nml new_accessom2_01deg_jra55_ryf_input.nml}
 
 \newpage
 \section{All variables in all 6 configs (differences highlighted)}
 \definecolor{hilite}{cmyk}{0, 0, 0.9, 0}\renewcommand{\nmldiffer}[1]{\colorbox{hilite}{#1}}\setlength{\fboxsep}{0pt} % colour highlight of differing variables (requires color package)
-\doscript{/Users/andy/anaconda/bin/python3 /Users/andy/bin/nmltab.py --format latex fabio_momsis1_input.nml paul_momsis025_input.nml fanghua_momsis01v5KDS75_WOA13_input.nml new_accessom2_1deg_jra55_ryf_input.nml new_accessom2_025deg_jra55_ryf_input.nml new_accessom2_01deg_jra55_ryf_input.nml}
+\doscript{/Users/andy/anaconda/bin/python3 /Users/andy/bin/nmltab.py --format latex original/fabio_momsis1_input.nml original/paul_momsis025_input.nml original/fanghua_momsis01v5KDS75_WOA13_input.nml new_accessom2_1deg_jra55_ryf_input.nml new_accessom2_025deg_jra55_ryf_input.nml new_accessom2_01deg_jra55_ryf_input.nml}
+
+\newpage
+\section{All variables in all originals (differences highlighted)}
+\definecolor{hilite}{cmyk}{0, 0, 0.9, 0}\renewcommand{\nmldiffer}[1]{\colorbox{hilite}{#1}}\setlength{\fboxsep}{0pt} % colour highlight of differing variables (requires color package)
+\doscript{/Users/andy/anaconda/bin/python3 /Users/andy/bin/nmltab.py --format latex original/GFDL_ESM2M_input.nml original/MOM_SIS_TOPAZ_input.nml original/fabio_momsis1_input.nml original/paul_momsis025_input.nml original/fanghua_momsis01v5KDS75_WOA13_input.nml original/hogg_accessom2_1deg_jra55_ryf_input.nml original/kiss_accessom2_025deg_jra55_ryf_input.nml original/hogg_accessom2_01deg_jra55_ryf_input.nml}
+
 
 \end{document}  
