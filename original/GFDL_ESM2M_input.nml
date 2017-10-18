@@ -158,7 +158,7 @@ use_cloud_tracers_in_radiation = .true.
        l_anom_abs_v  = .true.
 /
 
- &diag_inESM2_Control_216.xmltegral_nml
+ &diag_integral_nml
        file_name  = 'diag_integral.out',
        time_units = 'days',
        output_interval = 1.0
