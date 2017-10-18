@@ -19,19 +19,12 @@
 /
 
 &diag_manager_nml
-    issue_oor_warnings = .false.
-    max_axes = 300
-    max_files = 1000
-    max_input_fields = 700
-    max_num_axis_sets = 40
-    max_output_fields = 700
+    debug_diag_manager = .true.
+    issue_oor_warnings = .true.
 /
 
 &fms_io_nml
-    checksum_required = .false.
     fileset_write = 'multi'
-    max_files_r = 700
-    max_files_w = 700
     threading_read = 'multi'
     threading_write = 'multi'
 /
@@ -77,7 +70,7 @@
 /
 
 &ocean_advection_velocity_nml
-    max_advection_velocity = 0.2
+    max_advection_velocity = 0.5
 /
 
 &ocean_albedo_nml
@@ -102,7 +95,7 @@
     use_legacy_barotropic_halos = .false.
     vel_micom_bih = 0.01
     vel_micom_lap = 0.05
-    vel_micom_lap_diag = 0.5
+    vel_micom_lap_diag = 0.2
     verbose_truncate = .true.
     zero_tendency = .false.
 /
@@ -155,8 +148,6 @@
 /
 
 &ocean_convect_nml
-    convect_full_scalar = .true.
-    convect_full_vector = .false.
     use_this_module = .false.
 /
 
@@ -235,6 +226,7 @@
 &ocean_model_nml
     baroclinic_split = 1
     barotropic_split = 80
+    cmip_units = .true.
     debug = .false.
     dt_ocean = 150
     io_layout = 10, 15
@@ -285,8 +277,6 @@
     drhodz_smooth_vert = .false.
     rossby_radius_max = 100000.0
     rossby_radius_min = 15000.0
-    smax = 0.002
-    swidth = 0.002
     tracer_mix_micom = .false.
     vel_micom = 0.0
 /
@@ -327,12 +317,6 @@
 /
 
 &ocean_overflow_ofp_nml
-    debug_this_module = .false.
-    diag_step = 5760
-    do_entrainment_para_ofp = .false.
-    do_mass_ofp = .true.
-    frac_exchange_src = 1.0
-    max_vol_trans_ofp = 10000000.0
     use_this_module = .false.
 /
 
@@ -358,8 +342,7 @@
 /
 
 &ocean_riverspread_nml
-    debug_this_module = .false.
-    use_this_module = .true.
+    use_this_module = .false.
 /
 
 &ocean_rough_nml
@@ -444,7 +427,7 @@
     calendar = 'NOLEAP'
     date_init = 1, 1, 1, 0, 0, 0
     days = 30
-    dt_cpld = 150
+    dt_cpld = 600
     hours = 0
     minutes = 0
     months = 0
@@ -492,7 +475,7 @@
 /
 
 &ocean_tempsalt_nml
-    debug_this_module = .true.
+    debug_this_module = .false.
     pottemp_2nd_iteration = .true.
     pottemp_equal_contemp = .true.
     s_max = 70.0
@@ -510,8 +493,6 @@
     debug_this_module = .false.
     debug_this_module_detail = .false.
     rescale_mass_to_get_ht_mod = .false.
-    thickness_dzt_min = 2.0
-    thickness_dzt_min_init = 10.0
     thickness_method = 'energetic'
 /
 
@@ -557,7 +538,7 @@
 
 &ocean_velocity_nml
     adams_bashforth_third = .true.
-    max_cgint = 1.5
+    max_cgint = 1.0
     truncate_velocity = .false.
     truncate_velocity_value = 2.0
     truncate_verbose = .true.
@@ -648,12 +629,9 @@
 /
 
 &sat_vapor_pres_nml
-    show_all_bad_values = .true.
 /
 
 &surface_flux_nml
-    ncar_ocean_flux = .true.
-    raoult_sat_vap = .true.
 /
 
 &xgrid_nml

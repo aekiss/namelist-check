@@ -24,9 +24,9 @@
 /
 
 &fms_io_nml
-    fileset_write = 'single'
+    fileset_write = 'multi'
     threading_read = 'multi'
-    threading_write = 'single'
+    threading_write = 'multi'
 /
 
 &fms_nml
@@ -47,6 +47,11 @@
 
 &monin_obukhov_nml
     neutral = .true.
+/
+
+&mpp_io_nml
+    deflate_level = 5
+    shuffle = 1
 /
 
 &ocean_adv_vel_diag_nml
@@ -135,8 +140,6 @@
 /
 
 &ocean_convect_nml
-    convect_full_scalar = .true.
-    convect_full_vector = .false.
     use_this_module = .false.
 /
 
@@ -266,8 +269,6 @@
     drhodz_smooth_vert = .false.
     rossby_radius_max = 100000.0
     rossby_radius_min = 15000.0
-    smax = 0.002
-    swidth = 0.002
     tracer_mix_micom = .false.
     vel_micom = 0.0
 /
@@ -308,12 +309,6 @@
 /
 
 &ocean_overflow_ofp_nml
-    debug_this_module = .false.
-    diag_step = 4320
-    do_entrainment_para_ofp = .false.
-    do_mass_ofp = .true.
-    frac_exchange_src = 1.0
-    max_vol_trans_ofp = 10000000.0
     use_this_module = .false.
 /
 
@@ -330,8 +325,8 @@
 
 &ocean_rivermix_nml
     debug_this_module = .false.
-    river_diffuse_salt = .false.
-    river_diffuse_temp = .false.
+    river_diffuse_salt = .true.
+    river_diffuse_temp = .true.
     river_diffusion_thickness = 0.0
     river_diffusivity = 0.0
     river_insertion_thickness = 40.0
@@ -377,10 +372,7 @@
 /
 
 &ocean_shortwave_csiro_nml
-    debug_this_module = .false.
-    read_depth = .true.
     use_this_module = .false.
-    zmax_pen = 7000
 /
 
 &ocean_shortwave_gfdl_nml
@@ -493,8 +485,6 @@
     debug_this_module = .false.
     debug_this_module_detail = .false.
     rescale_mass_to_get_ht_mod = .false.
-    thickness_dzt_min = 2.0
-    thickness_dzt_min_init = 10.0
     thickness_method = 'energetic'
 /
 
@@ -540,7 +530,7 @@
 
 &ocean_velocity_nml
     adams_bashforth_third = .true.
-    max_cgint = 1.5
+    max_cgint = 1.0
     truncate_velocity = .false.
     truncate_velocity_value = 2.0
     truncate_verbose = .true.
@@ -631,8 +621,6 @@
 /
 
 &surface_flux_nml
-    ncar_ocean_flux = .true.
-    raoult_sat_vap = .true.
 /
 
 &xgrid_nml
