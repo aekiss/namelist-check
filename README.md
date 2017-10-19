@@ -3,11 +3,12 @@ The commit history of this repo tracks the changes made in developing namelists 
 
 See namelist-check.pdf for an overview of namelists.
 
-New namelists are
-
-new_accessom2_01deg_jra55_ryf_input.nml
+New namelists are:
 
 new_accessom2_1deg_jra55_ryf_input.nml
 
 new_accessom2_025deg_jra55_ryf_input.nml
 
+new_accessom2_01deg_jra55_ryf_input.nml
+
+You may find [nmltab](https://github.com/aekiss/nmltab) useful for comparing namelists.

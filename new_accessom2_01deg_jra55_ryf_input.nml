@@ -3,7 +3,7 @@
     chk_i2o_fields = .false.
     chk_o2i_fields = .false.
     do_ice_once = .false.
-    dt_cpl = 150
+    dt_cpl = 600
     fixmeltt = .false.
     frazil_factor = 1.0
     iceform_adj_salt = .false.
@@ -32,13 +32,6 @@
 &fms_nml
     clock_grain = 'LOOP'
     domains_stack_size = 115200
-    print_memory_usage = .false.
-/
-
-&generic_tracer_nml
-    do_generic_cfc = .false.
-    do_generic_topaz = .false.
-    do_generic_tracer = .false.
 /
 
 &mom_oasis3_interface_nml

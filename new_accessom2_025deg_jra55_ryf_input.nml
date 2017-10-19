@@ -3,7 +3,7 @@
     chk_i2o_fields = .false.
     chk_o2i_fields = .false.
     do_ice_once = .false.
-    dt_cpl = 1200
+    dt_cpl = 1800
     fixmeltt = .false.
     frazil_factor = 1.0
     iceform_adj_salt = .false.
@@ -31,6 +31,7 @@
 
 &fms_nml
     clock_grain = 'LOOP'
+    domains_stack_size = 115200
 /
 
 &mom_oasis3_interface_nml

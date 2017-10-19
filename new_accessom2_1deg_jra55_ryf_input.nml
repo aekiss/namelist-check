@@ -16,6 +16,11 @@
     use_ioaice = .true.
 /
 
+&bg_diff_lat_dependence_nml
+    bg_diff_eq = 1e-06
+    lat_low_bgdiff = 20.0
+/
+
 &data_override_nml
 /
 
@@ -32,6 +37,7 @@
 
 &fms_nml
     clock_grain = 'LOOP'
+    domains_stack_size = 115200
 /
 
 &mom_oasis3_interface_nml
@@ -48,6 +54,11 @@
 
 &monin_obukhov_nml
     neutral = .true.
+/
+
+&mpp_io_nml
+    deflate_level = 5
+    shuffle = 1
 /
 
 &ocean_adv_vel_diag_nml
