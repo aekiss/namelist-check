@@ -103,6 +103,7 @@ linkcolor={link},citecolor={link},urlcolor={link},
 \&diag_inESM2_Control_216.xmltegral_nml
 with
  \&diag_integral_nml
+\item GFDL_ESM2M_input-cut.nml is GFDL_ESM2M_input.nml with irrelevant atmos/ESM namelist groups cut out. See comparison below for changes.
 \item MOM_SIS_TOPAZ_input.nml is from MOM_SIS_TOPAZ/INPUT/ in\\ /g/data/ua8/mom/test_data/MOM_SIS_TOPAZ.input.tar.gz, dated 2009-12-16 10:44
 \item fabio_momsis1_input.nml is from Fabio's email 2017-09-20, derived from Paul's 1/4 degree (I think)
 \item paul_momsis025_input.nml is from Paul's email 2017-09-20
@@ -149,7 +150,6 @@ Missing variables are shown as blank. Variables are \textcolor{link}{weblinks} t
 %\definecolor{hilite}{cmyk}{0, 0, 0.9, 0}\renewcommand{\nmldiffer}[1]{\colorbox{hilite}{#1}}\setlength{\fboxsep}{0pt} % colour highlight of differing variables (requires color package)
 %\doscript{/Users/andy/anaconda/bin/python3 /Users/andy/bin/nmltab.py --format latex original/fabio_momsis1_input.nml original/paul_momsis025_input.nml original/fanghua_momsis01v5KDS75_WOA13_input.nml original/hogg_accessom2_1deg_jra55_ryf_input.nml original/kiss_accessom2_025deg_jra55_ryf_input.nml original/hogg_accessom2_01deg_jra55_ryf_input.nml}
 
-
 \newpage
 \renewcommand{\nmldiffer}[1]{#1} % no special display of differing variables
 \section{Differences between new ACCESS-OM2 configs}
@@ -175,14 +175,20 @@ Missing variables are shown as blank. Variables are \textcolor{link}{weblinks} t
 \doscript{/Users/andy/anaconda/bin/python3 /Users/andy/bin/nmltab.py -d --format latex original/fabio_momsis1_input.nml original/paul_momsis025_input.nml original/fanghua_momsis01v5KDS75_WOA13_input.nml new_accessom2_1deg_jra55_ryf_input.nml new_accessom2_025deg_jra55_ryf_input.nml new_accessom2_01deg_jra55_ryf_input.nml}
 
 \newpage
-\section{All variables in all 6 configs (differences highlighted)}
+\section{All variables in all 8 configs (differences highlighted)}
 \definecolor{hilite}{cmyk}{0, 0, 0.9, 0}\renewcommand{\nmldiffer}[1]{\colorbox{hilite}{#1}}\setlength{\fboxsep}{0pt} % colour highlight of differing variables (requires color package)
-\doscript{/Users/andy/anaconda/bin/python3 /Users/andy/bin/nmltab.py --format latex original/fabio_momsis1_input.nml original/paul_momsis025_input.nml original/fanghua_momsis01v5KDS75_WOA13_input.nml new_accessom2_1deg_jra55_ryf_input.nml new_accessom2_025deg_jra55_ryf_input.nml new_accessom2_01deg_jra55_ryf_input.nml}
+\doscript{/Users/andy/anaconda/bin/python3 /Users/andy/bin/nmltab.py --format latex original/GFDL_ESM2M_input-cut.nml original/MOM_SIS_TOPAZ_input.nml original/fabio_momsis1_input.nml original/paul_momsis025_input.nml original/fanghua_momsis01v5KDS75_WOA13_input.nml new_accessom2_1deg_jra55_ryf_input.nml new_accessom2_025deg_jra55_ryf_input.nml new_accessom2_01deg_jra55_ryf_input.nml}
+
+%\newpage
+%\section{All variables in all originals (differences highlighted)}
+%\definecolor{hilite}{cmyk}{0, 0, 0.9, 0}\renewcommand{\nmldiffer}[1]{\colorbox{hilite}{#1}}\setlength{\fboxsep}{0pt} % colour highlight of differing variables (requires color package)
+%\doscript{/Users/andy/anaconda/bin/python3 /Users/andy/bin/nmltab.py --format latex original/GFDL_ESM2M_input-cut.nml original/MOM_SIS_TOPAZ_input.nml original/fabio_momsis1_input.nml original/paul_momsis025_input.nml original/fanghua_momsis01v5KDS75_WOA13_input.nml original/hogg_accessom2_1deg_jra55_ryf_input.nml original/kiss_accessom2_025deg_jra55_ryf_input.nml original/hogg_accessom2_01deg_jra55_ryf_input.nml}
 
 \newpage
-\section{All variables in all originals (differences highlighted)}
-\definecolor{hilite}{cmyk}{0, 0, 0.9, 0}\renewcommand{\nmldiffer}[1]{\colorbox{hilite}{#1}}\setlength{\fboxsep}{0pt} % colour highlight of differing variables (requires color package)
-\doscript{/Users/andy/anaconda/bin/python3 /Users/andy/bin/nmltab.py --format latex original/GFDL_ESM2M_input.nml original/MOM_SIS_TOPAZ_input.nml original/fabio_momsis1_input.nml original/paul_momsis025_input.nml original/fanghua_momsis01v5KDS75_WOA13_input.nml original/hogg_accessom2_1deg_jra55_ryf_input.nml original/kiss_accessom2_025deg_jra55_ryf_input.nml original/hogg_accessom2_01deg_jra55_ryf_input.nml}
+\renewcommand{\nmldiffer}[1]{#1} % no special display of differing variables
+\section{Differences between GFDL_ESM2M_input.nml and GFDL_ESM2M_input-cut.nml}
+\ldots confirming only irrelevant atmos/ESM stuff has been cut
+\doscript{/Users/andy/anaconda/bin/python3 /Users/andy/bin/nmltab.py -d --format latex original/GFDL_ESM2M_input.nml original/GFDL_ESM2M_input-cut.nml}
 
 
 \end{document}  
