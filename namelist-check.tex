@@ -106,6 +106,7 @@ with
 \item fabio_momsis1_input.nml is from Fabio's email 2017-09-20, derived from Paul's 1/4 degree (I think)
 \item paul_momsis025_input.nml is from Paul's email 2017-09-20
 \item fanghua_momsis01v5KDS75_WOA13_input.nml is \\ /g/data3/hh5/tmp/cosima/mom01v5/KDS75_WOA13/output000/input.nml
+\item russ-accessom-mom4p1-input.nml is an old MOM4p1 ACCESS-OM input from years ago (Russ' email 2017-10-17)
 \item hogg_accessom2_1deg_jra55_ryf_input.nml is \\ /short/v45/amh157/access-om2/control/1deg_jra55_ryf/ocean/input.nml
 \item kiss_accessom2_025deg_jra55_ryf_input.m.nml is \\ /short/v45/aek156/access-om2/control/025deg_jra55_ryf/ocean/input.nml
 \item hogg_accessom2_01deg_jra55_ryf_input.nml is \\ /short/v45/amh157/access-om2/control/01deg_jra55_ryf/ocean/input.nml
@@ -180,9 +181,14 @@ Only differences are shown (inconsequential where use_this_module = .false. - se
 %\doscript{/Users/andy/anaconda/bin/python3 /Users/andy/bin/nmltab.py -d --format latex original/fabio_momsis1_input.nml original/paul_momsis025_input.nml original/fanghua_momsis01v5KDS75_WOA13_input.nml new_accessom2_1deg_jra55_ryf_input.nml new_accessom2_025deg_jra55_ryf_input.nml new_accessom2_01deg_jra55_ryf_input.nml}
 
 \newpage
-\section{All variables in all 8 configs (differences highlighted)}
+\section{All variables in all 9 configs (differences highlighted)}
 \definecolor{hilite}{cmyk}{0, 0, 0.9, 0}\renewcommand{\nmldiffer}[1]{\colorbox{hilite}{#1}}\setlength{\fboxsep}{0pt} % colour highlight of differing variables (requires color package)
-\doscript{/Users/andy/anaconda/bin/python3 /Users/andy/bin/nmltab.py --format latex original/GFDL_ESM2M_input-cut.nml original/MOM_SIS_TOPAZ_input.nml original/fabio_momsis1_input.nml original/paul_momsis025_input.nml original/fanghua_momsis01v5KDS75_WOA13_input.nml new_accessom2_1deg_jra55_ryf_input.nml new_accessom2_025deg_jra55_ryf_input.nml new_accessom2_01deg_jra55_ryf_input.nml}
+\doscript{/Users/andy/anaconda/bin/python3 /Users/andy/bin/nmltab.py --format latex original/GFDL_ESM2M_input-cut.nml original/MOM_SIS_TOPAZ_input.nml original/fabio_momsis1_input.nml original/paul_momsis025_input.nml original/fanghua_momsis01v5KDS75_WOA13_input.nml original/russ-accessom-mom4p1-input.nml new_accessom2_1deg_jra55_ryf_input.nml new_accessom2_025deg_jra55_ryf_input.nml new_accessom2_01deg_jra55_ryf_input.nml}
+
+\newpage
+\section{All variables in ACCESS configs (differences highlighted)}
+\definecolor{hilite}{cmyk}{0, 0, 0.9, 0}\renewcommand{\nmldiffer}[1]{\colorbox{hilite}{#1}}\setlength{\fboxsep}{0pt} % colour highlight of differing variables (requires color package)
+\doscript{/Users/andy/anaconda/bin/python3 /Users/andy/bin/nmltab.py --format latex original/russ-accessom-mom4p1-input.nml new_accessom2_1deg_jra55_ryf_input.nml new_accessom2_025deg_jra55_ryf_input.nml new_accessom2_01deg_jra55_ryf_input.nml}
 
 %\newpage
 %\section{All variables in all originals (differences highlighted)}
