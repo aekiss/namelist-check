@@ -96,14 +96,12 @@ linkcolor={link},citecolor={link},urlcolor={link},
 
 %scp -rp aek156@r-dm.nci.org.au:/short/v45/amh157/access-om2/control/01deg_jra55_ryf/ocean/input.nml original/hogg_accessom2_01deg_jra55_ryf_input.nml
 
-\textbf{also check /home/581/fbd581/payu/access-om2_JRA-ryf/ocean/input.nml ? - fabio email 18 Oct}
-
 \begin{itemize}
 \item GFDL_ESM2M_input.nml is from Steve's email 2017-10-18, from an ESM2M config that Jie is currently running. Steve commented ``note that it is coupled, so there are heaps of non-ocean items.  Also note that "ocean_albedo" is set for a coupled model, and it is different for ocean/ice simulations.  That is a major "gotcha" that Spence can share with you if interested.'' Fixed typo: replaced 
 \&diag_inESM2_Control_216.xmltegral_nml
 with
  \&diag_integral_nml
-\item GFDL_ESM2M_input-cut.nml is GFDL_ESM2M_input.nml with irrelevant atmos/ESM namelist groups cut out. See comparison below for changes.
+\item GFDL_ESM2M_input-cut.nml is GFDL_ESM2M_input.nml with irrelevant atmos/ESM namelist groups cut out. See comparison in final section for changes.
 \item MOM_SIS_TOPAZ_input.nml is from MOM_SIS_TOPAZ/INPUT/ in\\ /g/data/ua8/mom/test_data/MOM_SIS_TOPAZ.input.tar.gz, dated 2009-12-16 10:44
 \item fabio_momsis1_input.nml is from Fabio's email 2017-09-20, derived from Paul's 1/4 degree (I think)
 \item paul_momsis025_input.nml is from Paul's email 2017-09-20
@@ -111,6 +109,7 @@ with
 \item hogg_accessom2_1deg_jra55_ryf_input.nml is \\ /short/v45/amh157/access-om2/control/1deg_jra55_ryf/ocean/input.nml
 \item kiss_accessom2_025deg_jra55_ryf_input.m.nml is \\ /short/v45/aek156/access-om2/control/025deg_jra55_ryf/ocean/input.nml
 \item hogg_accessom2_01deg_jra55_ryf_input.nml is \\ /short/v45/amh157/access-om2/control/01deg_jra55_ryf/ocean/input.nml
+%\item fabio_accessom2_1deg_jra55_ryf_input.nml is \\ /home/581/fbd581/payu/access-om2_JRA-ryf/ocean/input.nml (nearly identical to hogg_accessom2_1deg_jra55_ryf_input.nml)
 \end{itemize}
 
 Other useful info:
@@ -153,16 +152,20 @@ Missing variables are shown as blank. Variables are \textcolor{link}{weblinks} t
 \newpage
 \renewcommand{\nmldiffer}[1]{#1} % no special display of differing variables
 \section{Differences between new ACCESS-OM2 configs}
+Only differences are shown. We aim to make this list as short as possible...
 \doscript{/Users/andy/anaconda/bin/python3 /Users/andy/bin/nmltab.py -d --format latex new_accessom2_1deg_jra55_ryf_input.nml new_accessom2_025deg_jra55_ryf_input.nml new_accessom2_01deg_jra55_ryf_input.nml}
 
 \newpage
 \section{Changes in new ACCESS-OM2 configs}
 \subsection{accessom2_1deg_jra55_ryf}
+Only differences are shown (inconsequential where use_this_module = .false. - see complete list below).
 \doscript{/Users/andy/anaconda/bin/python3 /Users/andy/bin/nmltab.py -d --format latex original/hogg_accessom2_1deg_jra55_ryf_input.nml new_accessom2_1deg_jra55_ryf_input.nml }
-\newpage
 \subsection{accessom2_025deg_jra55_ryf}
+Only differences are shown (inconsequential where use_this_module = .false. - see complete list below).\\
+We aim to make this list as short as possible, as this is where we've invested most SU...
 \doscript{/Users/andy/anaconda/bin/python3 /Users/andy/bin/nmltab.py -d --format latex original/kiss_accessom2_025deg_jra55_ryf_input.nml new_accessom2_025deg_jra55_ryf_input.nml}
 \subsection{accessom2_01deg_jra55_ryf}
+Only differences are shown (inconsequential where use_this_module = .false. - see complete list below).
 \doscript{/Users/andy/anaconda/bin/python3 /Users/andy/bin/nmltab.py -d --format latex original/hogg_accessom2_01deg_jra55_ryf_input.nml new_accessom2_01deg_jra55_ryf_input.nml}
 
 \newpage
@@ -170,9 +173,11 @@ Missing variables are shown as blank. Variables are \textcolor{link}{weblinks} t
 \definecolor{hilite}{cmyk}{0, 0, 0.9, 0}\renewcommand{\nmldiffer}[1]{\colorbox{hilite}{#1}}\setlength{\fboxsep}{0pt} % colour highlight of differing variables (requires color package)
 \doscript{/Users/andy/anaconda/bin/python3 /Users/andy/bin/nmltab.py --format latex original/hogg_accessom2_1deg_jra55_ryf_input.nml new_accessom2_1deg_jra55_ryf_input.nml original/kiss_accessom2_025deg_jra55_ryf_input.nml new_accessom2_025deg_jra55_ryf_input.nml original/hogg_accessom2_01deg_jra55_ryf_input.nml new_accessom2_01deg_jra55_ryf_input.nml}
 
-\newpage
-\section{Differences between MOM-SIS and all new configs}
-\doscript{/Users/andy/anaconda/bin/python3 /Users/andy/bin/nmltab.py -d --format latex original/fabio_momsis1_input.nml original/paul_momsis025_input.nml original/fanghua_momsis01v5KDS75_WOA13_input.nml new_accessom2_1deg_jra55_ryf_input.nml new_accessom2_025deg_jra55_ryf_input.nml new_accessom2_01deg_jra55_ryf_input.nml}
+%\newpage
+%\renewcommand{\nmldiffer}[1]{#1} % no special display of differing variables
+%\section{Differences between MOM-SIS and all new configs}
+%Only differences are shown. 
+%\doscript{/Users/andy/anaconda/bin/python3 /Users/andy/bin/nmltab.py -d --format latex original/fabio_momsis1_input.nml original/paul_momsis025_input.nml original/fanghua_momsis01v5KDS75_WOA13_input.nml new_accessom2_1deg_jra55_ryf_input.nml new_accessom2_025deg_jra55_ryf_input.nml new_accessom2_01deg_jra55_ryf_input.nml}
 
 \newpage
 \section{All variables in all 8 configs (differences highlighted)}
@@ -187,7 +192,7 @@ Missing variables are shown as blank. Variables are \textcolor{link}{weblinks} t
 \newpage
 \renewcommand{\nmldiffer}[1]{#1} % no special display of differing variables
 \section{Differences between GFDL_ESM2M_input.nml and GFDL_ESM2M_input-cut.nml}
-\ldots confirming only irrelevant atmos/ESM stuff has been cut
+\ldots just to double-check only irrelevant atmos/ESM stuff has been cut. Only differences are shown. 
 \doscript{/Users/andy/anaconda/bin/python3 /Users/andy/bin/nmltab.py -d --format latex original/GFDL_ESM2M_input.nml original/GFDL_ESM2M_input-cut.nml}
 
 

@@ -114,9 +114,7 @@
 /
 
 &ocean_bih_tracer_nml
-    tracer_mix_micom = .true.
     use_this_module = .false.
-    vel_micom = 0.001
 /
 
 &ocean_bihcst_friction_nml
@@ -361,7 +359,6 @@
 /
 
 &ocean_overflow_nml
-    debug_this_module = .false.
     use_this_module = .false.
 /
 
@@ -454,22 +451,7 @@
 /
 
 &ocean_sigma_transport_nml
-    sigma_advection_on = .false.
-    sigma_advection_sgs_only = .false.
-    sigma_diffusion_on = .true.
-    sigma_diffusivity_ratio = 1e-06
-    sigma_just_in_bottom_cell = .true.
-    sigma_umax = 0.01
-    smooth_sigma_thickness = .true.
-    smooth_sigma_velocity = .true.
-    smooth_velmicom = 0.2
-    thickness_sigma_layer = 100.0
-    thickness_sigma_max = 100.0
-    thickness_sigma_min = 100.0
-    tmask_sigma_on = .false.
-    tracer_mix_micom = .true.
     use_this_module = .false.
-    vel_micom = 0.05
 /
 
 &ocean_solo_nml
@@ -489,7 +471,6 @@
 /
 
 &ocean_sponges_tracer_nml
-    damp_coeff_3d = .false.
     use_this_module = .false.
 /
 
