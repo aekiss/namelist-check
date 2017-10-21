@@ -19,7 +19,8 @@ You may find [nmltab](https://github.com/aekiss/nmltab) useful for comparing nam
 - [ ] cf. GFDL_ESM2M_input-cut.nml
 - [ ] cf. MOM_SIS_TOPAZ_input.nml
 - [ ] is this needed at 1 deg? no other configs other than old access use it
-```&bg_diff_lat_dependence_nml
+```
+&bg_diff_lat_dependence_nml
     bg_diff_eq = 1e-06
     lat_low_bgdiff = 20.0
 /
@@ -36,11 +37,14 @@ You may find [nmltab](https://github.com/aekiss/nmltab) useful for comparing nam
     potrho_min = 1028.0
 /
 ```
-- [ ] many groups (eg &ocean_lap_friction_nml) don't include use_this_module - how many have use_this_module = .false. by default?
+- [ ] many nml groups (eg &ocean_lap_friction_nml) don't include `use_this_module` - how many have `use_this_module = .false.` by default?
 - [ ] ocean_albedo_option = 2 looks dodgy
 - [ ] enable these?
-    - [ ] ocean_overexchange_nml
+    - [ ] ocean_overexchange_nml (Griffies et al 2015: "None of the CM2-O ocean configurations make use of an overflow parameterization.")
     - [ ] ocean_overflow_nml
     - [ ] ocean_overflow_ofp_nml
     - [ ] ocean_mixdownslope_nml
-    - [ ] ocean_sigma_transport_nml (sounds dodgy in docs but GFDL use it)
+    - [ ] ocean_sigma_transport_nml (GFDL use it)
+    - [ ] make exchange reproduce (Bob says it won't slow it down)
+- [ ] make CICE namelists consistent
+- [ ] make MATM namelist consistent
