@@ -108,6 +108,9 @@ linkcolor={link},citecolor={link},urlcolor={link},
 \item kiss_accessom2_025deg_jra55_ryf_input.m.nml is \\ /short/v45/aek156/access-om2/control/025deg_jra55_ryf/ocean/input.nml
 \item hogg_accessom2_01deg_jra55_ryf_input.nml is \\ /short/v45/amh157/access-om2/control/01deg_jra55_ryf/ocean/input.nml
 %\item fabio_accessom2_1deg_jra55_ryf_input.nml is \\ /home/581/fbd581/payu/access-om2_JRA-ryf/ocean/input.nml (nearly identical to hogg_accessom2_1deg_jra55_ryf_input.nml)
+\item kiss_accessom2_025deg_jra55_ryf_logfile.000000.out is the MOM output file\\ 
+/short/v45/aek156/access-om2/control/025deg_jra55_ryf/archive/output144/ocean/logfile.000000.out, \\
+modified by deleting lines not starting with whitespace (regex replace \verb!^[^\s]+.*$! with nothing), replacing salt_flxmh_flux with salt_flx mh_flux, removing ascii gremlins from end of FIELDS_IN and FIELDS_OUT lines,  and deleting the copy of input.nml from the start (to work around bug in nmltab.py). So this shows the values specified in input.nml, plus default values for those not specified in input.nml. 
 \end{itemize}
 
 Other useful info:
@@ -147,6 +150,11 @@ Missing variables are shown as blank. Variables are \textcolor{link}{weblinks} t
 %\definecolor{hilite}{cmyk}{0, 0, 0.9, 0}\renewcommand{\nmldiffer}[1]{\colorbox{hilite}{#1}}\setlength{\fboxsep}{0pt} % colour highlight of differing variables (requires color package)
 %\doscript{/Users/andy/anaconda/bin/python3 /Users/andy/bin/nmltab.py --format latex original/fabio_momsis1_input.nml original/paul_momsis025_input.nml original/fanghua_momsis01v5KDS75_WOA13_input.nml original/hogg_accessom2_1deg_jra55_ryf_input.nml original/kiss_accessom2_025deg_jra55_ryf_input.nml original/hogg_accessom2_01deg_jra55_ryf_input.nml}
 
+%\newpage
+%\definecolor{hilite}{cmyk}{0, 0, 0.9, 0}\renewcommand{\nmldiffer}[1]{\colorbox{hilite}{#1}}\setlength{\fboxsep}{0pt} % colour highlight of differing variables (requires color package)
+%\section{0.25deg ACCESS-OM2 configs (differences highlighted)}
+%\doscript{/Users/andy/anaconda/bin/python3 /Users/andy/bin/nmltab.py --format latex  new_accessom2_025deg_jra55_ryf_input.nml original-tidy/kiss_accessom2_025deg_jra55_ryf_logfile.000000.out }
+
 \newpage
 \renewcommand{\nmldiffer}[1]{#1} % no special display of differing variables
 \section{Differences between new ACCESS-OM2 configs}
@@ -185,7 +193,7 @@ Only differences are shown (inconsequential where use_this_module = .false. - se
 \newpage
 \section{All variables in ACCESS configs (differences highlighted)}
 \definecolor{hilite}{cmyk}{0, 0, 0.9, 0}\renewcommand{\nmldiffer}[1]{\colorbox{hilite}{#1}}\setlength{\fboxsep}{0pt} % colour highlight of differing variables (requires color package)
-\doscript{/Users/andy/anaconda/bin/python3 /Users/andy/bin/nmltab.py --format latex original/russ-accessom-mom4p1-input.nml new_accessom2_1deg_jra55_ryf_input.nml new_accessom2_025deg_jra55_ryf_input.nml new_accessom2_01deg_jra55_ryf_input.nml}
+\doscript{/Users/andy/anaconda/bin/python3 /Users/andy/bin/nmltab.py --format latex original/kiss_accessom2_025deg_jra55_ryf_logfile.000000.out original/russ-accessom-mom4p1-input.nml new_accessom2_1deg_jra55_ryf_input.nml new_accessom2_025deg_jra55_ryf_input.nml new_accessom2_01deg_jra55_ryf_input.nml}
 
 %\newpage
 %\section{All variables in all originals (differences highlighted)}

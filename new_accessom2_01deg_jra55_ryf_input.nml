@@ -613,5 +613,4 @@
     interp_method = 'second_order'
     make_exchange_reproduce = .false.
     nsubset = 16
-    xgrid_log = .false.
 /
