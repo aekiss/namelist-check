@@ -1,0 +1,1754 @@
+
+
+
+
+
+
+
+
+
+
+
+
+
+ &MPP_IO_NML
+ HEADER_BUFFER_VAL       =       16384,
+ GLOBAL_FIELD_ON_ROOT_PE = T,
+ IO_CLOCKS_ON    = F,
+ SHUFFLE =           0,
+ DEFLATE_LEVEL   =          -1
+ /
+
+
+
+
+
+ &FMS_IO_NML
+ FMS_NETCDF_OVERRIDE     = T,
+ FMS_NETCDF_RESTART      = T,
+ THREADING_READ  = multi                           ,
+ FORMAT  = netcdf                          ,
+ READ_ALL_PE     = T,
+ IOSPEC_IEEE32   = -N ieee_32                                                      ,
+ MAX_FILES_W     =          40,
+ MAX_FILES_R     =          40,
+ READ_DATA_BUG   = F,
+ TIME_STAMP_RESTART      = T,
+ PRINT_CHKSUM    = F,
+ SHOW_OPEN_NAMELIST_FILE_WARNING = F,
+ DEBUG_MASK_LIST = F,
+ CHECKSUM_REQUIRED       = T,
+ DR_SET_SIZE     =          10,
+ THREADING_WRITE = single                          ,
+ FILESET_WRITE   = single                          
+ /
+
+
+
+
+
+
+
+
+ &FMS_NML
+ READ_ALL_PE     = T,
+ CLOCK_GRAIN     = LOOP            ,
+ CLOCK_FLAGS     = NONE            ,
+ WARNING_LEVEL   = warning ,
+ IOSPEC_IEEE32   = -N ieee_32                                                      ,
+ STACK_SIZE      =           0,
+ DOMAINS_STACK_SIZE      =           0,
+ PRINT_MEMORY_USAGE      = F
+ /
+ nml_error_codes=
+
+
+
+
+ &OCEAN_SOLO_NML
+ DATE_INIT       = 3*1, 3*0,
+ CALENDAR        = NOLEAP           ,
+ YEARS   =           1,
+ MONTHS  =           0,
+ DAYS    =           0,
+ HOURS   =           0,
+ MINUTES =           0,
+ SECONDS =           0,
+ DT_CPLD =        1800,
+ N_MASK  =           0,
+ LAYOUT_MASK     = 2*0,
+ MASK_LIST       = 4096*0,
+ RESTART_INTERVAL        = 6*0,
+ DEBUG_THIS_MODULE       = F
+ /
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ "TRACER", "atmos_mod", "sphum"                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 
+
+  "TRACER", "atmos_mod", "liq_wat"                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              
+  "TRACER", "atmos_mod", "ice_wat"                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              
+  "TRACER", "atmos_mod", "cld_amt"                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              
+
+
+
+
+       "TRACER", "land_mod", "sphum"                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            
+
+
+
+
+ &DIAG_MANAGER_NML
+ APPEND_PELIST_NAME      = F,
+ MIX_SNAPSHOT_AVERAGE_FIELDS     = F,
+ MAX_OUTPUT_FIELDS       =         300,
+ MAX_INPUT_FIELDS        =         300,
+ MAX_AXES        =          60,
+ DO_DIAG_FIELD_LOG       = F,
+ WRITE_BYTES_IN_FILE     = F,
+ DEBUG_DIAG_MANAGER      = T,
+ MAX_NUM_AXIS_SETS       =          25,
+ MAX_FILES       =          31,
+ USE_CMOR        = F,
+ ISSUE_OOR_WARNINGS      = T,
+ OOR_WARNINGS_FATAL      = F,
+ MAX_OUT_PER_IN_FIELD    =         150,
+ CONSERVE_WATER  = T,
+ REGION_OUT_USE_ALT_VALUE        = T,
+ MAX_FIELD_ATTRIBUTES    =           2,
+ MAX_FILE_ATTRIBUTES     =           2,
+ PREPEND_DATE    = T
+ /
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ &TIME_INTERP_EXTERNAL_NML
+ NUM_IO_BUFFERS  =           2,
+ DEBUG_THIS_MODULE       = F,
+ MAX_FIELDS      =         100,
+ MAX_FILES       =          40
+ /
+
+
+
+
+ &TIME_INTERP_NML
+ PERTHLIKE_BEHAVIOR      = F
+ /
+ &OCEAN_PARAMETERS_NML
+ CP_OCEAN        =   3992.10322329649     ,
+ CP_LIQUID_RUNOFF        =   4218.00000000000     ,
+ CP_SOLID_RUNOFF =   2106.00000000000     ,
+ RHO0    =   1035.00000000000     ,
+ TFREEZE =   273.150000000000     ,
+ OMEGA_EARTH     =  7.292100000000000E-005,
+ GRAV    =   9.80000000000000     
+ /
+
+
+
+
+
+
+
+ &OCEAN_MODEL_NML
+ TIME_TENDENCY   = twolevel                        ,
+ IMPOSE_INIT_FROM_RESTART        = F,
+ REINITIALIZE_THICKNESS  = F,
+ BAROCLINIC_SPLIT        =           1,
+ BAROTROPIC_SPLIT        =          80,
+ SURFACE_HEIGHT_SPLIT    =           1,
+ LAYOUT  =          48,          40,
+ IO_LAYOUT       =           6,           5,
+ DEBUG   = F,
+ VERTICAL_COORDINATE     = zstar                           ,
+ DT_OCEAN        =        1800,
+ CMIP_UNITS      = T,
+ HORIZONTAL_GRID = bgrid                           ,
+ USE_BLOBS       = F,
+ USE_VELOCITY_OVERRIDE   = F,
+ MASK_TABLE      = INPUT/ocean_mask_table                                                                                                          ,
+ INTRODUCE_BLOBS = F,
+ BETA_TXTY       =  0.000000000000000E+000,
+ BETA_TF =  0.000000000000000E+000,
+ BETA_QF =  0.000000000000000E+000,
+ BETA_LWSW       =  0.000000000000000E+000
+ /
+
+
+
+
+ &OCEAN_GRIDS_NML
+ DEBUG_THIS_MODULE       = F,
+ VERBOSE_INIT    = T,
+ READ_RHO0_PROFILE       = F,
+ DO_BITWISE_EXACT_SUM    = F,
+ WRITE_GRID      = F
+ /
+
+
+
+
+ &OCEAN_DOMAINS_NML
+ HALO    =           1,
+ MAX_TRACERS     =           5,
+ X_CYCLIC_OFFSET =           0,
+ Y_CYCLIC_OFFSET =           0
+ /
+
+
+   pe,   is,  ie,  js,  je,    isd, ied, jsd, jed
+
+
+   pe,   is,  ie,  js,  je,    isd, ied, jsd, jed
+
+
+
+ &OCEAN_TOPOG_NML
+ FLAT_BOTTOM     = F,
+ FLAT_BOTTOM_KMT =          50,
+ FLAT_BOTTOM_HT  =   5500.00000000000     ,
+ WRITE_TOPOG     = F,
+ MIN_THICKNESS   =   1.00000000000000     ,
+ KMT_RECOMPUTE   = F,
+ KMT_RECOMPUTE_OFFSET    =           0,
+ DEBUG_THIS_MODULE       = T
+ /
+ &OCEAN_OBC_NML
+ NOBC    =           0,
+ DIRECTION       =                                         ,
+ NAME    = test_obc                        none                            none                            none                            ,
+ IS      = 4*-999,
+ IE      = 4*-999,
+ JS      = 4*-999,
+ JE      = 4*-999,
+ IERS    = 4*-999,
+ IERE    = 4*-999,
+ JERS    = 4*-999,
+ JERE    = 4*-999,
+ ITRS    = 4*-999,
+ ITRE    = 4*-999,
+ JTRS    = 4*-999,
+ JTRE    = 4*-999,
+ OBC_NOR = NOGRAD                                                                                                                          NOGRAD                                                                                                                          NOGRAD                                                                                                                          NOGRAD                                                                                                                          ,
+ OBC_TAN = NOGRAD                                                                                                                          NOGRAD                                                                                                                          NOGRAD                                                                                                                          NOGRAD                                                                                                                          ,
+ OBC_ETA = NOTHIN                                                                                                                          NOTHIN                                                                                                                          NOTHIN                                                                                                                          NOTHIN                                                                                                                          ,
+ OBC_UD  = NOGRAD                                                                                                                          NOGRAD                                                                                                                          NOGRAD                                                                                                                          NOGRAD                                                                                                                          ,
+ OBC_TRA = NOGRAD                                                                                                                          NOGRAD                                                                                                                          NOGRAD                                                                                                                          NOGRAD                                                                                                                          NOGRAD                                                                                                                          NOGRAD                                                                                                                          NOGRAD                                                                                                                          NOGRAD                                                                                                               
+            NOGRAD                                                                                                                          NOGRAD                                                                                                                          NOGRAD                                                                                                                          NOGRAD                                                                                                                          NOGRAD                                                                                                                          NOGRAD                                                                                                                          NOGRAD                                                                                                                          NOGRAD                                                                                                              
+             NOGRAD                                                                                                                          NOGRAD                                                                                                                          NOGRAD                                                                                                                          NOGRAD                                                                                                                          NOGRAD                                                                                                                          NOGRAD                                                                                                                          NOGRAD                                                                                                                          NOGRAD                                                                                                             
+              NOGRAD                                                                                                                          NOGRAD                                                                                                                          NOGRAD                                                                                                                          NOGRAD                                                                                                                          NOGRAD                                                                                                                          NOGRAD                                                                                                                          NOGRAD                                                                                                                          NOGRAD                                                                                                            
+               NOGRAD                                                                                                                          NOGRAD                                                                                                                          NOGRAD                                                                                                                          NOGRAD                                                                                                                          NOGRAD                                                                                                                          NOGRAD                                                                                                                          NOGRAD                                                                                                                          NOGRAD                                                                                                           
+                ,
+ OBC_MIX = NOGRAD                                                                                                                          NOGRAD                                                                                                                          NOGRAD                                                                                                                          NOGRAD                                                                                                                          ,
+ REL_COEF_ETA_IN = 4*0.000000000000000E+000  ,
+ REL_COEF_ETA_OUT        = 4*0.000000000000000E+000  ,
+ REL_ETA_PNTS    = 4*1,
+ REL_CLIN_PNTS   = 40*1,
+ CTROP_MAX       = 4*1.50000000000000        ,
+ CTROP_MIN       = 4*0.100000000000000       ,
+ CTROP_INC       = 4*0.000000000000000E+000  ,
+ CTROP_SMOOTH    = 4*0.700000000000000       ,
+ FILENAME_ETA    = obc_eta_t.nc                                                                                                                                                                                                                                                    none                                                                                                                                                                                                                                                            none                                                                                                                                                                                                                                                            none                                                                                                                                                                                                                                         
+                    ,
+ FIELDNAME_ETA   = eta_t                           none                            none                            none                            ,
+ FILENAME_UD     = obc_ud.nc                                                                                                                                                                                                                                                       none                                                                                                                                                                                                                                                            none                                                                                                                                                                                                                                                            none                                                                                                                                                                                                                                         
+                    ,
+ FIELDNAME_UD    = ud                              none                            none                            none                            ,
+ OBC_CONSIDER_CONVU      = 4*F,
+ OBC_ADJUST_FORCING_BT   = 4*F,
+ OBC_VERT_ADVEL_T        = 4*F,
+ OBC_VERT_ADVEL_U        = 4*F,
+ OBC_ENHANCE_VISC_BACK   = NONE                                                                                                                            NONE                                                                                                                            NONE                                                                                                                            NONE                                                                                                                            ,
+ OBC_ENHANCE_DIFF_BACK   = NONE            NONE            NONE            NONE            ,
+ ENH_PNTS        = 4*1,
+ ENH_FAC_V       = 4*0.900000000000000       ,
+ ENH_FAC_D       = 4*1.00000000000000        ,
+ OBC_RELAX_TRACER        = 40*F,
+ OBC_FLOW_RELAX  = 40*1,
+ OBC_CONSIDER_SOURCES    = 40*F,
+ OBC_TRACER_NO_INFLOW    = 40*F,
+ REL_COEF_TRACER_IN      = 40*0.000000000000000E+000  ,
+ REL_COEF_TRACER_OUT     = 40*0.000000000000000E+000  ,
+ FILENAME_TRACER = INPUT/obc_tr.nc                                                                                                                                                                                                                                                 INPUT/obc_tr.nc                                                                                                                                                                                                                                                 INPUT/obc_tr.nc                                                                                                                                                                                                                                                 INPUT/obc_tr.nc                                                                                                                                                                                                                              
+                    INPUT/obc_tr.nc                                                                                                                                                                                                                                                 INPUT/obc_tr.nc                                                                                                                                                                                                                                                 INPUT/obc_tr.nc                                                                                                                                                                                                                                                 INPUT/obc_tr.nc                                                                                                                                                                                                                             
+                     none                                                                                                                                                                                                                                                            none                                                                                                                                                                                                                                                            none                                                                                                                                                                                                                                                            none                                                                                                                                                                                                                                       
+                      none                                                                                                                                                                                                                                                            none                                                                                                                                                                                                                                                            none                                                                                                                                                                                                                                                            none                                                                                                                                                                                                                                      
+                       none                                                                                                                                                                                                                                                            none                                                                                                                                                                                                                                                            none                                                                                                                                                                                                                                                            none                                                                                                                                                                                                                                     
+                        none                                                                                                                                                                                                                                                            none                                                                                                                                                                                                                                                            none                                                                                                                                                                                                                                                            none                                                                                                                                                                                                                                    
+                         none                                                                                                                                                                                                                                                            none                                                                                                                                                                                                                                                            none                                                                                                                                                                                                                                                            none                                                                                                                                                                                                                                   
+                          none                                                                                                                                                                                                                                                            none                                                                                                                                                                                                                                                            none                                                                                                                                                                                                                                                            none                                                                                                                                                                                                                                  
+                           none                                                                                                                                                                                                                                                            none                                                                                                                                                                                                                                                            none                                                                                                                                                                                                                                                            none                                                                                                                                                                                                                                 
+                            none                                                                                                                                                                                                                                                            none                                                                                                                                                                                                                                                            none                                                                                                                                                                                                                                                            none                                                                                                                                                                                                                                
+                             ,
+ FIELDNAME_TRACER        = temp_obc                        temp_obc                        temp_obc                        temp_obc                        salt_obc                        salt_obc                        salt_obc                        salt_obc                        none                            none                            none                            none                            none                            none                            none                            none                            none                            none                            none                            none                            none                            none                            none                            none                            none                            none                            none                            none                            none                            none                            none                            none 
+                            none                            none                            none                            none                            none                            none                            none                            none                            ,
+ DEBUG_PHASE_SPEED       = F,
+ DEBUG_THIS_MODULE       = F,
+ OBC_DAMP_NEWTON = 4*F,
+ DAMP_FACTOR     = 4*1.00000000000000        
+ /
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ &OCEAN_TRACER_UTIL_NML
+ REBIN_ONTO_RHO_ALL_VALUES       = T,
+ DEBUG_DIAGNOSE_MASS_OF_LAYER    = F,
+ EPSLN_DIAGNOSE_MASS_OF_LAYER    =  1.000000000000000E-005
+ /
+
+
+
+
+ &OCEAN_CORIOLIS_NML
+ DEBUG_THIS_MODULE       = F,
+ USE_THIS_MODULE = T,
+ ACOR    =  0.500000000000000     
+ /
+
+
+
+
+ &OCEAN_VELOCITY_NML
+ DEBUG_THIS_MODULE       = F,
+ WRITE_A_RESTART = T,
+ MAX_CGINT       =   1.50000000000000     ,
+ ZERO_TENDENCY   = F,
+ ZERO_TENDENCY_EXPLICIT_A        = F,
+ ZERO_TENDENCY_EXPLICIT_B        = F,
+ ZERO_TENDENCY_IMPLICIT  = F,
+ TRUNCATE_VELOCITY       = F,
+ TRUNCATE_VERBOSE        = T,
+ TRUNCATE_VELOCITY_LAT   =  0.000000000000000E+000,
+ TRUNCATE_VELOCITY_VALUE =   2.00000000000000     ,
+ ADAMS_BASHFORTH_THIRD   = T,
+ ADAMS_BASHFORTH_EPSILON =  0.600000000000000     ,
+ USE_CONSTANT_VELOCITY   = F,
+ CONSTANT_U      =  0.000000000000000E+000,
+ CONSTANT_V      =  0.000000000000000E+000,
+ UPDATE_VELOCITY_VIA_UPRIME      = T
+ /
+
+
+
+
+ &OCEAN_BAROTROPIC_NML
+ WRITE_A_RESTART = T,
+ ZERO_TENDENCY   = F,
+ ZERO_ETA_IC     = F,
+ ZERO_ETA_T      = F,
+ ZERO_ETA_U      = F,
+ ZERO_CORIOLIS_BT        = F,
+ ZERO_NONLINEAR_FORCING_BT       = F,
+ ZERO_FORCING_BT = F,
+ ZERO_ETA_TENDENCY       = F,
+ BAROTROPIC_TIME_STEPPING_A      = T,
+ BAROTROPIC_TIME_STEPPING_B      = F,
+ TIDAL_FORCING_M2        = F,
+ TIDAL_FORCING_8 = F,
+ TIDAL_FORCING_IDEAL     = F,
+ GEOID_FORCING   = F,
+ ALPHAT  =  0.948000000000000     ,
+ PRED_CORR_GAMMA =  0.200000000000000     ,
+ SMOOTH_ETA_T_BT_LAPLACIAN       = F,
+ SMOOTH_ETA_T_BT_BIHARMONIC      = F,
+ SMOOTH_ETA_T_LAPLACIAN  = T,
+ SMOOTH_ETA_T_BIHARMONIC = F,
+ SMOOTH_ANOMPB_BT_LAPLACIAN      = F,
+ SMOOTH_ANOMPB_BT_BIHARMONIC     = F,
+ SMOOTH_PBOT_T_LAPLACIAN = T,
+ SMOOTH_PBOT_T_BIHARMONIC        = F,
+ SMOOTH_PBOT_T_BIHARMONIC_LEGACY = F,
+ SMOOTH_ETA_DIAG_LAPLACIAN       = T,
+ SMOOTH_ETA_DIAG_BIHARMONIC      = F,
+ VEL_MICOM_LAP   =  5.000000000000000E-002,
+ VEL_MICOM_LAP_DIAG      =  0.200000000000000     ,
+ VEL_MICOM_BIH   =  1.000000000000000E-002,
+ VEL_MICOM_BIH_DIAG      =  0.100000000000000     ,
+ TRUNCATE_ETA    = F,
+ VERBOSE_TRUNCATE        = T,
+ ETA_MAX =   8.00000000000000     ,
+ FRAC_CRIT_CELL_HEIGHT   =  0.200000000000000     ,
+ VERBOSE_INIT    = T,
+ DEBUG_THIS_MODULE       = F,
+ DIAG_STEP       =        4320,
+ ETA_OFFSET      =  1.000000000000000E-012,
+ PBOT_OFFSET     =  1.000000000000000E-012,
+ INITSUM_WITH_BAR_MOM4P0 = F,
+ INITSUM_WITH_BAR_MOM4P1 = T,
+ IDEAL_INITIAL_ETA       = F,
+ IDEAL_INITIAL_ETA_AMPLITUDE     =   5.00000000000000     ,
+ IDEAL_INITIAL_ETA_XWIDTH        =   100000.000000000     ,
+ IDEAL_INITIAL_ETA_YWIDTH        =   100000.000000000     ,
+ UDRHO_BT_LAP    = F,
+ UDRHO_BT_BIH    = F,
+ UDRHO_LAP       = F,
+ UDRHO_BIH       = F,
+ UDRHO_LAP_VEL_MICOM     =  5.000000000000000E-002,
+ UDRHO_BIH_VEL_MICOM     =  1.000000000000000E-002,
+ BAROTROPIC_HALO =          10,
+ DO_BITWISE_EXACT_SUM    = F,
+ USE_LEGACY_BAROTROPIC_HALOS     = F
+ /
+
+
+   pe,   is,  ie,  js,  je,    isd, ied, jsd, jed
+
+
+   pe,   is,  ie,  js,  je,    isd, ied, jsd, jed
+
+
+
+
+ &OCEAN_THICKNESS_NML
+ DEBUG_THIS_MODULE       = F,
+ DEBUG_THIS_MODULE_DETAIL        = F,
+ WRITE_A_RESTART = T,
+ FULL_STEP_TOPOGRAPHY    = F,
+ INITIALIZE_ZERO_ETA     = F,
+ ENFORCE_POSITIVE_DZT    = F,
+ DEPTH_MIN_FOR_SIGMA     =  1.000000000000000E-002,
+ THICKNESS_METHOD        = energetic                       ,
+ READ_RHO0_PROFILE       = F,
+ THICKNESS_DZT_MIN       =   2.00000000000000     ,
+ THICKNESS_DZT_MIN_INIT  =   10.0000000000000     ,
+ RESCALE_MASS_TO_GET_HT_MOD      = F,
+ PBOT0_SIMPLE    = F,
+ EPSILON_INIT_THICKNESS  =  1.000000000000000E-005,
+ READ_RESCALE_RHO0_MASK  = F,
+ RESCALE_RHO0_MASK_GFDL  = F,
+ RESCALE_RHO0_BASIN_LABEL        =  -1.00000000000000     ,
+ RESCALE_RHO0_VALUE      =   1.00000000000000     ,
+ LINEAR_FREE_SURFACE     = F,
+ MAX_NUM_BAD_PRINT       =          25,
+ UPDATE_DZWU_K0  = T
+ /
+ &OCEAN_OPERATORS_NML
+ USE_LEGACY_DIV_UD       = F
+ /
+
+
+   pe,   is,  ie,  js,  je,    isd, ied, jsd, jed
+
+
+
+
+
+
+ &OCEAN_TRACER_NML
+ DEBUG_THIS_MODULE       = F,
+ ZERO_TENDENCY   = F,
+ ZERO_TRACER_SOURCE      = F,
+ WRITE_A_RESTART = T,
+ OCEAN_TPM_DEBUG = F,
+ TMASK_LIMIT_TS_SAME     = T,
+ REMAP_DEPTH_TO_S_INIT   = F,
+ INFLOW_NBOUNDARY        = F,
+ INTERPOLATE_TPROG_TO_PBOTT      = T,
+ INTERPOLATE_TDIAG_TO_PBOTT      = F,
+ LIMIT_AGE_TRACER        = T,
+ AGE_TRACER_MAX_INIT     =  0.000000000000000E+000,
+ FRAZIL_HEATING_BEFORE_VPHYSICS  = F,
+ FRAZIL_HEATING_AFTER_VPHYSICS   = T,
+ COMPUTE_TMASK_LIMIT_ON  = T,
+ USE_TEMPSALT_CHECK_RANGE        = T
+ /
+
+
+
+
+ &OCEAN_TEMPSALT_NML
+ DEBUG_THIS_MODULE       = F,
+ TEMPERATURE_VARIABLE    = potential_temp                  ,
+ POTTEMP_2ND_ITERATION   = T,
+ POTTEMP_EQUAL_CONTEMP   = T,
+ T_MIN   =  -20.0000000000000     ,
+ T_MAX   =   55.0000000000000     ,
+ S_MIN   =  0.000000000000000E+000,
+ S_MAX   =   70.0000000000000     ,
+ T_MIN_LIMIT     =  -5.00000000000000     ,
+ T_MAX_LIMIT     =   32.0000000000000     ,
+ S_MIN_LIMIT     =   2.00000000000000     ,
+ S_MAX_LIMIT     =   42.0000000000000     ,
+ REINIT_TS_WITH_IDEAL    = F,
+ REINIT_TS_WITH_IDEAL_EFOLD      =   1000.00000000000     ,
+ REINIT_TS_WITH_IDEAL_TVALUE     =   10.0000000000000     ,
+ REINIT_TS_WITH_IDEAL_SVALUE     =   30.0000000000000     ,
+ TEOS10  = F
+ /
+
+
+
+ &OCEAN_FRAZIL_NML
+ USE_THIS_MODULE = T,
+ DEBUG_THIS_MODULE       = F,
+ FREEZING_TEMP_SIMPLE    = F,
+ FREEZING_TEMP_PRETEOS10 = T,
+ FREEZING_TEMP_TEOS10    = F,
+ FRAZIL_FACTOR   =   1.00000000000000     ,
+ AIR_SATURATED_WATER     = T,
+ FRAZIL_ONLY_IN_SURFACE  = F
+ /
+
+
+
+
+ &OCEAN_ADVECTION_VELOCITY_NML
+ DEBUG_THIS_MODULE       = F,
+ MAX_ADVECTION_VELOCITY  =  0.500000000000000     ,
+ INFLOW_NBOUNDARY        = F,
+ READ_ADVECTION_VELOCITY = F,
+ READ_ADVECTION_TRANSPORT        = F,
+ CONSTANT_ADVECTION_VELOCITY     = F
+ /
+
+
+
+
+ &OCEAN_DENSITY_NML
+ S_TEST  =   20.0000000000000     ,
+ T_TEST  =   20.0000000000000     ,
+ P_TEST  =   1000.00000000000     ,
+ PRESS_STANDARD  =  0.000000000000000E+000,
+ SN_TEST =   35.0000000000000     ,
+ TN_TEST =   20.0000000000000     ,
+ EOS_LINEAR      = F,
+ ALPHA_LINEAR_EOS        =  0.255000000000000     ,
+ BETA_LINEAR_EOS =  0.000000000000000E+000,
+ EOS_PRETEOS10   = T,
+ EOS_TEOS10      = F,
+ POTRHO_PRESS    =   2000.00000000000     ,
+ POTRHO_MIN      =   1028.00000000000     ,
+ POTRHO_MAX      =   1038.00000000000     ,
+ NEUTRALRHO_MIN  =   1028.00000000000     ,
+ NEUTRALRHO_MAX  =   1038.00000000000     ,
+ LAYER_NK        =          80,
+ THETA_MIN       =  -2.00000000000000     ,
+ THETA_MAX       =   30.0000000000000     ,
+ DEBUG_THIS_MODULE       = F,
+ WRITE_A_RESTART = T,
+ RHO0_DENSITY    = F,
+ DENSITY_EQUAL_POTRHO    = F,
+ BUOYFREQ_SMOOTH_VERT    = T,
+ NUM_121_PASSES  =           1,
+ EPSLN_DRHODZ    =  1.000000000000000E-010,
+ MASK_DOMAIN_RESTART     = F,
+ DO_BITWISE_EXACT_SUM    = F,
+ DRHODZ_DIAG_STABLE      = T,
+ EPSLN_DRHODZ_DIAG       =  1.000000000000000E-010,
+ GRAD_NRHO_LRPOTRHO_COMPUTE      = F,
+ GRAD_NRHO_LRPOTRHO_MAX  =   10.0000000000000     ,
+ GRAD_NRHO_LRPOTRHO_MIN  =   1.00000000000000     ,
+ NEUTRAL_DENSITY_OMEGA   = F,
+ NEUTRAL_DENSITY_POTRHO  = T,
+ SMOOTH_STRATIFICATION_FACTOR    = F,
+ UPDATE_DIAGNOSTIC_FACTORS       = F,
+ SMAX_DIAG       =  -1.00000000000000     ,
+ SMAX_MIN_IN_COLUMN      = F
+ /
+ &OCEAN_BLOB_NML
+ BLOB_SMALL_MASS =   1000.00000000000     ,
+ DEBUG_THIS_MODULE       = F,
+ REALLY_DEBUG    = F,
+ DO_BITWISE_EXACT_SUM    = F,
+ BITWISE_REPRODUCTION    = F,
+ MAX_PROP_THICKNESS      =  0.700000000000000     
+ /
+
+
+
+
+ &OCEAN_PRESSURE_NML
+ DEBUG_THIS_MODULE       = F,
+ ZERO_PRESSURE_FORCE     = F,
+ ZERO_CORRECTION_TERM_GRAD       = F,
+ ZERO_DIAGONAL_PRESS_GRAD        = F,
+ ZERO_ETA_OVER_H_ZSTAR_PRESSURE  = F
+ /
+
+
+
+
+ &OCEAN_VERT_MIX_NML
+ DEBUG_THIS_MODULE       = F,
+ VERT_MIX_SCHEME = kpp_mom4p1,
+ VERBOSE_INIT    = T,
+ AIDIF   =   1.00000000000000     ,
+ VERT_DIFF_BACK_VIA_MAX  = T,
+ USE_EXPLICIT_VERT_DIFFUSE       = T,
+ USE_DIFF_CBT_TABLE      = F,
+ LINEAR_TAPER_DIFF_CBT_TABLE     = F,
+ BRYAN_LEWIS_DIFFUSIVITY = F,
+ BRYAN_LEWIS_LAT_DEPEND  = F,
+ BRYAN_LEWIS_LAT_TRANSITION      =   35.0000000000000     ,
+ AFKPH_90        =  0.550000000000000     ,
+ DFKPH_90        =   1.05000000000000     ,
+ SFKPH_90        =  4.500000000000000E-005,
+ ZFKPH_90        =   250000.000000000     ,
+ AFKPH_00        =  0.550000000000000     ,
+ DFKPH_00        =   1.05000000000000     ,
+ SFKPH_00        =  4.500000000000000E-005,
+ ZFKPH_00        =   250000.000000000     ,
+ VERT_VISC_BACK  = F,
+ VISC_CBU_BACK_MAX       =  1.000000000000000E-002,
+ VISC_CBU_BACK_MIN       =  1.000000000000000E-003,
+ VISC_CBU_BACK_ZMID      =   50.0000000000000     ,
+ VISC_CBU_BACK_ZWID      =   30.0000000000000     ,
+ HWF_DIFFUSIVITY = F,
+ HWF_DEPTH_TRANSITION    =   25000000.0000000     ,
+ HWF_MIN_DIFFUSIVITY     =  2.000000000000000E-006,
+ HWF_30_DIFFUSIVITY      =  2.000000000000000E-005,
+ HWF_N0_2OMEGA   =   20.0000000000000     ,
+ HWF_DIFFUSIVITY_3D      = F,
+ DIFF_CBT_TANH   = F,
+ DIFF_CBT_TANH_MAX       =  1.000000000000000E-003,
+ DIFF_CBT_TANH_MIN       =  2.000000000000000E-005,
+ DIFF_CBT_TANH_ZMID      =   150.000000000000     ,
+ DIFF_CBT_TANH_ZWID      =   30.0000000000000     ,
+ QUEBEC_2009_10_BUG      = F,
+ VMIX_RESCALE_NONBOUSS   = F,
+ VMIX_SET_MIN_DISSIPATION        = F,
+ VMIX_MIN_DISS_CONST     =  1.000000000000000E-007,
+ VMIX_MIN_DISS_BVFREQ_SCALE      =  5.999999999999999E-004,
+ VMIX_MIN_DISS_FLUX_RI_MAX       =  0.200000000000000     ,
+ SMOOTH_RHO_N2   = T,
+ NUM_121_PASSES  =           1
+ /
+
+
+
+ &OCEAN_VERT_UTIL_NML
+ DEBUG_THIS_MODULE       = F,
+ SMOOTH_N2       = T,
+ SMOOTH_RI_NUMBER        = T,
+ NUM_N2_SMOOTH   =           1,
+ NUM_RI_SMOOTH   =           1
+ /
+
+
+
+
+ &OCEAN_VERT_TIDAL_NML
+ USE_THIS_MODULE = T,
+ USE_LEGACY_METHODS      = F,
+ DEBUG_THIS_MODULE       = F,
+ USE_WAVE_DISSIPATION    = T,
+ USE_DRAG_DISSIPATION    = T,
+ READ_ROUGHNESS  = T,
+ READ_TIDE_SPEED = T,
+ DEFAULT_ROUGHNESS_LENGTH        =   25.0000000000000     ,
+ DEFAULT_TIDE_SPEED      =  1.000000000000000E-002,
+ SHELF_DEPTH_CUTOFF      =  -1000.00000000000     ,
+ DECAY_SCALE     =   500.000000000000     ,
+ ROUGHNESS_SCALE =   12000.0000000000     ,
+ TIDAL_DISS_EFFICIENCY   =  0.333330000000000     ,
+ MIXING_EFFICIENCY       =  0.200000000000000     ,
+ MIXING_EFFICIENCY_N2DEPEND      = T,
+ MUNK_ANDERSON_P =  0.250000000000000     ,
+ MUNK_ANDERSON_SIGMA     =   3.00000000000000     ,
+ DRAG_DISSIPATION_EFOLD  = T,
+ DRAG_DISSIPATION_TIDE_PERIOD    =   43200.0000000000     ,
+ DRAG_MASK_DEEP  = T,
+ DRAG_MASK_DEEP_RATIO    =  0.100000000000000     ,
+ BOTTOM_DRAG_CD  =  2.400000000000000E-003,
+ DRHODZ_MIN      =  1.000000000000000E-010,
+ SPEED_MIN       =  5.000000000000000E-003,
+ BACKGROUND_DIFFUSIVITY  =  0.000000000000000E+000,
+ BACKGROUND_VISCOSITY    =  1.000000000000000E-004,
+ MAX_WAVE_DIFFUSIVITY    =  1.000000000000000E-002,
+ MAX_DRAG_DIFFUSIVITY    =  5.000000000000000E-003,
+ SMOOTH_BVFREQ_BOTTOM    = T,
+ VEL_MICOM_SMOOTH        =  0.200000000000000     ,
+ SMOOTH_RHO_N2   = T,
+ NUM_121_PASSES  =           1,
+ WAVE_DIFFUSIVITY_MONOTONIC      = T,
+ TIDE_SPEED_DATA_ON_T_GRID       = T,
+ READING_ROUGHNESS_AMP   = T,
+ READING_ROUGHNESS_LENGTH        = F,
+ READ_WAVE_DISSIPATION   = F,
+ FIXED_WAVE_DISSIPATION  = F,
+ WAVE_ENERGY_FLUX_MAX    =  0.100000000000000     ,
+ USE_LEEWAVE_DISSIPATION = F,
+ READ_LEEWAVE_DISSIPATION        = F,
+ DRAG_DISSIPATION_USE_CDBOT      = T
+ /
+
+
+
+
+ &OCEAN_VERT_KPP_MOM4P1_NML
+ USE_THIS_MODULE = T,
+ SHEAR_INSTABILITY       = T,
+ DOUBLE_DIFFUSION        = T,
+ DIFF_CBT_IW     =  0.000000000000000E+000,
+ VISC_CBU_IW     =  0.000000000000000E+000,
+ VISC_CBU_LIMIT  =  5.000000000000000E-003,
+ DIFF_CBT_LIMIT  =  5.000000000000000E-003,
+ VISC_CON_LIMIT  =  0.100000000000000     ,
+ DIFF_CON_LIMIT  =  0.100000000000000     ,
+ CONCV   =   1.80000000000000     ,
+ RICR    =  0.300000000000000     ,
+ NON_LOCAL_KPP   = T,
+ SMOOTH_BLMC     = F,
+ LGAM    =   1.04000000000000     ,
+ CW_0    =  0.150000000000000     ,
+ L_SMYTH =   2.00000000000000     ,
+ LTMAX   =   5.00000000000000     ,
+ WSTFAC  =  0.600000000000000     ,
+ KL_MIN  =           2,
+ KBL_STANDARD_METHOD     = F,
+ DEBUG_THIS_MODULE       = F,
+ LIMIT_WITH_HEKMAN       = T,
+ LIMIT_GHATS     = F,
+ HBL_WITH_RIT    = F,
+ RADIATION_LARGE = F,
+ RADIATION_ZERO  = F,
+ RADIATION_IOW   = F,
+ USE_SBL_BOTTOM_FLUX     = F,
+ WSFC_COMBINE_RUNOFF_CALVE       = T,
+ BVF_FROM_BELOW  = F,
+ VARIABLE_VTC    = F,
+ USE_MAX_SHEAR   = F,
+ LINEAR_HBL      = T,
+ CALC_VISC_ON_CGRID      = F,
+ SMOOTH_RI_KMAX_EQ_KMU   = T,
+ DO_LANGMUIR     = F
+ /
+
+
+
+
+ &OCEAN_BIH_TRACER_NML
+ USE_THIS_MODULE = F,
+ ABIH    =  0.000000000000000E+000,
+ TRACER_MIX_MICOM        = T,
+ VEL_MICOM       =  1.000000000000000E-003,
+ READ_DIFFUSIVITY_MASK   = F,
+ HORZ_Z_DIFFUSE  = F,
+ HORZ_S_DIFFUSE  = T
+ /
+
+
+
+
+ &OCEAN_LAP_TRACER_NML
+ USE_THIS_MODULE = F,
+ ALAP    =  0.000000000000000E+000,
+ TRACER_MIX_MICOM        = F,
+ VEL_MICOM       =  0.000000000000000E+000,
+ VERBOSE_INIT    = T,
+ READ_DIFFUSIVITY_MASK   = F,
+ HORZ_Z_DIFFUSE  = F,
+ HORZ_S_DIFFUSE  = T
+ /
+
+
+
+
+ &OCEAN_SIGMA_TRANSPORT_NML
+ USE_THIS_MODULE = F,
+ DEBUG_THIS_MODULE       = F,
+ TMASK_SIGMA_ON  = F,
+ SIGMA_DIFFUSION_ON      = T,
+ SIGMA_ADVECTION_ON      = F,
+ SIGMA_ADVECTION_SGS_ONLY        = F,
+ SIGMA_ADVECTION_CHECK   = T,
+ THICKNESS_SIGMA_LAYER   =   100.000000000000     ,
+ THICKNESS_SIGMA_MAX     =   100.000000000000     ,
+ THICKNESS_SIGMA_MIN     =   100.000000000000     ,
+ SIGMA_DIFFUSIVITY       =   1000.00000000000     ,
+ SIGMA_DIFFUSIVITY_RATIO =  1.000000000000000E-006,
+ TRACER_MIX_MICOM        = T,
+ VEL_MICOM       =  5.000000000000000E-002,
+ VERBOSE_INIT    = T,
+ SIGMA_JUST_IN_BOTTOM_CELL       = T,
+ CAMPINGOOSE_MU  =  1.000000000000000E-004,
+ CAMPINGOOSE_DELTA       =  0.333300000000000     ,
+ SIGMA_UMAX      =  1.000000000000000E-002,
+ WRITE_A_RESTART = T,
+ SMOOTH_SIGMA_THICKNESS  = T,
+ SMOOTH_SIGMA_VELOCITY   = T,
+ SMOOTH_VELMICOM =  0.200000000000000     
+ /
+
+
+
+
+ &OCEAN_NPHYSICS_NML
+ USE_THIS_MODULE = F,
+ DEBUG_THIS_MODULE       = F,
+ WRITE_A_RESTART = T,
+ USE_NPHYSICSA   = F,
+ USE_NPHYSICSB   = F,
+ USE_NPHYSICSC   = F
+ /
+
+
+
+
+ &OCEAN_NPHYSICS_NEW_NML
+ USE_THIS_MODULE = F,
+ DRHODZ_SMOOTH_VERT      = F,
+ DRHODZ_SMOOTH_HORZ      = F,
+ SMAX    =  1.000000000000000E-002,
+ VEL_MICOM_SMOOTH        =  0.200000000000000     
+ /
+ &OCEAN_NPHYSICS_UTIL_NEW_NML
+ NUM_121_PASSES  =           1
+ /
+
+
+
+
+ &OCEAN_SUBMESOSCALE_NML
+ USE_THIS_MODULE = T,
+ DEBUG_THIS_MODULE       = F,
+ DIAG_STEP       =        1200,
+ USE_HBLT_CONSTANT       = F,
+ USE_HBLT_EQUAL_MLD      = T,
+ SMOOTH_HBLT     = F,
+ SMOOTH_HBLT_NUM =           2,
+ CONSTANT_HBLT   =   100.000000000000     ,
+ COEFFICIENT_CE  =  5.000000000000000E-002,
+ TIME_CONSTANT   =   86400.0000000000     ,
+ FRONT_LENGTH_CONST      =   5000.00000000000     ,
+ MIN_KBLT        =           4,
+ MINIMUM_HBLT    =  0.000000000000000E+000,
+ SMOOTH_PSI      = T,
+ SMOOTH_PSI_NUM  =           3,
+ FRONT_LENGTH_DEFORM_RADIUS      = T,
+ LIMIT_PSI       = T,
+ USE_PSI_LEGACY  = F,
+ LIMIT_PSI_VELOCITY_SCALE        =  0.500000000000000     ,
+ SUBMESO_LIMIT_FLUX      = T,
+ SMOOTH_ADVECT_TRANSPORT = T,
+ SMOOTH_ADVECT_TRANSPORT_NUM     =           4,
+ SUBMESO_SKEW_FLUX       = T,
+ SUBMESO_ADVECT_FLUX     = F,
+ SUBMESO_ADVECT_UPWIND   = T,
+ SUBMESO_ADVECT_SWEBY    = F,
+ SUBMESO_ADVECT_LIMIT    = T,
+ SUBMESO_ADVECT_ZERO_BDY = T,
+ SUBMESO_DIFFUSION       = F,
+ SUBMESO_DIFFUSION_SCALE =   10.0000000000000     ,
+ SUBMESO_DIFFUSION_BIHARMONIC    = T
+ /
+
+
+   pe,   is,  ie,  js,  je,    isd, ied, jsd, jed
+
+
+   pe,   is,  ie,  js,  je,    isd, ied, jsd, jed
+
+
+
+
+ &OCEAN_LAP_FRICTION_NML
+ LAP_FRICTION_SCHEME     = general   ,
+ DEBUG_THIS_MODULE       = F,
+ WRITE_A_RESTART = T
+ /
+
+
+
+
+ &OCEAN_LAPGEN_FRICTION_NML
+ USE_THIS_MODULE = F,
+ DEBUG_THIS_MODULE       = F,
+ BOTTOM_5POINT   = F,
+ K_SMAG_ISO      =   2.00000000000000     ,
+ K_SMAG_ANISO    =  0.000000000000000E+000,
+ VEL_MICOM_ISO   =  0.000000000000000E+000,
+ VEL_MICOM_ANISO =  0.000000000000000E+000,
+ EQ_VEL_MICOM_ISO        =  0.000000000000000E+000,
+ EQ_VEL_MICOM_ANISO      =  0.000000000000000E+000,
+ EQ_LAT_MICOM    =  0.000000000000000E+000,
+ EQUATORIAL_ZONAL        = F,
+ EQUATORIAL_ZONAL_LAT    =  0.000000000000000E+000,
+ EQUATORIAL_NO_SMAG      = F,
+ VISCOSITY_NCAR  = F,
+ VISCOSITY_NCAR_2000     = T,
+ VISCOSITY_NCAR_2007     = F,
+ NCAR_ISOTROPIC_OFF_EQUATOR      = F,
+ NCAR_ONLY_EQUATORIAL    = F,
+ VCONST_1        =   10000000.0000000     ,
+ VCONST_2        =  0.000000000000000E+000,
+ VCONST_3        =  0.160000000000000     ,
+ VCONST_4        =  2.000000000000000E-008,
+ VCONST_5        =           3,
+ VCONST_6        =   10000000.0000000     ,
+ VCONST_7        =   100.000000000000     ,
+ VCONST_8        =   45.0000000000000     ,
+ DEBUG_NCAR_A    = F,
+ DEBUG_NCAR_B    = F,
+ VISC_VEL_SCALE_LENGTH   =   150000.000000000     ,
+ NEPTUNE = F,
+ NEPTUNE_LENGTH_EQ       =   1200.00000000000     ,
+ NEPTUNE_LENGTH_POLE     =   3000.00000000000     ,
+ NEPTUNE_DEPTH_MIN       =   100.000000000000     ,
+ NEPTUNE_SMOOTH  = T,
+ NEPTUNE_SMOOTH_NUM      =           1,
+ RESTRICT_POLAR_VISC     = F,
+ RESTRICT_POLAR_VISC_LAT =   60.0000000000000     ,
+ RESTRICT_POLAR_VISC_RATIO       =  0.350000000000000     ,
+ NCAR_ISOTROPIC_AT_DEPTH = F,
+ NCAR_ISOTROPIC_DEPTH    =   4000.00000000000     ,
+ NCAR_ISOTROPIC_AT_DEPTH_VISC    =   10000.0000000000     ,
+ DIVERGENCE_DAMP = F,
+ DIVERGENCE_DAMP_VEL_MICOM       =  0.000000000000000E+000,
+ VISCOSITY_SCALE_BY_ROSSBY       = F,
+ VISCOSITY_SCALE_BY_ROSSBY_POWER =   2.00000000000000     ,
+ ASYNC_DOMAIN_UPDATE     = F,
+ BLOCKSIZE       =          10,
+ USE_SIDE_DRAG_FRICTION  = F,
+ SIDE_DRAG_FRICTION_SCALING      =   1.00000000000000     ,
+ SIDE_DRAG_FRICTION_UVMAG_MAX    =   10.0000000000000     ,
+ SIDE_DRAG_FRICTION_MAX  =   1.00000000000000     
+ /
+
+
+
+
+ &OCEAN_BIH_FRICTION_NML
+ BIH_FRICTION_SCHEME     = general   ,
+ DEBUG_THIS_MODULE       = F,
+ WRITE_A_RESTART = T
+ /
+
+
+
+
+ &OCEAN_BIHGEN_FRICTION_NML
+ USE_THIS_MODULE = T,
+ DEBUG_THIS_MODULE       = F,
+ K_SMAG_ISO      =   2.00000000000000     ,
+ K_SMAG_ANISO    =  0.000000000000000E+000,
+ VEL_MICOM_ISO   =  0.000000000000000E+000,
+ VEL_MICOM_ANISO =  0.000000000000000E+000,
+ EQ_VEL_MICOM_ISO        =  0.000000000000000E+000,
+ EQ_VEL_MICOM_ANISO      =  0.000000000000000E+000,
+ EQ_LAT_MICOM    =  0.000000000000000E+000,
+ VEL_MICOM_BOTTOM        =  0.000000000000000E+000,
+ BOTTOM_5POINT   = F,
+ EQUATORIAL_ZONAL        = F,
+ EQUATORIAL_ZONAL_LAT    =  0.000000000000000E+000,
+ VISC_CRIT_SCALE =   1.00000000000000     ,
+ READ_AISO_BIH_BACK      = F,
+ NCAR_BOUNDARY_SCALING   = T,
+ NCAR_RESCALE_POWER      =           2,
+ NCAR_VCONST_4   =  2.000000000000000E-008,
+ NCAR_VCONST_5   =           5,
+ NCAR_BOUNDARY_SCALING_READ      = T,
+ NEPTUNE = F,
+ NEPTUNE_LENGTH_EQ       =   4200.00000000000     ,
+ NEPTUNE_LENGTH_POLE     =   17000.0000000000     ,
+ NEPTUNE_DEPTH_MIN       =   100.000000000000     ,
+ NEPTUNE_SCALING =   1.00000000000000     ,
+ NEPTUNE_SMOOTH  = T,
+ NEPTUNE_SMOOTH_NUM      =           1,
+ VISC_DIVERGE_SCALING    =  0.000000000000000E+000,
+ USE_SIDE_DRAG_FRICTION  = F,
+ SIDE_DRAG_FRICTION_SCALING      =   1.00000000000000     ,
+ SIDE_DRAG_FRICTION_UVMAG_MAX    =   10.0000000000000     ,
+ SIDE_DRAG_FRICTION_MAX  =   1.00000000000000     
+ /
+
+
+
+
+ &OCEAN_MOMENTUM_SOURCE_NML
+ VERBOSE_INIT    = T,
+ USE_THIS_MODULE = T,
+ DEBUG_THIS_MODULE       = F,
+ USE_RAYLEIGH_DAMP_TABLE = T,
+ RAYLEIGH_DAMP_EXP_FROM_BOTTOM   = F,
+ RAYLEIGH_DAMP_EXP_SCALE =   100.000000000000     ,
+ RAYLEIGH_DAMP_EXP_TIME  =   864000.000000000     
+ /
+
+
+
+
+ &OCEAN_FORM_DRAG_NML
+ VERBOSE_INIT    = T,
+ USE_THIS_MODULE = F,
+ DEBUG_THIS_MODULE       = F,
+ USE_FORM_DRAG_AIKI      = F,
+ CPRIME_AIKI     =  0.300000000000000     ,
+ FORM_DRAG_AIKI_BOTTOM_LAYER     = F,
+ FORM_DRAG_AIKI_BOTTOM_KLEVELS   =           3,
+ FORM_DRAG_AIKI_SCALE_BY_GRADH   = F,
+ FORM_DRAG_AIKI_GRADH_MAX        =  5.000000000000000E-002,
+ FORM_DRAG_AIKI_GRADH_POWER      =   1.00000000000000     ,
+ FORM_DRAG_AIKI_SCALE_BY_GM      = F,
+ USE_FORM_DRAG_GBATCH    = F,
+ VISC_CBU_FORM_DRAG_MAX  =   1.00000000000000     ,
+ VEL_FORM_DRAG_MAX       =   1.00000000000000     ,
+ N_SQUARED_MIN   =  1.000000000000000E-010,
+ AGM_FORM_DRAG   =   600.000000000000     ,
+ FORM_DRAG_GBATCH_SURF_LAYER     = F,
+ KSURF_BLAYER_MIN        =           3,
+ FORM_DRAG_GBATCH_ALPHA_F2       = F,
+ FORM_DRAG_GBATCH_ALPHA  =   300000000.000000     ,
+ FORM_DRAG_GBATCH_F2OVERN2       = F,
+ FORM_DRAG_GBATCH_F2OVERNB2      = F,
+ FORM_DRAG_GBATCH_SMOOTH_N2      = F,
+ NUM_121_PASSES  =           1,
+ FORM_DRAG_GBATCH_F2OVERNO2      = F,
+ FORM_DRAG_GBATCH_NO     =  5.000000000000000E-003
+ /
+
+
+
+
+
+
+
+ &OCEAN_TRACER_ADVECT_NML
+ DEBUG_THIS_MODULE       = F,
+ LIMIT_WITH_UPWIND       = F,
+ ADVECT_SWEBY_ALL        = F,
+ ZERO_TRACER_ADVECT_HORZ = F,
+ ZERO_TRACER_ADVECT_VERT = F,
+ WRITE_A_RESTART = T,
+ PSOM_LIMIT_PRATHER      = F,
+ READ_BASIN_MASK = F,
+ ASYNC_DOMAIN_UPDATE     = F
+ /
+
+
+   pe,   is,  ie,  js,  je,    isd, ied, jsd, jed
+
+
+   pe,   is,  ie,  js,  je,    isd, ied, jsd, jed
+
+
+   pe,   is,  ie,  js,  je,    isd, ied, jsd, jed
+
+
+   pe,   is,  ie,  js,  je,    isd, ied, jsd, jed
+
+
+   pe,   is,  ie,  js,  je,    isd, ied, jsd, jed
+
+
+   pe,   is,  ie,  js,  je,    isd, ied, jsd, jed
+
+
+   pe,   is,  ie,  js,  je,    isd, ied, jsd, jed
+
+
+
+
+ &OCEAN_VELOCITY_ADVECT_NML
+ DEBUG_THIS_MODULE       = F,
+ ZERO_VELOCITY_ADVECT_HORZ       = F,
+ ZERO_VELOCITY_ADVECT_VERT       = F,
+ VELOCITY_ADVECT_CENTERED        = T,
+ VELOCITY_ADVECT_UPWIND  = F
+ /
+
+
+
+
+ &OCEAN_CONVECT_NML
+ USE_THIS_MODULE = F,
+ CONVECT_NCON    = F,
+ NCON    =           7,
+ CONVECT_FULL_SCALAR     = T,
+ CONVECT_FULL_VECTOR     = F
+ /
+
+
+
+
+ &OCEAN_SBC_NML
+ TEMP_RESTORE_TSCALE     =  -10.0000000000000     ,
+ SALT_RESTORE_TSCALE     =   60.0000000000000     ,
+ SALT_RESTORE_UNDER_ICE  = T,
+ SALT_RESTORE_AS_SALT_FLUX       = T,
+ ETA_RESTORE_TSCALE      =  -30.0000000000000     ,
+ ZERO_NET_PME_ETA_RESTORE        = F,
+ ROTATE_WINDS    = F,
+ TAUX_SINX       = F,
+ TAUY_SINY       = F,
+ USE_WATERFLUX   = T,
+ WATERFLUX_TAVG  = F,
+ MAX_ICE_THICKNESS       =  0.000000000000000E+000,
+ RUNOFFSPREAD    = F,
+ CALVINGSPREAD   = F,
+ USE_WATERFLUX_OVERRIDE_CALVING  = F,
+ USE_WATERFLUX_OVERRIDE_EVAP     = F,
+ USE_WATERFLUX_OVERRIDE_FPREC    = F,
+ SALINITY_REF    =   35.0000000000000     ,
+ ZERO_NET_SALT_RESTORE   = T,
+ ZERO_NET_WATER_RESTORE  = T,
+ ZERO_NET_WATER_COUPLER  = T,
+ ZERO_NET_WATER_COUPLE_RESTORE   = T,
+ ZERO_NET_SALT_CORRECTION        = F,
+ ZERO_NET_WATER_CORRECTION       = F,
+ DEBUG_WATER_FLUXES      = F,
+ ZERO_WATER_FLUXES       = F,
+ ZERO_CALVING_FLUXES     = F,
+ ZERO_PME_FLUXES = F,
+ ZERO_RUNOFF_FLUXES      = F,
+ ZERO_RIVER_FLUXES       = F,
+ CONVERT_RIVER_TO_PME    = F,
+ ZERO_HEAT_FLUXES        = F,
+ ZERO_SURFACE_STRESS     = F,
+ AVG_SFC_VELOCITY        = T,
+ AVG_SFC_TEMP_SALT_ETA   = T,
+ ICE_SALT_CONCENTRATION  =  5.000000000000000E-003,
+ RUNOFF_SALINITY =  0.000000000000000E+000,
+ RUNOFF_TEMP_MIN =  0.000000000000000E+000,
+ READ_RESTORE_MASK       = F,
+ RESTORE_MASK_GFDL       = F,
+ LAND_MODEL_HEAT_FLUXES  = F,
+ USE_FULL_PATM_FOR_SEA_LEVEL     = F,
+ MAX_DELTA_SALINITY_RESTORE      =  0.500000000000000     ,
+ DO_FLUX_CORRECTION      = F,
+ TEMP_CORRECTION_SCALE   =  0.000000000000000E+000,
+ SALT_CORRECTION_SCALE   =  0.000000000000000E+000,
+ TAU_X_CORRECTION_SCALE  =  0.000000000000000E+000,
+ TAU_Y_CORRECTION_SCALE  =  0.000000000000000E+000,
+ DO_BITWISE_EXACT_SUM    = F,
+ SBC_HEAT_FLUXES_CONST   = F,
+ SBC_HEAT_FLUXES_CONST_VALUE     =  0.000000000000000E+000,
+ SBC_HEAT_FLUXES_CONST_SEASONAL  = F,
+ USE_CONSTANT_SSS_FOR_RESTORE    = F,
+ CONSTANT_SSS_FOR_RESTORE        =   35.0000000000000     ,
+ USE_CONSTANT_SST_FOR_RESTORE    = F,
+ CONSTANT_SST_FOR_RESTORE        =   12.0000000000000     ,
+ USE_IDEAL_CALVING       = F,
+ USE_IDEAL_RUNOFF        = F,
+ CONSTANT_HLF    = T,
+ CONSTANT_HLV    = T,
+ READ_STOKES_DRIFT       = F,
+ DO_LANGMUIR     = F
+ /
+ &OCEAN_SBC_OFAM_NML
+ RESTORE_MASK_OFAM       = F,
+ RIVER_TEMP_OFAM = F
+ /
+
+
+   pe,   is,  ie,  js,  je,    isd, ied, jsd, jed
+
+
+
+
+ &GET_CAL_TIME_NML
+ ALLOW_CALENDAR_CONVERSION       = T
+ /
+
+
+
+
+ &OCEAN_BBC_NML
+ BMF_IMPLICIT    = T,
+ CDBOT   =  1.000000000000000E-003,
+ URESIDUAL       =  5.000000000000000E-002,
+ CDBOT_LAW_OF_WALL       = F,
+ LAW_OF_WALL_ROUGH_LENGTH        =  1.000000000000000E-002,
+ CDBOT_ROUGHNESS_LENGTH  = F,
+ USE_GEOTHERMAL_HEATING  = F,
+ CONVERT_GEOTHERMAL      =  1.000000000000000E-003,
+ CDBOT_HI        =  7.000000000000000E-003,
+ CDBOT_LO        =  1.000000000000000E-003,
+ CDBOT_GAMMA     =   40.0000000000000     ,
+ UVMAG_MAX       =   10.0000000000000     ,
+ BMF_MAX =   1.00000000000000     ,
+ DEBUG_THIS_MODULE       = F,
+ CDBOT_ROUGHNESS_UAMP    = T,
+ CDBOT_HH        =   1100.00000000000     ,
+ CDBOT_UU        =   1.00000000000000     ,
+ CDBOT_WAVE      = F
+ /
+ &OCEAN_BBC_OFAM_NML
+ READ_TIDE_SPEED = F,
+ URESIDUAL2_MAX  =  5.000000000000000E-002
+ /
+
+
+
+
+ &OCEAN_SHORTWAVE_NML
+ USE_THIS_MODULE = T,
+ USE_SHORTWAVE_GFDL      = T,
+ USE_SHORTWAVE_CSIRO     = F,
+ USE_SHORTWAVE_JERLOV    = F,
+ USE_SHORTWAVE_EXT       = F
+ /
+
+
+
+
+ &OCEAN_SHORTWAVE_GFDL_NML
+ USE_THIS_MODULE = T,
+ READ_CHL        = T,
+ CHL_DEFAULT     =  8.000000000000000E-002,
+ ZMAX_PEN        =   300.000000000000     ,
+ SW_FRAC_TOP     =  0.000000000000000E+000,
+ DEBUG_THIS_MODULE       = F,
+ ENFORCE_SW_FRAC = T,
+ OVERRIDE_F_VIS  = T,
+ SW_MOREL_FIXED_DEPTHS   = F,
+ OPTICS_FOR_UNIFORM_CHL  = F,
+ OPTICS_MOREL_ANTOINE    = F,
+ OPTICS_MANIZZA  = T
+ /
+
+
+
+
+ &OCEAN_SPONGES_TRACER_NML
+ USE_THIS_MODULE = F,
+ DAMP_COEFF_3D   = F
+ /
+ &OCEAN_SPONGES_TRACER_OFAM_NML
+ USE_ADAPTIVE_RESTORE    = F,
+ USE_SPONGE_AFTER_INIT   = F,
+ USE_NORMALISING = F,
+ USE_HARD_THUMP  = F,
+ ATHRESH =  0.500000000000000     ,
+ TAUMIN  =   720.000000000000     ,
+ LAMBDA  =  8.300000000000000E-003,
+ NPOWER  =   1.00000000000000     ,
+ DAYS_TO_RESTORE =           1,
+ SECS_TO_RESTORE =           0,
+ DEFLATE = F,
+ DEFLATE_FRACTION        =  0.600000000000000     ,
+ LIMIT_TEMP      = F,
+ LIMIT_TEMP_MIN  =  -1.80000000000000     ,
+ LIMIT_TEMP_RESTORE      =   10800.0000000000     ,
+ LIMIT_SALT      = F,
+ LIMIT_SALT_MIN  =  1.000000000000000E-002,
+ LIMIT_SALT_RESTORE      =   3600.00000000000     
+ /
+
+
+
+
+ &OCEAN_SPONGES_VELOCITY_NML
+ USE_THIS_MODULE = F,
+ DAMP_COEFF_3D   = F
+ /
+ &OCEAN_SPONGES_VELOCITY_OFAM_NML
+ USE_ADAPTIVE_RESTORE    = F,
+ USE_SPONGE_AFTER_INIT   = F,
+ USE_NORMALISING = F,
+ USE_HARD_THUMP  = F,
+ ATHRESH =  0.500000000000000     ,
+ TAUMIN  =   720.000000000000     ,
+ LAMBDA  =  8.300000000000000E-003,
+ NPOWER  =   1.00000000000000     ,
+ DAYS_TO_RESTORE =           1,
+ SECS_TO_RESTORE =           0
+ /
+
+
+
+
+ &OCEAN_SPONGES_ETA_NML
+ USE_THIS_MODULE = F
+ /
+ &OCEAN_SPONGES_ETA_OFAM_NML
+ USE_ADAPTIVE_RESTORE    = F,
+ USE_SPONGE_AFTER_INIT   = F,
+ USE_NORMALISING = F,
+ USE_HARD_THUMP  = F,
+ ATHRESH =  0.500000000000000     ,
+ TAUMIN  =   720.000000000000     ,
+ LAMBDA  =  8.300000000000000E-003,
+ NPOWER  =   1.00000000000000     ,
+ DAYS_TO_RESTORE =           1,
+ SECS_TO_RESTORE =           0
+ /
+
+
+
+
+
+
+
+
+
+
+
+
+ &OCEAN_RIVERSPREAD_NML
+ USE_THIS_MODULE = F,
+ DEBUG_THIS_MODULE       = F,
+ RIVERSPREAD_DIFFUSION   = F,
+ RIVERSPREAD_DIFFUSION_PASSES    =           0,
+ VEL_MICOM_SMOOTH        =  0.200000000000000     
+ /
+
+
+
+
+ &OCEAN_RIVERMIX_NML
+ USE_THIS_MODULE = T,
+ DEBUG_THIS_MODULE       = F,
+ DEBUG_ALL_IN_TOP_CELL   = F,
+ DEBUG_THIS_MODULE_HEAT  = F,
+ RIVER_DIFFUSE_TEMP      = F,
+ RIVER_DIFFUSE_SALT      = F,
+ RIVER_DIFFUSION_THICKNESS       =  0.000000000000000E+000,
+ RIVER_DIFFUSIVITY       =  0.000000000000000E+000,
+ DISCHARGE_COMBINE_RUNOFF_CALVE  = T,
+ RIVER_INSERTION_THICKNESS       =   40.0000000000000     ,
+ RUNOFF_INSERTION_THICKNESS      =  0.000000000000000E+000,
+ CALVING_INSERTION_THICKNESS     =  0.000000000000000E+000,
+ DO_BITWISE_EXACT_SUM    = F
+ /
+
+
+
+
+ &OCEAN_OVEREXCHANGE_NML
+ USE_THIS_MODULE = F,
+ DEBUG_THIS_MODULE       = F,
+ OVEREXCH_NPTS   =           4,
+ OVEREXCH_WIDTH  =           1,
+ OVEREXCH_WEIGHT_FAR     = F,
+ OVERFLOW_MU     =  1.000000000000000E-004,
+ OVERFLOW_DELTA  =  0.333300000000000     ,
+ OVERFLOW_UMAX   =   5.00000000000000     ,
+ DO_BITWISE_EXACT_SUM    = F,
+ OVEREXCH_STABILITY      =  0.250000000000000     ,
+ OVEREXCH_MIN_THICKNESS  =   4.00000000000000     ,
+ OVEREXCH_CHECK_EXTREMA  = F
+ /
+
+
+
+
+ &OCEAN_MIXDOWNSLOPE_NML
+ USE_THIS_MODULE = F,
+ DEBUG_THIS_MODULE       = F,
+ MIXDOWNSLOPE_NPTS       =           1,
+ MIXDOWNSLOPE_WIDTH      =           1,
+ MIXDOWNSLOPE_WEIGHT_FAR = F,
+ MIXDOWNSLOPE_FRAC_CENTRAL       =  0.250000000000000     ,
+ DO_BITWISE_EXACT_SUM    = F,
+ READ_MIXDOWNSLOPE_MASK  = F,
+ MIXDOWNSLOPE_MASK_GFDL  = F
+ /
+
+
+
+
+ &OCEAN_OVERFLOW_NML
+ USE_THIS_MODULE = F,
+ DEBUG_THIS_MODULE       = F,
+ OVERFLOW_MU     =  1.000000000000000E-004,
+ OVERFLOW_DELTA  =  0.333300000000000     ,
+ OVERFLOW_UMAX   =  1.000000000000000E-002,
+ DO_BITWISE_EXACT_SUM    = F,
+ NO_RETURN_FLOW  = F,
+ TRANSPORT_UNITS = Sv                              
+ /
+
+
+
+
+
+
+
+
+
+
+
+
+ &OCEAN_ADV_VEL_DIAG_NML
+ MAX_CFL_VALUE   =   100.000000000000     ,
+ LARGE_CFL_VALUE =   10.0000000000000     ,
+ VERBOSE_CFL     = T,
+ DIAG_STEP       =        4320
+ /
+
+
+
+
+ &OCEAN_TRACER_DIAG_NML
+ TRACER_CONSERVE_DAYS    =   30.0000000000000     ,
+ DIAG_STEP       =        4320,
+ PSU2PPT =   1.00486700000000     ,
+ DEBUG_DIAGNOSE_MIXINGA  = F,
+ DEBUG_DIAGNOSE_MIXINGB  = F,
+ DEBUG_DIAGNOSE_MIXINGC  = F,
+ DEBUG_DIAGNOSE_MIXINGD  = F,
+ SMOOTH_KAPPA_SORT       =           0,
+ RHO_GRAD_MIN    =  1.000000000000000E-005,
+ RHO_GRAD_MAX    =  1.000000000000000E+028,
+ BUOYANCY_CRIT   =  3.000000000000000E-004,
+ DO_BITWISE_EXACT_SUM    = F,
+ FRAZIL_FACTOR   =   1.00000000000000     ,
+ SMOOTH_MLD      = F,
+ SMOOTH_MLD_FOR_SUBDUCTION       = T,
+ DTHETA_CRIT     =   2.00000000000000     
+ /
+
+
+
+
+ &OCEAN_VELOCITY_DIAG_NML
+ DIAG_STEP       =        4320,
+ ENERGY_DIAG_STEP        =        4320,
+ DO_BITWISE_EXACT_SUM    = F,
+ DEBUG_THIS_MODULE       = F,
+ MAX_CFL_VALUE   =   100.000000000000     ,
+ LARGE_CFL_VALUE =   10.0000000000000     ,
+ VERBOSE_CFL     = F,
+ LAND_CELL_NUM_MAX       =         100
+ /
+
+
+
+
+ &OCEAN_INCREMENT_ETA_NML
+ USE_THIS_MODULE = F,
+ FRACTION_INCREMENT      =   1.00000000000000     ,
+ DAYS_TO_INCREMENT       =           1,
+ SECS_TO_INCREMENT       =           0
+ /
+
+
+
+
+ &OCEAN_INCREMENT_TRACER_NML
+ USE_THIS_MODULE = F,
+ FRACTION_INCREMENT      =   1.00000000000000     ,
+ DAYS_TO_INCREMENT       =           1,
+ SECS_TO_INCREMENT       =           0
+ /
+
+
+
+
+ &OCEAN_INCREMENT_VELOCITY_NML
+ USE_THIS_MODULE = F,
+ FRACTION_INCREMENT      =   1.00000000000000     ,
+ DAYS_TO_INCREMENT       =           1,
+ SECS_TO_INCREMENT       =           0
+ /
+
+
+
+
+ &OCEAN_WAVE_NML
+ WAVEDAMP        =  -10.0000000000000     ,
+ DAMP_WHERE_ICE  = T,
+ WRITE_A_RESTART = T,
+ DEBUG_THIS_MODULE       = F,
+ USE_TMA = T,
+ FILTER_WAVE_MOM = T,
+ USE_THIS_MODULE = F
+ /
+ &AUSCOM_ICE_NML
+ DT_CPL  =        1800,
+ TLTHK0  =   10.0000000000000     ,
+ POP_ICEDIAG     = T,
+ DO_ICE_ONCE     = F,
+ KMXICE  =           5,
+ FIXMELTT        = F,
+ TMELT   = -0.216000000000000     ,
+ LIMIT_SRFSTRESS = F,
+ MSTRESS =   2.00000000000000     ,
+ USE_IOAICE      = T,
+ AICE_CUTOFF     =  0.150000000000000     ,
+ ICEMLT_FACTOR   =   1.00000000000000     ,
+ FRAZIL_FACTOR   =   1.00000000000000     ,
+ ICEFORM_ADJ_SALT        = F,
+ SIGN_STFLX      =   1.00000000000000     ,
+ REDSEA_GULFBAY_SFIX     = F,
+ IRS1    =         314,
+ IRE1    =         324,
+ JRS1    =         169,
+ JRE1    =         196,
+ IRS2    =         325,
+ IRE2    =         331,
+ JRS2    =         169,
+ JRE2    =         180,
+ IGS     =         328,
+ IGE     =         345,
+ JGS     =         189,
+ JGE     =         198,
+ KSMAX   =           5,
+ SFIX_HOURS      =          12,
+ CHK_I2O_FIELDS  = F,
+ CHK_O2I_FIELDS  = F,
+ CHK_FIELDS_PERIOD       =           1,
+ CHK_FIELDS_START_TIME   =           0
+ /
+ &OCEAN_DRIFTERS_NML
+ USE_THIS_MODULE = F,
+ OUTPUT_INTERVAL =           1
+ /
+ &DATA_OVERRIDE_NML
+ DEBUG_DATA_OVERRIDE     = F,
+ GRID_CENTER_BUG = F
+ /
+
+
+
+
+ &HORIZ_INTERP_NML
+ REPRODUCE_SIENA = F
+ /
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ &MOM_OASIS3_INTERFACE_NML
+ NUM_FIELDS_IN   =          15,
+ NUM_FIELDS_OUT  =           7,
+ FIELDS_IN       = u_flux  v_flux  lprec   fprec   salt_flx mh_flux sw_flux q_flux  t_flux  lw_flux runof   p       aice    wfimelt wfiform,
+ FIELDS_OUT      = t_surf  s_surf  u_surf  v_surf  dssldx  dssldy  frazil,
+ SEND_BEFORE_OCEAN_UPDATE        = F,
+ SEND_AFTER_OCEAN_UPDATE = T
+ /
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                                     time
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
