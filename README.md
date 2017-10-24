@@ -40,7 +40,7 @@ You may find [nmltab](https://github.com/aekiss/nmltab) useful for comparing nam
 /
 ```
 - [ ] TEOS10: Russ says we're using pre-TEOS10 for performance. Bob: NEMO's polynomial TEOS-10 approx is equally accurate and much faster - see Fabian paper - ask Kial
-- [ ] use do_bitwise_exact_sum in ocean_barotropic_nml, ocean_blob_nml, ocean_density_nml, ocean_grids_nml, ocean_rivermix_nml, ocean_sbc_nml, ocean_tracer_diag_nml, ocean_velocity_diag_nml
+- [ ] use do_bitwise_exact_sum in ocean_barotropic_nml, ocean_blob_nml, ocean_density_nml, ocean_grids_nml, ocean_rivermix_nml, ocean_sbc_nml, ocean_tracer_diag_nml, ocean_velocity_diag_nml ?
 - [ ] use bitwise_reproduction in ocean_blob_nml?
 - [ ] is fms_io_layout overridden by io_layout and therefore redundant?
 - [ ] check: sigma_2 or sigma_0 for
