@@ -231,7 +231,7 @@
     viscosity_ncar_2000 = .false.
     viscosity_ncar_2007 = .true.
     viscosity_scale_by_rossby = .true.
-    viscosity_scale_by_rossby_power = 100.0
+    viscosity_scale_by_rossby_power = 4.0
 /
 
 &ocean_mixdownslope_nml
