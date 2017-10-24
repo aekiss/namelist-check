@@ -413,7 +413,6 @@
 /
 
 &ocean_sponges_tracer_nml
-    damp_coeff_3d = .false.
     use_this_module = .false.
 /
 

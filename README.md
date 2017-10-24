@@ -20,7 +20,7 @@ You may find [nmltab](https://github.com/aekiss/nmltab) useful for comparing nam
 - [x] cf. MOM_SIS_TOPAZ_input.nml
 - [x] cf. MOM output file to show defaults for unspecified values
 - [ ] red sea fix - make generic and also apply to bering str? or just fix both with topg changes and set `redsea_gulfbay_fix=.false.`
-- [ ] is this needed at 1 deg? no other configs other than old access use it. DELETE: not in MOM5 code
+- [x] Deleted this from 1deg: not in MOM5 code; no other configs other than old 1deg access use it
 ```
 &bg_diff_lat_dependence_nml
     bg_diff_eq = 1e-06
@@ -33,13 +33,15 @@ You may find [nmltab](https://github.com/aekiss/nmltab) useful for comparing nam
     domains_stack_size = 115200
 /
 ```
-- [ ] check: Russ said Matt C found `neutral=.false.` is better? or is this not used anyway? Looks like it's for atmosphere not ocean?
+- [ ] check: Russ said Matt C found `neutral=.false.` is better? False is default. or is this not used anyway? Looks like it's for atmosphere not ocean?
 ```
 &monin_obukhov_nml
     neutral = .true.
 /
 ```
 - [ ] TEOS10: Russ says we're using pre-TEOS10 for performance. Bob: NEMO's polynomial TEOS-10 approx is equally accurate and much faster - see Fabian paper - ask Kial
+- [ ] use do_bitwise_exact_sum in ocean_barotropic_nml, ocean_blob_nml, ocean_density_nml, ocean_grids_nml, ocean_rivermix_nml, ocean_sbc_nml, ocean_tracer_diag_nml, ocean_velocity_diag_nml
+- [ ] use bitwise_reproduction in ocean_blob_nml?
 - [ ] is fms_io_layout overridden by io_layout and therefore redundant?
 - [ ] check: sigma_2 or sigma_0 for
 ```
@@ -53,9 +55,10 @@ You may find [nmltab](https://github.com/aekiss/nmltab) useful for comparing nam
     potrho_min = 1028.0
 /
 ```
-- [ ] check: ocean_frazil_nml not used by ACCESS?
-- [ ] viscosity_scale_by_rossby_power: Bob said GFDL uses 100 but GFDL namelist actually uses 4 and default is 2. So should use 4?
-- [ ] many nml groups (eg &ocean_lap_friction_nml) don't include `use_this_module` - how many have `use_this_module = .false.` by default and are therefore disabled?
+- [x] checked ocean_frazil_nml is used by ACCESS
+- [ ] should frazil_factor=0.5 ?
+- [x] viscosity_scale_by_rossby_power: Bob said GFDL uses 100 but GFDL namelist actually uses 4 and default is 2. So set to 4
+- [x] many nml groups (eg &ocean_lap_friction_nml) don't include `use_this_module` - how many have `use_this_module = .false.` by default and are therefore disabled? - checked - all ok
 - [ ] ocean_albedo_option = 2 looks dodgy? or is this not used anyway? (handled by coupler/CICE?)
 - [ ] delete ocean_polar_filter and ocean_vert_kpp_iow? apparently not in MOM5 code
 - [ ] try barotropic_split > 80 to get dt>1800 at 0.25deg (2160s is very nearly OK) - would need to be >84 to pass startup check - but none of the models use >80 - why not? - see COSIMA-TODO.md and run-025deg_jra55_ryf_broadwell_test.md and Ch11 of Griffies2012a-mom-elements-5-updated.pdf
@@ -65,6 +68,7 @@ You may find [nmltab](https://github.com/aekiss/nmltab) useful for comparing nam
 - [ ] check ocean_submesoscale_nml at 1deg - don't use submeso_diffusion_biharmonic?
 - [ ] check ocean_vert_tidal_nml with Steve - use Hogg 1deg settings for background_diffusivity, decay_scale and shelf_depth_cutoff for all resolutions? (nb: shelf_depth_cutoff=-1000 turns this off)
 - [ ] check xgrid_nml settings with Marshall
+- [ ] should we be more precise than `grav = 9.8`?
 - [ ] enable these?
     - [ ] ocean_overexchange_nml (Griffies et al 2015: "None of the CM2-O ocean configurations make use of an overflow parameterization.")
     - [ ] ocean_overflow_nml
@@ -76,7 +80,8 @@ You may find [nmltab](https://github.com/aekiss/nmltab) useful for comparing nam
     - [x] we should go with massless ice for all cases
     - [x] SSS restoring is quite strong (15days) at 1 deg. Should be 60 days
     - [ ] the tracer advection scheme sweby was changed by the multi-dimensional piecewise (MDPPM) method since recommendations from Steve to the ACCESS team back to 2010 (access_ocean_notes attached). - check MDPPM is enabled (is it default?) 
-    - [ ] Also following Steve’s suggestion from last year, the truncate_velocity in ocean_velocity_nml should be set to FALSE.
+    - [x] Also following Steve’s suggestion from last year, the truncate_velocity in ocean_velocity_nml should be set to FALSE.
 - [ ] make CICE namelists consistent
     - [ ] Bob recommends mushy layer physics in CICE, with variable ice salinity
+    - [ ] lcdf64 in setup_nml in cice_in.nml
 - [ ] make MATM namelist consistent

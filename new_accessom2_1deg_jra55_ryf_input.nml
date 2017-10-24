@@ -16,11 +16,6 @@
     use_ioaice = .true.
 /
 
-&bg_diff_lat_dependence_nml
-    bg_diff_eq = 1e-06
-    lat_low_bgdiff = 20.0
-/
-
 &data_override_nml
 /
 
