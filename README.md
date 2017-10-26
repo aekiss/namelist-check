@@ -39,6 +39,7 @@ You may find [nmltab](https://github.com/aekiss/nmltab) useful for comparing nam
     neutral = .true.
 /
 ```
+- [ ] set ncar_boundary_scaling_read=.false.? see https://arccss.slack.com/archives/C6PP0GU9Y/p1508905387000065
 - [ ] TEOS10: Russ says we're using eos_preteos10=.true. for performance. GFDL do this too. Bob: NEMO's polynomial TEOS-10 approx is equally accurate and much faster - see Fabian paper - ask Kial
 - [ ] use do_bitwise_exact_sum in ocean_barotropic_nml (GFDL do), ocean_blob_nml, ocean_density_nml, ocean_grids_nml (GFDL do), ocean_rivermix_nml, ocean_sbc_nml, ocean_tracer_diag_nml, ocean_velocity_diag_nml ? Code doc says "Set true to do bitwise exact global sum. When it is false, the global
 !  sum will be non-bitwise_exact, but will significantly increase efficiency. 
@@ -57,7 +58,8 @@ You may find [nmltab](https://github.com/aekiss/nmltab) useful for comparing nam
 - [ ] We have use_geothermal_heating=.false. (default); GFDL have .true.
 - [ ] GFDL use bottom_5point in &ocean bihgen_friction_nml; don't turn this on unless we need it. our vel_micom_bottom also differs from GFDL but is presumably ignored.
 - [ ] our  vel_micom_iso and visc_crit_scale in &ocean bihgen_friction_nml differ from GFDL
-- [ ] in &ocean_density_nml our neutralrho_max, neutralrho_min differ from GFDL & ACCESS. They look like they were mistakenly copied from potrho_max, potrho_min - **FIX THIS?**
+- [ ] gotcha: GFDL radiation requires a chl file
+- [ ] in &ocean_density_nml our neutralrho_max, neutralrho_min differ from GFDL & ACCESS. They look like they were mistakenly copied from potrho_max, potrho_min - **FIXED**
 - [ ] **FIX THESE** in &ocean_lapgen_friction_nml ?
     - [ ] we (& old ACCESS) have ncar_only_equatorial=.true. at 1deg but GFDL has .false. (the default).
     - [ ] we have viscosity_ncar=.true. at 1deg but GFDL & old ACCESS have .false. (the default).
@@ -84,7 +86,7 @@ You may find [nmltab](https://github.com/aekiss/nmltab) useful for comparing nam
 - [x] viscosity_scale_by_rossby_power: Bob said GFDL uses 100 but GFDL namelist actually uses 4 and default is 2. So set to 4
 - [x] many nml groups (eg &ocean_lap_friction_nml) don't include `use_this_module` - how many have `use_this_module = .false.` by default and are therefore disabled? - checked - all ok
 - [ ] ocean_albedo_option = 2 looks dodgy? or is this not used anyway? (handled by coupler/CICE?) GFDL uses ocean_albedo_option = 5 - but Steve says "Also note that "ocean_albedo" is set for a coupled model, and it is different for ocean/ice simulations.  That is a major "gotcha" that Spence can share with you if interested.'"
-- [ ] will clock_grain='COMPONENT' (used by GFDL) give better performance? or 'NONE'?
+- [x] changed clock_grain from 'LOOP' to 'COMPONENT' (as used by GFDL) - may give better performance?
 - [ ] delete ocean_polar_filter and ocean_vert_kpp_iow? apparently not in MOM5 code
 - [ ] try barotropic_split > 80 to get dt>1800 at 0.25deg (2160s is very nearly OK) - would need to be >84 to pass startup check - but none of the models use >80 - why not? - see COSIMA-TODO.md and run-025deg_jra55_ryf_broadwell_test.md and Ch11 of Griffies2012a-mom-elements-5-updated.pdf
 - [ ] Bob suggests paying close attention to tuning ocean_nphysics*. Also check for consistency across resolutions.
@@ -114,3 +116,34 @@ You may find [nmltab](https://github.com/aekiss/nmltab) useful for comparing nam
 
 #### CHECKED UP TO &ocean_mixdownslope_nml IN SEC 5 (original/GFDL_ESM2M_input-cut.nml    original/MOM_SIS_TOPAZ_input.nml    original/russ-accessom-mom4p1-input.nml    original/hogg_accessom2_1deg_jra55_ryf_input.nml    new_accessom2_1deg_jra55_ryf_input.nml    original/kiss_accessom2_025deg_jra55_ryf_logfile.000000.out        new_accessom2_025deg_jra55_ryf_input.nml    original/hogg_accessom2_01deg_jra55_ryf_input.nml    new_accessom2_01deg_jra55_ryf_input.nml )
 
+
+also see Aidan's namelist recommendations (email 2017-10-26):
+1. You've got debugging turned on for the ocean_tracer_advect module, which is fine if you want to debug tracer advection, but otherwise just takes extra time
+ 
+&ocean_tracer_advect_nml
+      debug_this_module=.false.
+      advect_sweby_all=.false.
+/
+ 
+2. The minimum salt is negative, but the model will blow up with salinity < 0. Probably not important, but I see this a lot in MOM namelists and often wonder why it is
+ 
+&ocean_tempsalt_nml
+      s_min = -1.0
+/
+ 
+3. You have barotropic smoothing instead of laplacian. This is not recommended explicitly in the code
+ 
+&ocean_barotropic_nml
+      smooth_eta_t_laplacian=.false.
+      smooth_eta_t_biharmonic=.true.
+/
+ 
+4. Russ advised me that kbl_standard_method and smooth_blmc should always be set to false
+ 
+&ocean_vert_kpp_nml
+      smooth_blmc=.true.
+      kbl_standard_method=.true.
+/
+ 
+ 
+5. All your diag_step variables are set to 120. For your 1800s time step this is every 60 hours. If you're in production mode and don't need to monitor these then the GFDL people typically set them to a month, or even the entire runtime (1 year?).
