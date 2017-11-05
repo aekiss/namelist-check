@@ -209,22 +209,12 @@
     bottom_5point = .true.
     k_smag_aniso = 0.0
     k_smag_iso = 0.0
-    ncar_only_equatorial = .true.
     restrict_polar_visc = .true.
     restrict_polar_visc_lat = 60.0
     restrict_polar_visc_ratio = 0.35
     use_this_module = .true.
-    vconst_1 = 8000000.0
-    vconst_2 = 0.0
-    vconst_3 = 0.8
-    vconst_4 = 5e-09
-    vconst_5 = 3
-    vconst_6 = 300000000.0
-    vconst_7 = 100.0
     vel_micom_iso = 0.1
-    viscosity_ncar = .true.
-    viscosity_ncar_2000 = .false.
-    viscosity_ncar_2007 = .true.
+    viscosity_ncar = .false.
     viscosity_scale_by_rossby = .true.
     viscosity_scale_by_rossby_power = 4.0
 /
