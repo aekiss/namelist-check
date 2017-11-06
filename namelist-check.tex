@@ -103,6 +103,7 @@ linkcolor={link},citecolor={link},urlcolor={link},
 %scp -rp aek156@r-dm.nci.org.au:/short/v45/amh157/access-om2/control/01deg_jra55_ryf/ocean/input.nml original/hogg_accessom2_01deg_jra55_ryf_input.nml
 
 \begin{itemize}
+\item 1deg_jra55v13_ryf9091_spinup_A-input.nml is Andy's 1deg namelist from 2017-11-06: /g/data3/hh5/tmp/cosima/access-om2/1deg_jra55v13_ryf9091_spinup_A/output039/ocean/input.nml
 %\item GFDL_ESM2M_input.nml is from Steve's email 2017-10-18, from an ESM2M config that Jie is currently running. Steve commented ``note that it is coupled, so there are heaps of non-ocean items.  Also note that "ocean_albedo" is set for a coupled model, and it is different for ocean/ice simulations.  That is a major "gotcha" that Spence can share with you if interested.'' Fixed typo: replaced  \&diag_inESM2_Control_216.xmltegral_nml with \&diag_integral_nml
 \item GFDL_ESM2M_input-cut.nml is GFDL_ESM2M_input.nml from Steve's email 2017-10-18 with irrelevant atmos/ESM namelist groups cut out. %See comparison in final section for changes.
 \item MOM_SIS_TOPAZ_input.nml is from MOM_SIS_TOPAZ/INPUT/ in\\ /g/data/ua8/mom/test_data/MOM_SIS_TOPAZ.input.tar.gz, dated 2009-12-16 10:44
@@ -229,6 +230,12 @@ We aim to have as few differences as possible, as this is where we've invested m
 %\section{Differences between GFDL_ESM2M_input.nml and GFDL_ESM2M_input-cut.nml}
 %\ldots just to double-check only irrelevant atmos/ESM stuff has been cut. Only differences are shown. 
 %\doscript{/Users/andy/anaconda/bin/python3 /Users/andy/bin/nmltab.py -d --format latex original/GFDL_ESM2M_input.nml original/GFDL_ESM2M_input-cut.nml}
+
+\newpage
+\section{1 deg configs (differences only)}
+%\definecolor{hilite}{cmyk}{0, 0, 0.9, 0}\renewcommand{\nmldiffer}[1]{\colorbox{hilite}{#1}}\setlength{\fboxsep}{0pt} % colour highlight of differing variables (requires color package)
+\renewcommand{\nmldiffer}[1]{#1} % no special display of differing variables
+\doscript{/Users/andy/anaconda/bin/python3 /Users/andy/bin/nmltab.py  -d --format latex     original/russ-accessom-mom4p1-input.nml     original/hogg_accessom2_1deg_jra55_ryf_input.nml     1deg_jra55v13_ryf9091_spinup_A-input.nml     new_accessom2_1deg_jra55_ryf_input.nml     original/GFDL_ESM2M_input-cut.nml}
 
 
 \end{document}  

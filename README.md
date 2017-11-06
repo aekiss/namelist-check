@@ -14,13 +14,12 @@ new_accessom2_01deg_jra55_ryf_input.nml
 You may find [nmltab](https://github.com/aekiss/nmltab) useful for comparing namelists.
 
 ## To do
-- [ ] make changes discussed in Slack: <https://arccss.slack.com/archives/C6PP0GU9Y/p1508899952000034>
+- [x] made changes discussed in Slack up to 2017-11-05: <https://arccss.slack.com/archives/C6PP0GU9Y/p1508899952000034>
 - [x] make agreed nml changes
 - [ ] cf. Griffies et al. (2015) p973
 - [x] cf. GFDL_ESM2M_input-cut.nml
 - [x] cf. MOM_SIS_TOPAZ_input.nml
 - [x] cf. MOM output file to show defaults for unspecified values
-- [ ] red sea fix - make generic and also apply to bering str? or just fix both with topg changes and set `redsea_gulfbay_fix=.false.`
 - [x] Deleted this from 1deg: not in MOM5 code; no other configs other than old 1deg access use it
 ```
 &bg_diff_lat_dependence_nml
@@ -42,7 +41,7 @@ You may find [nmltab](https://github.com/aekiss/nmltab) useful for comparing nam
 ```
 - [ ] set ncar_boundary_scaling_read=.false. for first run only - see https://arccss.slack.com/archives/C6PP0GU9Y/p1508905387000065
 - [ ] TEOS10: Russ says we're using eos_preteos10=.true. for performance. GFDL do this too. Bob: NEMO's polynomial TEOS-10 approx is equally accurate and much faster - see Fabian paper - ask Kial
-- [ ] use do_bitwise_exact_sum in ocean_barotropic_nml (GFDL do), ocean_blob_nml, ocean_density_nml, ocean_grids_nml (GFDL do), ocean_rivermix_nml, ocean_sbc_nml, ocean_tracer_diag_nml, ocean_velocity_diag_nml ? Code doc says "Set true to do bitwise exact global sum. When it is false, the global
+- [ ] use do_bitwise_exact_sum in ocean_barotropic_nml (ESM2M does), ocean_blob_nml, ocean_density_nml, ocean_grids_nml (ESM2M does), ocean_rivermix_nml (ESM2M does), ocean_sbc_nml, ocean_tracer_diag_nml (GFDL *don't*), ocean_velocity_diag_nml ? Code doc says "Set true to do bitwise exact global sum. When it is false, the global
 !  sum will be non-bitwise_exact, but will significantly increase efficiency. 
 !  Default do_bitwise_exact_sum=.false." but is this out of date? Bob says the exact order-independent summation has been put into latest FMS - so check whether it's in the version we use. 
 - [ ] use bitwise_reproduction in ocean_blob_nml?
@@ -52,16 +51,15 @@ You may find [nmltab](https://github.com/aekiss/nmltab) useful for comparing nam
 - [ ] ESM2M has smooth_pbot_t_biharmonic=.true. but we have .false. (the default). Not used in depth based coords anyway.
 - [ ] ESM2M has smooth_pbot_t_laplacian=.false. but we have .true. (the default). Not used in depth based coords anyway.
 - [ ] We have vel_micom_lap_diag=0.2 (the default) but ESM2M uses 1.0
-- [ ] We use cdbot=0.001; ESM2M uses 0.002
-- [ ] We use cdbot_hi=0.007; efault is 0.003
-- [ ] We use cdbot_roughness_uamp=.true.; ESM2M uses .false. (default). "This approach is more relevant for coarse models
-!  than the constant roughness length used in the cdbot_law_of_wall option"
-- [ ] We have use_geothermal_heating=.false. (default); ESM2M has .true.
-- [ ] ESM2M uses bottom_5point in &ocean bihgen_friction_nml; don't turn this on unless we need it. our vel_micom_bottom also differs from ESM2M but is presumably ignored.
-- [ ] our  vel_micom_iso and visc_crit_scale in &ocean bihgen_friction_nml differ from ESM2M
-- [ ] gotcha: ESM2M radiation requires a chl file
+- [x] We use cdbot=0.001; ESM2M uses 0.002 - that's ok - see <https://arccss.slack.com/archives/C6PP0GU9Y/p1509192485000002?thread_ts=1509185894.000029&cid=C6PP0GU9Y>
+- [x] We use cdbot_hi=0.007; ESM2M uses default (0.003) - that's ok - see <https://arccss.slack.com/archives/C6PP0GU9Y/p1509192485000002?thread_ts=1509185894.000029&cid=C6PP0GU9Y>
+- [x] We use cdbot_roughness_uamp=.true.; ESM2M uses .false. (default). "This approach is more relevant for coarse models than the constant roughness length used in the cdbot_law_of_wall option" - that's ok - see <https://arccss.slack.com/archives/C6PP0GU9Y/p1509192485000002?thread_ts=1509185894.000029&cid=C6PP0GU9Y>
+- [x] We have use_geothermal_heating=.false. (default); ESM2M has .true. - leave this .false. for now - heating data is not well constrained - see <https://arccss.slack.com/archives/C6PP0GU9Y/p1509192485000002?thread_ts=1509185894.000029&cid=C6PP0GU9Y>
+- [ ] ESM2M uses bottom_5point in &ocean_bihgen_friction_nml; don't turn this on unless we need it? It's on at 1 deg but not higher. our vel_micom_bottom also differs from ESM2M at 0.25, 0.1deg (matches at 1deg) but is presumably ignored.- see <https://arccss.slack.com/archives/C6PP0GU9Y/p1509192485000002?thread_ts=1509185894.000029&cid=C6PP0GU9Y>
+- [ ] our vel_micom_iso and visc_crit_scale in &ocean_bihgen_friction_nml matches  ESM2M at 1 deg but differs at 0.25, 0.1 deg - see <https://arccss.slack.com/archives/C6PP0GU9Y/p1509192485000002?thread_ts=1509185894.000029&cid=C6PP0GU9Y>
+- [ ] ESM2M radiation requires a chl file - see <https://arccss.slack.com/archives/C6PP0GU9Y/p1509185901000006>
 - [x] in &ocean_density_nml our neutralrho_max, neutralrho_min differ from ESM2M & ACCESS. They look like they were mistakenly copied from potrho_max, potrho_min - **FIXED**
-- [x] **FIXED THESE** in &ocean_lapgen_friction_nml
+- [x] FIXED THESE in &ocean_lapgen_friction_nml
     - [x] removed ncar_only_equatorial=.true. at 1deg to match ESM2M (default is false) - differs from old ACCESS  <https://arccss.slack.com/archives/C6PP0GU9Y/p1509192207000072?thread_ts=1509185883.000090&cid=C6PP0GU9Y>
     - [x] changed viscosity_ncar to .false. at 1deg to match ESM2M & old ACCESS have .false. (the default). see  <https://arccss.slack.com/archives/C6PP0GU9Y/p1509192207000072?thread_ts=1509185883.000090&cid=C6PP0GU9Y>
     - [x] vconst1,3,4,6 differed from default in 1deg; set to default to match ESM2M - see <https://arccss.slack.com/archives/C6PP0GU9Y/p1509192207000072?thread_ts=1509185883.000090&cid=C6PP0GU9Y>
@@ -148,3 +146,13 @@ Aidan's namelist recommendations (email 2017-10-26) have all been made:
  
  
 5. All your diag_step variables are set to 120. For your 1800s time step this is every 60 hours. If you're in production mode and don't need to monitor these then the GFDL people typically set them to a month, or even the entire runtime (1 year?).
+
+
+# to check with Andy:
+## &ocean_bihgen_friction_nml
+- [ ] ncar_boundary_scaling_read = .true.
+- [ ] vel_micom_bottom = 0.1
+
+## &ocean_lapgen_friction_nml
+- [ ] viscosity_ncar_2000 = .true. 
+- [ ] red sea fix - make generic and also apply to bering str? or just fix both with topg changes and set `redsea_gulfbay_fix=.false.`? But Andy found topog changes alone did not fix it, so needed to turn fix on as well: <https://arccss.slack.com/archives/C6PP0GU9Y/p1509922922000020> **so should topog changes be reverted?**
