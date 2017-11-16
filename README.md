@@ -152,7 +152,26 @@ Aidan's namelist recommendations (email 2017-10-26) have all been made:
 ## &ocean_bihgen_friction_nml
 - [ ] ncar_boundary_scaling_read = .true.
 - [ ] vel_micom_bottom = 0.1
+- [ ] matched &ocean_bihgen_friction_nml to ESM2M following https://arccss.slack.com/archives/C6PP0GU9Y/p1509185883000090 - but now these differ from higher resolution
 
 ## &ocean_lapgen_friction_nml
-- [ ] viscosity_ncar_2000 = .true. 
+- [ ] viscosity_ncar_2000 = .true. by default and in ESM2M
+
+## Other
 - [ ] red sea fix - make generic and also apply to bering str? or just fix both with topg changes and set `redsea_gulfbay_fix=.false.`? But Andy found topog changes alone did not fix it, so needed to turn fix on as well: <https://arccss.slack.com/archives/C6PP0GU9Y/p1509922922000020> **so should topog changes be reverted?**
+
+##CICE5p1
+
+see AK email to Petra 2017-11-15 and highlights in HunkeLipscombTurnerJefferyElliott2015a-CICE5p1.pdf
+
+## cice message:
+```
+cat work/ice/ice_diag.d  
+ --------------------------------
+   CICE model diagnostic output  
+ --------------------------------
+  
+ WARNING: ktherm = 1 and tfrz_option = mushy
+ WARNING: For consistency, set tfrz_option = linear_salt
+ ```
+so should set ktherm = 2 (mushy ice)
