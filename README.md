@@ -164,7 +164,7 @@ Aidan's namelist recommendations (email 2017-10-26) have all been made:
 
 see AK email to Petra 2017-11-15 and highlights in HunkeLipscombTurnerJefferyElliott2015a-CICE5p1.pdf
 
-## cice message:
+- [x] cice_in.nml: set ktherm = 2 (mushy ice); should fix cice message:
 ```
 cat work/ice/ice_diag.d  
  --------------------------------
@@ -174,4 +174,4 @@ cat work/ice/ice_diag.d
  WARNING: ktherm = 1 and tfrz_option = mushy
  WARNING: For consistency, set tfrz_option = linear_salt
  ```
-so should set ktherm = 2 (mushy ice)
+so should set 

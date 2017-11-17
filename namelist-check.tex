@@ -243,7 +243,7 @@ We aim to have as few differences as possible, as this is where we've invested m
 
 \newpage
 \section{CICE namelists 'cice_in.nml', 'input_ice.nml', 'input_ice_gfdl.nml', 'input_ice_monin.nml'}
-\definecolor{hilite}{cmyk}{0, 0, 0.9, 0}\renewcommand{\nmldiffer}[1]{\colorbox{hilite}{#1}}\setlength{\fboxsep}{0pt} % colour highlight of differing variables (requires color package)
+\renewcommand{\nmllink}[2]{\href{https://github.com/OceansAus/cice5/search?q=#2}{#1}} % link to documentation (requires hyperref package)
 CICE documentation is here: \url{http://oceans11.lanl.gov/trac/CICE/attachment/wiki/WikiStart/cicedoc.pdf?format=raw} (HunkeLipscombTurnerJefferyElliott2015a-CICE5p1.pdf).
 % or here once CICE server is shut down: \url{https://github.com/OceansAus/cice5/blob/fe7300227107bde802a217ff0d6ef7f92a6eb6c2/doc/cicedoc.pdf}
 Section 4.5.1 explains the meaning of '1', 'h', 'd', 'm', 'y', 'x' and their dependence on \textsf{\nmllink{histfreq}{histfreq}} and  \textsf{\nmllink{histfreq_n}{histfreq_n}}.
@@ -252,7 +252,7 @@ See email to Petra 2017-11-15 and highlights in HunkeLipscombTurnerJefferyElliot
 \TODO{check whether all ice nmls are relevant}
 \subsection{cice\_in.nml}
 \subsubsection{All variables in new configs (differences highlighted)}
-\renewcommand{\nmllink}[2]{\href{https://github.com/OceansAus/matm/search?q=#2}{#1}} % link to documentation (requires hyperref package)
+\definecolor{hilite}{cmyk}{0, 0, 0.9, 0}\renewcommand{\nmldiffer}[1]{\colorbox{hilite}{#1}}\setlength{\fboxsep}{0pt} % colour highlight of differing variables (requires color package)
 \doscript{/Users/andy/anaconda/bin/python3 /Users/andy/bin/nmltab.py --format latex       new/control/1deg_jra55_ryf/ice/cice_in.nml           new/control/025deg_jra55_ryf/ice/cice_in.nml        new/control/01deg_jra55_ryf/ice/cice_in.nml}
 \subsubsection{Old and new configs (differences only)}
 \renewcommand{\nmldiffer}[1]{#1} % no special display of differing variables
@@ -262,7 +262,7 @@ See email to Petra 2017-11-15 and highlights in HunkeLipscombTurnerJefferyElliot
 
 \subsection{input\_ice.nml}
 \subsubsection{All variables in new configs (differences highlighted)}
-\renewcommand{\nmllink}[2]{\href{https://github.com/OceansAus/matm/search?q=#2}{#1}} % link to documentation (requires hyperref package)
+\definecolor{hilite}{cmyk}{0, 0, 0.9, 0}\renewcommand{\nmldiffer}[1]{\colorbox{hilite}{#1}}\setlength{\fboxsep}{0pt} % colour highlight of differing variables (requires color package)
 \doscript{/Users/andy/anaconda/bin/python3 /Users/andy/bin/nmltab.py --format latex       new/control/1deg_jra55_ryf/ice/input_ice.nml           new/control/025deg_jra55_ryf/ice/input_ice.nml        new/control/01deg_jra55_ryf/ice/input_ice.nml}
 \subsubsection{Old and new configs (differences only)}
 \renewcommand{\nmldiffer}[1]{#1} % no special display of differing variables
@@ -272,7 +272,7 @@ See email to Petra 2017-11-15 and highlights in HunkeLipscombTurnerJefferyElliot
 
 \subsection{input\_ice\_gfdl.nml}
 \subsubsection{All variables in new configs (differences highlighted)}
-\renewcommand{\nmllink}[2]{\href{https://github.com/OceansAus/matm/search?q=#2}{#1}} % link to documentation (requires hyperref package)
+\definecolor{hilite}{cmyk}{0, 0, 0.9, 0}\renewcommand{\nmldiffer}[1]{\colorbox{hilite}{#1}}\setlength{\fboxsep}{0pt} % colour highlight of differing variables (requires color package)
 \doscript{/Users/andy/anaconda/bin/python3 /Users/andy/bin/nmltab.py --format latex       new/control/1deg_jra55_ryf/ice/input_ice_gfdl.nml           new/control/025deg_jra55_ryf/ice/input_ice_gfdl.nml        new/control/01deg_jra55_ryf/ice/input_ice_gfdl.nml}
 \subsubsection{Old and new configs (differences only)}
 \renewcommand{\nmldiffer}[1]{#1} % no special display of differing variables
@@ -282,7 +282,7 @@ See email to Petra 2017-11-15 and highlights in HunkeLipscombTurnerJefferyElliot
 
 \subsection{input\_ice\_monin.nml}
 \subsubsection{All variables in new configs (differences highlighted)}
-\renewcommand{\nmllink}[2]{\href{https://github.com/OceansAus/matm/search?q=#2}{#1}} % link to documentation (requires hyperref package)
+\definecolor{hilite}{cmyk}{0, 0, 0.9, 0}\renewcommand{\nmldiffer}[1]{\colorbox{hilite}{#1}}\setlength{\fboxsep}{0pt} % colour highlight of differing variables (requires color package)
 \doscript{/Users/andy/anaconda/bin/python3 /Users/andy/bin/nmltab.py --format latex       new/control/1deg_jra55_ryf/ice/input_ice_monin.nml           new/control/025deg_jra55_ryf/ice/input_ice_monin.nml        new/control/01deg_jra55_ryf/ice/input_ice_monin.nml}
 \subsubsection{Old and new configs (differences only)}
 \renewcommand{\nmldiffer}[1]{#1} % no special display of differing variables
@@ -292,9 +292,9 @@ See email to Petra 2017-11-15 and highlights in HunkeLipscombTurnerJefferyElliot
 
 \newpage
 \section{MATM namelist `input\_atm.nml'}
-\definecolor{hilite}{cmyk}{0, 0, 0.9, 0}\renewcommand{\nmldiffer}[1]{\colorbox{hilite}{#1}}\setlength{\fboxsep}{0pt} % colour highlight of differing variables (requires color package)
-\subsection{All variables in new configs (differences highlighted)}
 \renewcommand{\nmllink}[2]{\href{https://github.com/OceansAus/matm/search?q=#2}{#1}} % link to documentation (requires hyperref package)
+\subsection{All variables in new configs (differences highlighted)}
+\definecolor{hilite}{cmyk}{0, 0, 0.9, 0}\renewcommand{\nmldiffer}[1]{\colorbox{hilite}{#1}}\setlength{\fboxsep}{0pt} % colour highlight of differing variables (requires color package)
 \doscript{/Users/andy/anaconda/bin/python3 /Users/andy/bin/nmltab.py --format latex       new/control/1deg_jra55_ryf/atmosphere/input_atm.nml          new/control/025deg_jra55_ryf/atmosphere/input_atm.nml       new/control/01deg_jra55_ryf/atmosphere/input_atm.nml}
 \subsubsection{Old and new configs (differences only)}
 \renewcommand{\nmldiffer}[1]{#1} % no special display of differing variables
