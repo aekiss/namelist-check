@@ -124,7 +124,7 @@
     k_smag_aniso = 0.0
     k_smag_iso = 2.0
     ncar_boundary_scaling = .true.
-    ncar_boundary_scaling_read = .true.
+    ncar_boundary_scaling_read = .false.
     ncar_rescale_power = 2
     ncar_vconst_4 = 2e-08
     ncar_vconst_5 = 5

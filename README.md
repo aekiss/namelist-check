@@ -3,13 +3,9 @@ The commit history of this repo tracks the changes made in developing namelists 
 
 See namelist-check.pdf for an overview of namelists.
 
-New namelists are:
+New namelists are in `new/control`
 
-new_accessom2_1deg_jra55_ryf_input.nml
-
-new_accessom2_025deg_jra55_ryf_input.nml
-
-new_accessom2_01deg_jra55_ryf_input.nml
+Run `rsync_nml_from_raijin.sh` to download all namelists from `/g/data3/hh5/tmp/cosima/access-om2*` to `./raijin `
 
 You may find [nmltab](https://github.com/aekiss/nmltab) useful for comparing namelists.
 
@@ -107,13 +103,8 @@ You may find [nmltab](https://github.com/aekiss/nmltab) useful for comparing nam
     - [x] SSS restoring is quite strong (15days) at 1 deg. Should be 60 days
     - [ ] the tracer advection scheme sweby was changed by the multi-dimensional piecewise (MDPPM) method since recommendations from Steve to the ACCESS team back to 2010 (access_ocean_notes attached). - check MDPPM is enabled (is it default?) 
     - [x] Also following Steve’s suggestion from last year, the truncate_velocity in ocean_velocity_nml should be set to FALSE.
-- [ ] make CICE namelists consistent (see end of <https://www.overleaf.com/11449164wmwcrxynvgpx>)
-    - [ ] Bob recommends mushy layer physics in CICE, with variable ice salinity
-    - [ ] lcdf64 in setup_nml in cice_in.nml
-- [ ] make MATM namelist consistent
 
-#### CHECKED UP TO &ocean_mixdownslope_nml IN SEC 5 (original/GFDL_ESM2M_input-cut.nml    original/MOM_SIS_TOPAZ_input.nml    original/russ-accessom-mom4p1-input.nml    original/hogg_accessom2_1deg_jra55_ryf_input.nml    new_accessom2_1deg_jra55_ryf_input.nml    original/kiss_accessom2_025deg_jra55_ryf_logfile.000000.out        new_accessom2_025deg_jra55_ryf_input.nml    original/hogg_accessom2_01deg_jra55_ryf_input.nml    new_accessom2_01deg_jra55_ryf_input.nml )
-
+#### CHECKED UP TO &ocean_mixdownslope_nml IN original/GFDL_ESM2M_input-cut.nml    original/MOM_SIS_TOPAZ_input.nml    original/russ-accessom-mom4p1-input.nml    original/hogg_accessom2_1deg_jra55_ryf_input.nml    new/control/1deg_jra55_ryf/ocean/input.nml    original/kiss_accessom2_025deg_jra55_ryf_logfile.000000.out        new/control/025deg_jra55_ryf/ocean/input.nml    original/hogg_accessom2_01deg_jra55_ryf_input.nml    new/control/01deg_jra55_ryf/ocean/input.nml
 
 Aidan's namelist recommendations (email 2017-10-26) have all been made:
 
@@ -164,7 +155,8 @@ Aidan's namelist recommendations (email 2017-10-26) have all been made:
 
 see AK email to Petra 2017-11-15 and highlights in HunkeLipscombTurnerJefferyElliott2015a-CICE5p1.pdf
 
-- [x] cice_in.nml: set ktherm = 2 (mushy ice); should fix cice message:
+- [ ] how many ice classes do we want? any implications for load balancing? any implications for coupler & mom?
+- [ ] cice_in.nml: set ktherm = 2 (mushy ice) as recommended by Bob; see https://github.com/OceansAus/access-om2/issues/56  ktherm=2 should hopefully fix cice message:
 ```
 cat work/ice/ice_diag.d  
  --------------------------------
@@ -174,4 +166,9 @@ cat work/ice/ice_diag.d
  WARNING: ktherm = 1 and tfrz_option = mushy
  WARNING: For consistency, set tfrz_option = linear_salt
  ```
-so should set 
+
+- [ ] adjust diagfreq in cice_in.nml to get sensible output frequency? (NB: dt overridden by value from config.yaml?)
+- [ ] enable melt ponds? at present tr_pond_*=false in cice_in.nml
+
+## MATM 
+ - [ ] make MATM namelist consistent
