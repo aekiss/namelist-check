@@ -47,7 +47,7 @@ linkcolor={link},citecolor={link},urlcolor={link},
 \newcommand{\TODO}[1]{\note{\textcolor{blue}{\textsf{\textbf{TODO: #1}}}}}
 \newcommand{\FIXME}[1]{\note{\textcolor{red}{\textsf{\textbf{FIXME: #1}}}}}
 
-\title{MOM-SIS / ACCESS-OM2 MOM5 namelist comparisons}
+\title{MOM-SIS / ACCESS-OM2 namelist comparisons}
 \author{}
 \date{\vspace{-4ex}
     {\footnotesize 
@@ -72,8 +72,9 @@ linkcolor={link},citecolor={link},urlcolor={link},
  \newcommand{\nmldiffer}[1]{#1} % no special display of differing variables
 %\newcommand{\nmldiffer}[1]{\textbf{#1}} % bold display of differing variables
 %\definecolor{hilite}{cmyk}{0, 0, 0.9, 0}\newcommand{\nmldiffer}[1]{\colorbox{hilite}{#1}}\setlength{\fboxsep}{0pt} % colour highlight of differing variables (requires color package)
-\newcommand{\nmllink}[2]{#1} % don't link variables
-% \newcommand{\nmllink}[2]{\href{https://github.com/mom-ocean/MOM5/search?q=#2}{#1}} % link variables to documentation (requires hyperref package)
+\newcommand{\nmllinkurl}{https://github.com/mom-ocean/MOM5/search?q=}
+\newcommand{\nmllink}[2]{\href{\nmllinkurl#2}{#1}} % link variables to documentation (requires hyperref package)
+%\newcommand{\nmllink}[2]{#1} % don't link variables
 \definecolor{ignore}{gray}{0.7}\newcommand{\ignored}[1]{\textcolor{ignore}{#1}} % gray display of ignored variables (requires color package)
 %\newcommand{\nml}[1]{{\small\textsf{\input{local/#1}}}}
 \newcommand{\nml}[1]{{\footnotesize\textsf{\input{#1}}}}
@@ -81,6 +82,19 @@ linkcolor={link},citecolor={link},urlcolor={link},
 %\newcommand{\doscript}[1]{\texttt{#1}\\{\footnotesize\textsf{\input{|"#1"}}}}
 \newcommand{\doscript}[1]{{\footnotesize\textsf{\input{|"#1"}}}}
 %\newcommand{\doscript}[1]{{\footnotesize\textsf{\input{|"#1 > tmp.tex"}\input{tmp.tex}}}}
+\newcommand{\runchanges}[1]{\subsection{#1}%
+\renewcommand{\nmllinkurl}{https://github.com/mom-ocean/MOM5/search?q=}
+\doscript{/Users/andy/anaconda/bin/python3 /Users/andy/bin/nmltab.py --format latex -dpi raijin/g/data3/hh5/tmp/cosima/#1/*/ocean/input.nml}%
+%%\renewcommand{\nmllink}[2]{\href{https://github.com/OceansAus/cice5/search?q=#2}{#1}} % link to documentation (requires hyperref package)
+\renewcommand{\nmllinkurl}{https://github.com/OceansAus/cice5/search?q=}
+\doscript{/Users/andy/anaconda/bin/python3 /Users/andy/bin/nmltab.py --format latex -dpi raijin/g/data3/hh5/tmp/cosima/#1/*/ice/cice_in.nml}%
+\doscript{/Users/andy/anaconda/bin/python3 /Users/andy/bin/nmltab.py --format latex -dpi raijin/g/data3/hh5/tmp/cosima/#1/*/ice/input_ice.nml}%
+\doscript{/Users/andy/anaconda/bin/python3 /Users/andy/bin/nmltab.py --format latex -dpi raijin/g/data3/hh5/tmp/cosima/#1/*/ice/input_ice_monin.nml}%
+\doscript{/Users/andy/anaconda/bin/python3 /Users/andy/bin/nmltab.py --format latex -dpi raijin/g/data3/hh5/tmp/cosima/#1/*/ice/input_ice_gfdl.nml}%
+%%\renewcommand{\nmllink}[2]{\href{https://github.com/OceansAus/matm/search?q=#2}{#1}} % link to documentation (requires hyperref package)
+\renewcommand{\nmllinkurl}{https://github.com/OceansAus/matm/search?q=}
+\doscript{/Users/andy/anaconda/bin/python3 /Users/andy/bin/nmltab.py --format latex -dpi raijin/g/data3/hh5/tmp/cosima/#1/*/atmosphere/input_atm.nml}%
+}
 
 \begin{document}
 \maketitle
@@ -108,6 +122,11 @@ Missing variables are shown as blank. Variables are \textcolor{link}{weblinks} t
 \ignored{Greyed variables} are ignored (greying only works in groups with use_this_module shown, so typically doesn't work for tables of differences).
 
 \tableofcontents
+
+%\newpage
+%\renewcommand{\nmldiffer}[1]{#1} % no special display of differing variables
+%\doscript{/Users/andy/anaconda/bin/python3 /Users/andy/bin/nmltab.py --format latex -d   raijin/g/data3/hh5/tmp/cosima/mom01v5/KDS75_newbathy_JRA_runoff/output018/input.nml    raijin/g/data3/hh5/tmp/cosima/access-om2-01/01deg_jra55v13_ryf8485_spinup3/output001/ocean/input.nml}
+%\end{document}
 
 
 \newpage
@@ -330,8 +349,46 @@ Originals are from a fresh git clone,  2017-11-18.
 \renewcommand{\nmllink}[2]{\href{https://github.com/OceansAus/matm/search?q=#2}{#1}} % link to documentation (requires hyperref package)
 \doscript{/Users/andy/anaconda/bin/python3 /Users/andy/bin/nmltab.py --format latex        raijin/g/data3/hh5/tmp/cosima/access-om2/1deg_jra55v13_ryf8485_spinup_A/output000/atmosphere/input_atm.nml        new/control/1deg_jra55_ryf/atmosphere/input_atm.nml}
 
-
-
+\newpage
+\section{Changes during runs}
+\renewcommand{\nmldiffer}[1]{#1} % no special display of differing variables
+\runchanges{access-om2-01/01deg_jra55v13_ryf8485_spinup1}
+\runchanges{access-om2-01/01deg_jra55v13_ryf8485_spinup2}
+\runchanges{access-om2-01/01deg_jra55v13_ryf8485_spinup3}
+\runchanges{access-om2-01/01deg_jra55v13_ryf9091_spinup1}
+\runchanges{access-om2-025/025deg_jra55_ryf_broadwell_test}
+\runchanges{access-om2-025/025deg_jra55_ryf_spinup1}
+\runchanges{access-om2-025/025deg_jra55_ryf_spinup2}
+\runchanges{access-om2-025/025deg_jra55_ryf_spinup3}
+\runchanges{access-om2-025/025deg_jra55_ryf_spinup4}
+\runchanges{access-om2-025/025deg_jra55_ryf_spinup5}
+\runchanges{access-om2-025/025deg_jra55_ryf_spinup6}
+\runchanges{access-om2-025/025deg_jra55_ryf_spinup7}
+\runchanges{access-om2-025/025deg_jra55_ryf_spinup7_RCP45}
+\runchanges{access-om2-025/025deg_jra55v13_ryf8485_gmredi}
+\runchanges{access-om2-025/025deg_jra55v13_ryf8485_redi}
+\runchanges{access-om2-025/025deg_jra55v13_ryf8485_redi2}
+\runchanges{access-om2-025/025deg_jra55v13_ryf8485_redi3}
+\runchanges{access-om2-025/025deg_jra55v13_ryf8485_spinup_A}
+\runchanges{access-om2/1deg_core_nyf_spinup_A}
+\runchanges{access-om2/1deg_jra55_ryf8485_spinup1}
+\runchanges{access-om2/1deg_jra55_ryf8485_spinup2}
+\runchanges{access-om2/1deg_jra55_ryf_RCP45}
+\runchanges{access-om2/1deg_jra55_ryf_spinup1}
+\runchanges{access-om2/1deg_jra55_ryf_spinup2}
+\runchanges{access-om2/1deg_jra55_ryf_spinup3}
+\runchanges{access-om2/1deg_jra55_ryf_spinup4}
+\runchanges{access-om2/1deg_jra55_ryf_spinup5}
+\runchanges{access-om2/1deg_jra55_ryf_spinup6}
+\runchanges{access-om2/1deg_jra55_ryf_spinup7}
+\runchanges{access-om2/1deg_jra55_ryf_spinup8}
+\runchanges{access-om2/1deg_jra55_ryf_spinup9}
+\runchanges{access-om2/1deg_jra55v13_ryf0304_RCP45}
+\runchanges{access-om2/1deg_jra55v13_ryf0304_spinup_A}
+\runchanges{access-om2/1deg_jra55v13_ryf8485_RCP45}
+\runchanges{access-om2/1deg_jra55v13_ryf8485_spinup_A}
+\runchanges{access-om2/1deg_jra55v13_ryf9091_RCP45}
+\runchanges{access-om2/1deg_jra55v13_ryf9091_spinup_A}
 
 \bibliographystyle{ametsoc2014}
 \bibliography{namelist-check}

@@ -10,7 +10,11 @@ Run `rsync_nml_from_raijin.sh` to download all namelists from `/g/data3/hh5/tmp/
 You may find [nmltab](https://github.com/aekiss/nmltab) useful for comparing namelists.
 
 ## To do
+- [ ] cf a CICE nml from somebody we trust
+- [ ] check CICE physical parameters are consistent with MOM - esp dynamics_nml
+    - [ ] check that CICE and MOM are using the same definition of the freezing point - see David Bailey email 2017-11-29
 - [x] made changes discussed in Slack up to 2017-11-05: <https://arccss.slack.com/archives/C6PP0GU9Y/p1508899952000034>
+- [ ] consider disabling max_delta_salinity_restore = 0.5 in ocean_sbc_nml: https://arccss.slack.com/archives/C6PP0GU9Y/p1511849053000081  and  https://github.com/mom-ocean/MOM5/issues/203
 - [x] make agreed nml changes
 - [ ] cf. Griffies et al. (2015) p973
 - [x] cf. GFDL_ESM2M_input-cut.nml
@@ -91,6 +95,7 @@ You may find [nmltab](https://github.com/aekiss/nmltab) useful for comparing nam
 - [ ] check xgrid_nml settings with Marshall
 - [ ] should we be more precise than `grav = 9.8`?
 - [ ] bbc namelist changes now require a roughness_cdbot file - revert this?
+- [ ] s_min_limit=2.0psu  - might we get less than this in estuaries? Minimum salinity below which will employ upwind advection instead of quicker, and horizontal diffusion instead of neutral physics. 
 - [ ] enable these?
     - [ ] ocean_overexchange_nml (Griffies et al 2015: "None of the CM2-O ocean configurations make use of an overflow parameterization.")
     - [ ] ocean_overflow_nml
@@ -106,7 +111,7 @@ You may find [nmltab](https://github.com/aekiss/nmltab) useful for comparing nam
 
 #### CHECKED UP TO &ocean_mixdownslope_nml IN original/GFDL_ESM2M_input-cut.nml    original/MOM_SIS_TOPAZ_input.nml    original/russ-accessom-mom4p1-input.nml    original/hogg_accessom2_1deg_jra55_ryf_input.nml    new/control/1deg_jra55_ryf/ocean/input.nml    original/kiss_accessom2_025deg_jra55_ryf_logfile.000000.out        new/control/025deg_jra55_ryf/ocean/input.nml    original/hogg_accessom2_01deg_jra55_ryf_input.nml    new/control/01deg_jra55_ryf/ocean/input.nml
 
-Aidan's namelist recommendations (email 2017-10-26) have all been made:
+<font color="#999999">Aidan's namelist recommendations (email 2017-10-26) have all been made:
 
 1. You've got debugging turned on for the ocean_tracer_advect module, which is fine if you want to debug tracer advection, but otherwise just takes extra time
  
@@ -137,7 +142,7 @@ Aidan's namelist recommendations (email 2017-10-26) have all been made:
  
  
 5. All your diag_step variables are set to 120. For your 1800s time step this is every 60 hours. If you're in production mode and don't need to monitor these then the GFDL people typically set them to a month, or even the entire runtime (1 year?).
-
+</font>
 
 # to check with Andy:
 ## &ocean_bihgen_friction_nml
