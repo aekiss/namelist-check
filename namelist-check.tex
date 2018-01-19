@@ -347,48 +347,70 @@ Originals are from a fresh git clone,  2017-11-18.
 
 \subsection{MATM namelist `input\_atm.nml'}
 \renewcommand{\nmllink}[2]{\href{https://github.com/OceansAus/matm/search?q=#2}{#1}} % link to documentation (requires hyperref package)
+\renewcommand{\nmllink}[2]{\href{https://github.com/OceansAus/matm/search?q=#2}{#1}} % link to documentation (requires hyperref package)
 \doscript{/Users/andy/anaconda/bin/python3 /Users/andy/bin/nmltab.py --format latex        raijin/g/data3/hh5/tmp/cosima/access-om2/1deg_jra55v13_ryf8485_spinup_A/output000/atmosphere/input_atm.nml        new/control/1deg_jra55_ryf/atmosphere/input_atm.nml}
 
+%\newpage
+%\newpage{Differences between 0.1deg runs}
+%\renewcommand{\nmldiffer}[1]{#1} % no special display of differing variables
+%\doscript{/Users/andy/anaconda/bin/python3 /Users/andy/bin/nmltab.py --format latex -dpi   original/control/1deg_jra55_ryf/atmosphere/input_atm.nml    new/control/1deg_jra55_ryf/atmosphere/input_atm.nml}
+%\renewcommand{\nmllink}[2]{\href{https://github.com/mom-ocean/MOM5/search?q=#2}{#1}} % link to documentation (requires hyperref package)
+%\renewcommand{\nmllink}[2]{\href{https://github.com/OceansAus/cice5/search?q=#2}{#1}} % link to documentation (requires hyperref package)
+%\renewcommand{\nmllink}[2]{\href{https://github.com/OceansAus/matm/search?q=#2}{#1}} % link to documentation (requires hyperref package)
+
 \newpage
-\section{Changes during runs}
+\section{Changes between all 1/10 runs}
 \renewcommand{\nmldiffer}[1]{#1} % no special display of differing variables
-\runchanges{access-om2-01/01deg_jra55v13_ryf8485_spinup1}
-\runchanges{access-om2-01/01deg_jra55v13_ryf8485_spinup2}
-\runchanges{access-om2-01/01deg_jra55v13_ryf8485_spinup3}
-\runchanges{access-om2-01/01deg_jra55v13_ryf9091_spinup1}
-\runchanges{access-om2-025/025deg_jra55_ryf_broadwell_test}
-\runchanges{access-om2-025/025deg_jra55_ryf_spinup1}
-\runchanges{access-om2-025/025deg_jra55_ryf_spinup2}
-\runchanges{access-om2-025/025deg_jra55_ryf_spinup3}
-\runchanges{access-om2-025/025deg_jra55_ryf_spinup4}
-\runchanges{access-om2-025/025deg_jra55_ryf_spinup5}
-\runchanges{access-om2-025/025deg_jra55_ryf_spinup6}
-\runchanges{access-om2-025/025deg_jra55_ryf_spinup7}
-\runchanges{access-om2-025/025deg_jra55_ryf_spinup7_RCP45}
-\runchanges{access-om2-025/025deg_jra55v13_ryf8485_gmredi}
-\runchanges{access-om2-025/025deg_jra55v13_ryf8485_redi}
-\runchanges{access-om2-025/025deg_jra55v13_ryf8485_redi2}
-\runchanges{access-om2-025/025deg_jra55v13_ryf8485_redi3}
-\runchanges{access-om2-025/025deg_jra55v13_ryf8485_spinup_A}
-\runchanges{access-om2/1deg_core_nyf_spinup_A}
-\runchanges{access-om2/1deg_jra55_ryf8485_spinup1}
-\runchanges{access-om2/1deg_jra55_ryf8485_spinup2}
-\runchanges{access-om2/1deg_jra55_ryf_RCP45}
-\runchanges{access-om2/1deg_jra55_ryf_spinup1}
-\runchanges{access-om2/1deg_jra55_ryf_spinup2}
-\runchanges{access-om2/1deg_jra55_ryf_spinup3}
-\runchanges{access-om2/1deg_jra55_ryf_spinup4}
-\runchanges{access-om2/1deg_jra55_ryf_spinup5}
-\runchanges{access-om2/1deg_jra55_ryf_spinup6}
-\runchanges{access-om2/1deg_jra55_ryf_spinup7}
-\runchanges{access-om2/1deg_jra55_ryf_spinup8}
-\runchanges{access-om2/1deg_jra55_ryf_spinup9}
-\runchanges{access-om2/1deg_jra55v13_ryf0304_RCP45}
-\runchanges{access-om2/1deg_jra55v13_ryf0304_spinup_A}
-\runchanges{access-om2/1deg_jra55v13_ryf8485_RCP45}
-\runchanges{access-om2/1deg_jra55v13_ryf8485_spinup_A}
-\runchanges{access-om2/1deg_jra55v13_ryf9091_RCP45}
-\runchanges{access-om2/1deg_jra55v13_ryf9091_spinup_A}
+\runchanges{access-om2-01/01deg_jra55v13_ryf8485_spinup*}
+
+\newpage
+\section{Changes between 1/10 spinups 4 and 6}
+\renewcommand{\nmldiffer}[1]{#1} % no special display of differing variables
+\runchanges{access-om2-01/01deg_jra55v13_ryf8485_spinup[46]}
+
+%
+%\newpage
+%\section{Changes during runs}
+%\renewcommand{\nmldiffer}[1]{#1} % no special display of differing variables
+%\runchanges{access-om2-01/01deg_jra55v13_ryf9091_spinup1}
+%\runchanges{access-om2-01/01deg_jra55v13_ryf8485_spinup1}
+%\runchanges{access-om2-01/01deg_jra55v13_ryf8485_spinup2}
+%\runchanges{access-om2-01/01deg_jra55v13_ryf8485_spinup3}
+%\runchanges{access-om2-01/01deg_jra55v13_ryf8485_spinup4}
+%\runchanges{access-om2-01/01deg_jra55v13_ryf8485_spinup5}
+%\runchanges{access-om2-025/025deg_jra55_ryf_broadwell_test}
+%\runchanges{access-om2-025/025deg_jra55_ryf_spinup1}
+%\runchanges{access-om2-025/025deg_jra55_ryf_spinup2}
+%\runchanges{access-om2-025/025deg_jra55_ryf_spinup3}
+%\runchanges{access-om2-025/025deg_jra55_ryf_spinup4}
+%\runchanges{access-om2-025/025deg_jra55_ryf_spinup5}
+%\runchanges{access-om2-025/025deg_jra55_ryf_spinup6}
+%\runchanges{access-om2-025/025deg_jra55_ryf_spinup7}
+%\runchanges{access-om2-025/025deg_jra55_ryf_spinup7_RCP45}
+%\runchanges{access-om2-025/025deg_jra55v13_ryf8485_gmredi}
+%\runchanges{access-om2-025/025deg_jra55v13_ryf8485_redi}
+%\runchanges{access-om2-025/025deg_jra55v13_ryf8485_redi2}
+%\runchanges{access-om2-025/025deg_jra55v13_ryf8485_redi3}
+%\runchanges{access-om2-025/025deg_jra55v13_ryf8485_spinup_A}
+%\runchanges{access-om2/1deg_core_nyf_spinup_A}
+%\runchanges{access-om2/1deg_jra55_ryf8485_spinup1}
+%\runchanges{access-om2/1deg_jra55_ryf8485_spinup2}
+%\runchanges{access-om2/1deg_jra55_ryf_RCP45}
+%\runchanges{access-om2/1deg_jra55_ryf_spinup1}
+%\runchanges{access-om2/1deg_jra55_ryf_spinup2}
+%\runchanges{access-om2/1deg_jra55_ryf_spinup3}
+%\runchanges{access-om2/1deg_jra55_ryf_spinup4}
+%\runchanges{access-om2/1deg_jra55_ryf_spinup5}
+%\runchanges{access-om2/1deg_jra55_ryf_spinup6}
+%\runchanges{access-om2/1deg_jra55_ryf_spinup7}
+%\runchanges{access-om2/1deg_jra55_ryf_spinup8}
+%\runchanges{access-om2/1deg_jra55_ryf_spinup9}
+%\runchanges{access-om2/1deg_jra55v13_ryf0304_RCP45}
+%\runchanges{access-om2/1deg_jra55v13_ryf0304_spinup_A}
+%\runchanges{access-om2/1deg_jra55v13_ryf8485_RCP45}
+%\runchanges{access-om2/1deg_jra55v13_ryf8485_spinup_A}
+%\runchanges{access-om2/1deg_jra55v13_ryf9091_RCP45}
+%\runchanges{access-om2/1deg_jra55v13_ryf9091_spinup_A}
 
 \bibliographystyle{ametsoc2014}
 \bibliography{namelist-check}
